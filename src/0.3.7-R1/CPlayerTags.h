@@ -1,0 +1,41 @@
+/*
+	This is a SAMP (0.3.7-R1) API project file.
+	Developer: LUCHARE <luchare.dev@gmail.com>
+	
+	See more here https://github.com/LUCHARE/SAMP-API
+	
+	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
+*/
+
+#pragma once
+
+#include "common.h"
+#include "CVector.h"
+
+SAMP_BEGIN
+
+class SAMP_API CPlayerTags {
+public:
+	IDirect3DDevice9		*m_pDevice;
+	IDirect3DStateBlock9 *m_pStates;
+	ID3DXSprite				*m_pSprite;
+
+	CPlayerTags(IDirect3DDevice9 *pDevice);
+	~CPlayerTags();
+
+	void OnLostDevice();
+	void OnResetDevice();
+
+	void BeginLabel();
+	void DrawLabel(CVector *pPosition, const char *szLabel, D3DCOLOR dwColor, float fDistanceToCamera, bool bDrawStatus, int nStatus);
+	void EndLabel();
+
+	// health & armour bar
+	void BeginHealthBar();
+	void DrawHealthBar(CVector *pPos, float fHealth, float fArmour, float fDistanceToCamera);
+	void EndHealthBar();
+};
+
+extern CPlayerTags *&pPlayerTags;
+
+SAMP_END
