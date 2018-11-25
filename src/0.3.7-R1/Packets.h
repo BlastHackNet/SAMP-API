@@ -13,7 +13,7 @@
 #include "CVector.h"
 //#include "CNetGame.h"
 
-#define _DEFAULT_CTOR(_TYPE) inline _TYPE() { for (int i = 0; i < sizeof(this); i++) ((unsigned char *)this)[i] = 0; }
+#define _DEFAULT_CTOR(_TYPE) inline _TYPE() { for (int i = 0; i < sizeof(*this); i++) ((unsigned char *)this)[i] = 0; }
 #define _ID(_ID) static const unsigned char ID = _ID;
 
 SAMP_BEGIN
