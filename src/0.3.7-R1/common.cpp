@@ -11,5 +11,6 @@
 #include <Windows.h>
 
 unsigned long SAMP::GetHandle() {
-	return (unsigned long)GetModuleHandleA("samp.dll");
+	static unsigned long dwHandle = (unsigned long)GetModuleHandleA("samp.dll");
+	return dwHandle;
 }
