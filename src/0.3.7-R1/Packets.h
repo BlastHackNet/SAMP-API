@@ -13,8 +13,8 @@
 #include "CVector.h"
 //#include "CNetGame.h"
 
-#define _DEFAULT_CTOR(_TYPE) inline _TYPE() { for (int i = 0; i < sizeof(*this); i++) ((unsigned char *)this)[i] = 0; }
-#define _ID(_ID) static const unsigned char ID = _ID;
+#define SAMP_DEFAULT_PACKET_CTOR(_TYPE) inline _TYPE() { for (int i = 0; i < sizeof(*this); i++) ((unsigned char *)this)[i] = 0; }
+#define SAMP_PACKET_ID(_ID) static const unsigned char ID = _ID;
 
 SAMP_BEGIN
 
@@ -51,7 +51,7 @@ struct SAMP_API ControllerState {
 		unsigned short m_value;
 	};
 
-	_DEFAULT_CTOR(ControllerState)
+	SAMP_DEFAULT_PACKET_CTOR(ControllerState)
 };
 
 namespace PACKET {
@@ -68,10 +68,10 @@ namespace PACKET {
 		ID						m_nSurfingVehicleId;
 		short					m_nCurrentAnimationID;
 		short					m_nAnimFlags;
+		
+		SAMP_PACKET_ID(207)
 
-		_ID(207)
-
-		_DEFAULT_CTOR(OnfootData)
+		SAMP_DEFAULT_PACKET_CTOR(OnfootData)
 	};
 
 	struct SAMP_API IncarData {
@@ -92,9 +92,9 @@ namespace PACKET {
 			float				m_fTrainSpeed;
 		};
 
-		_ID(200)
+		SAMP_PACKET_ID(200)
 
-		_DEFAULT_CTOR(IncarData)
+		SAMP_DEFAULT_PACKET_CTOR(IncarData)
 	};
 
 	struct SAMP_API AimData {
@@ -102,13 +102,13 @@ namespace PACKET {
 		CVector			m_vAimf1;
 		CVector			m_vAimPos;
 		float				m_fAimZ;
-		unsigned char	m_nCameraExtZoom : 6; // 0-63 normalized
+		unsigned char	m_nCameraExtZoom : 6;
 		eWeaponState	m_nWeaponState : 2;
 		unsigned char	field_;
 	
-		_ID(203)
+		SAMP_PACKET_ID(203)
 
-		_DEFAULT_CTOR(AimData)
+		SAMP_DEFAULT_PACKET_CTOR(AimData)
 	};
 
 	struct SAMP_API TrailerData {
@@ -118,9 +118,9 @@ namespace PACKET {
 		CVector	m_vSpeed;
 		CVector	m_vSpin;
 
-		_ID(210)
+		SAMP_PACKET_ID(210)
 
-		_DEFAULT_CTOR(TrailerData)
+		SAMP_DEFAULT_PACKET_CTOR(TrailerData)
 	};
 
 	struct SAMP_API PassengerData {
@@ -132,9 +132,9 @@ namespace PACKET {
 		ControllerState	m_controllerState;
 		CVector				m_vPosition;
 
-		_ID(211)
+		SAMP_PACKET_ID(211)
 
-		_DEFAULT_CTOR(PassengerData)
+		SAMP_DEFAULT_PACKET_CTOR(PassengerData)
 	};
 
 	struct SAMP_API UnoccupiedData {
@@ -147,9 +147,9 @@ namespace PACKET {
 		CVector			m_vTurnSpeed;
 		float				m_fHealth;
 		
-		_ID(209)
+		SAMP_PACKET_ID(209)
 
-		_DEFAULT_CTOR(UnoccupiedData)
+		SAMP_DEFAULT_PACKET_CTOR(UnoccupiedData)
 	};
 
 	struct SAMP_API BulletData {
@@ -160,27 +160,27 @@ namespace PACKET {
 		CVector			m_vCenter;
 		unsigned char	m_nWeapon;
 
-		_ID(206)
+		SAMP_PACKET_ID(206)
 
-		_DEFAULT_CTOR(BulletData)
+		SAMP_DEFAULT_PACKET_CTOR(BulletData)
 	};
 
 	struct SAMP_API SpectatorData {
 		ControllerState m_controllerState;
 		CVector			 m_vPosition;
 
-		_ID(212)
+		SAMP_PACKET_ID(212)
 
-		_DEFAULT_CTOR(SpectatorData)
+		SAMP_DEFAULT_PACKET_CTOR(SpectatorData)
 	};
 
 	struct SAMP_API StatsData {
 		int m_nMoney;
 		int m_nDrunkLevel;
 
-		_ID(205)
+		SAMP_PACKET_ID(205)
 
-		_DEFAULT_CTOR(StatsData)
+		SAMP_DEFAULT_PACKET_CTOR(StatsData)
 	};
 
 	/*
@@ -196,16 +196,16 @@ namespace PACKET {
 				unsigned short m_nAmmo;
 			} m_aWeapons[n]; // 0 < n < 14
 
-			_ID(204)
-			_DEFAULT_CTOR(WeaponsData)
+			SAMP_PACKET_ID(204)
+			SAMP_DEFAULT_PACKET_CTOR(WeaponsData)
 		};
 
 		struct SAMP_API RconCommand {
 			unsigned long m_nTextLen;
 			char m_szText[m_nTextLen];
 
-			_ID(201)
-			_DEFAULT_CTOR(RconCommand)
+			SAMP_PACKET_ID(201)
+			SAMP_DEFAULT_PACKET_CTOR(RconCommand)
 		};
 
 		struct SAMP_API MarkersData {
@@ -217,8 +217,8 @@ namespace PACKET {
 				VectorCompressed m_vPos;
 			} m_aMarkers[m_nCount];
 
-			_ID(208)
-			_DEFAULT_CTOR(MarkersData)
+			SAMP_PACKET_ID(208)
+			SAMP_DEFAULT_PACKET_CTOR(MarkersData)
 		};
 	*/
 

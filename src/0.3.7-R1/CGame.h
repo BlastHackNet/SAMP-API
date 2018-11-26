@@ -72,6 +72,9 @@ public:
 	CVehicle *NewVehicle(int nType, CVector vPos, float fRotation, int arg4);
 	CObject *NewObject(int nModel, CVector vPos, CVector vRot, float fDrawDistance);
 
+	void *GetWindowHandle();
+	CAudio *GetAudio();
+	CCamera *GetCamera();
 	CPed *FindPlayerPed();
 	void SetCursorMode(eCursorMode nMode, bool bImmediatelyHideCursor = true);
 	void ProcessInputEnabling();

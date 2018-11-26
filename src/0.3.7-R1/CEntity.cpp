@@ -108,3 +108,15 @@ void SAMP::CEntity::ApplyTurnForce(CVector vDirection, CVector vVelocity) {
 SAMP::CEntity::CEntity() {
 	((void(__thiscall *)(CEntity *))SAMP_ADDROF(0x97C10))(this);
 }
+
+BOOL SAMP::CEntity::IsStationary() {
+	return ((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B420))(this);
+}
+
+void *SAMP::CEntity::GetRwObject() {
+	return ((void *(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B0A0))(this);
+}
+
+bool SAMP::CEntity::IsIgnored() {
+	return ((bool(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B320))(this);
+}

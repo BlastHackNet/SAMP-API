@@ -53,6 +53,9 @@ public:
 	void SetFromEuler(CVector vAngles);
 	void GetEulerInverted(float *pX, float *pY, float *pZ);
 	void ApplyTurnForce(CVector vDirection, CVector vVelocity);
+	BOOL IsStationary();
+	void *GetRwObject(); // RwObject/RpClump/RpAtomic
+	bool IsIgnored(); // m_pGameEntity == *(::CEntity *)0xB7CD68
 };
 
 SAMP_END

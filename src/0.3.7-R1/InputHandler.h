@@ -13,6 +13,8 @@
 
 SAMP_BEGIN_NP
 
+void SwitchWindowedMode();
+
 namespace InputHandler {
 	extern void *&prevWindowProc;
 	
@@ -21,7 +23,5 @@ namespace InputHandler {
 	BOOL CharInputHandler(unsigned int nChar);
 	BOOL Init();
 }
-
-void SwitchWindowedMode();
 
 SAMP_END_NP
