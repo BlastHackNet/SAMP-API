@@ -16,7 +16,7 @@
 #define SAMP_HTTP_HEAD "HEAD %s HTTP/1.0\r\nAccept: */*\r\nUser-Agent: %s\r\nReferer: http://%s\r\nHost: %s\r\n\r\n"
 #define SAMP_HTTP_POST "POST %s HTTP/1.0\r\nAccept: */*\r\nUser-Agent: %s\r\nReferer: http://%s\r\nHost: %s\r\nContent-type: application/x-www-form-urlencoded\r\nContent-length: %u\r\n\r\n%s"
 
-#define RECEIVE_BUFFER_SIZE 4096
+#define SAMP_HTTP_RECEIVE_BUFFER_SIZE 4096
 
 SAMP_BEGIN
 
