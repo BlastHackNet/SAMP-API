@@ -10,7 +10,4 @@
 #include "common.h"
 #include <Windows.h>
 
-unsigned long SAMP::GetHandle() {
-	static unsigned long dwHandle = (unsigned long)GetModuleHandleA("samp.dll");
-	return dwHandle;
-}
+unsigned long &SAMP::dwHandle = *reinterpret_cast<unsigned long *>(reinterpret_cast<unsigned long>(GetModuleHandleA("samp.dll")) + 0x21A0A0);

@@ -17,7 +17,7 @@
 #define SAMP_BEGIN __pragma(pack(push, 1)) namespace SAMP { 
 #define SAMP_END } __pragma(pack(pop))
 
-#define SAMP_ADDROF(_OFFSET) (SAMP::GetHandle() + _OFFSET)
+#define SAMP_ADDROF(_OFFSET) (SAMP::dwHandle + _OFFSET)
 
 struct ID3DXFont;
 struct ID3DXSprite;
@@ -41,5 +41,5 @@ namespace SAMP {
 	typedef int GTAREF; // a gta pool reference (scm handle)
 	typedef unsigned short ID;  // player, vehicle, object, etc
 
-	unsigned long GetHandle();
+	extern unsigned long &dwHandle;
 }
