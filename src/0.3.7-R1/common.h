@@ -41,5 +41,5 @@ namespace SAMP {
 	typedef int GTAREF; // a gta pool reference (scm handle)
 	typedef unsigned short ID;  // player, vehicle, object, etc
 
-	extern unsigned long &dwHandle;
+	extern unsigned long dwHandle;
 }
