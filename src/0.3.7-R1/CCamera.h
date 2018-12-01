@@ -41,7 +41,7 @@ public:
 	float DistToCamera(CVector *vPosition);
 	void Fade(bool bIn);
 	void SetMatrix(CMatrix matrix);
-	void TakeControl(::CEntity *pTarger, short nModeToGoTo, short nTypeOfSwitch);
+	void TakeControl(::CEntity *pTarget, short nModeToGoTo, short nTypeOfSwitch);
 };
 
 SAMP_END
