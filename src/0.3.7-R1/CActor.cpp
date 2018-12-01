@@ -36,3 +36,31 @@ float SAMP::CActor::GetHealth() {
 void SAMP::CActor::SetInvulnerable(bool bInv) {
 	((void(__thiscall *)(CActor *, bool))SAMP_ADDROF(0x980A0))(this, bInv);
 }
+
+void SAMP::CActor::SetArmour(float fValue) {
+	((void(__thiscall *)(CActor *, float))SAMP_ADDROF(0x97FD0))(this, fValue);
+}
+
+float SAMP::CActor::GetArmour() {
+	return ((float(__thiscall *)(CActor *))SAMP_ADDROF(0x97FB0))(this);
+}
+
+void SAMP::CActor::SetState(int nValue) {
+	((void(__thiscall *)(CActor *, int))SAMP_ADDROF(0x98000))(this, nValue);
+}
+
+int SAMP::CActor::GetState() {
+	return ((int(__thiscall *)(CActor *))SAMP_ADDROF(0x97FF0))(this);
+}
+
+BOOL SAMP::CActor::IsDead() {
+	return ((BOOL(__thiscall *)(CActor *))SAMP_ADDROF(0x98020))(this);
+}
+
+void SAMP::CActor::SetStatus(int nValue) {
+	((void(__thiscall *)(CActor *, int))SAMP_ADDROF(0x98060))(this, nValue);
+}
+
+int SAMP::CActor::GetStatus() {
+	return ((int(__thiscall *)(CActor *))SAMP_ADDROF(0x98050))(this);
+}

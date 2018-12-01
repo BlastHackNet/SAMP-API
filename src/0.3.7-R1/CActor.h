@@ -19,7 +19,7 @@ SAMP_BEGIN
 class SAMP_API CActor : public CEntity {
 public:
 	// void **lpVtbl = 0xD9EC8;
-	::CPed  *m_pPed;
+	::CPed  *m_pGamePed;
 	GTAREF	m_hMarker;
 	GTAREF 	m_hArrow;
 	bool		m_bNeedsToCreateMarker;
@@ -36,6 +36,14 @@ public:
 	void SetHealth(float fValue);
 	float GetHealth();
 	void SetInvulnerable(bool bInv);
+	void SetArmour(float fValue);
+	float GetArmour();
+	// state/status is a flags
+	void SetState(int nValue);
+	int GetState();
+	BOOL IsDead();
+	void SetStatus(int nValue);
+	int GetStatus();
 };
 
 SAMP_END
