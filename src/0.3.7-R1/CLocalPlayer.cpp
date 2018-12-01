@@ -14,6 +14,7 @@ int &SAMP::CLocalPlayer::nIncarSendrate = *(int *)SAMP_ADDROF(0xEC0AC);
 int &SAMP::CLocalPlayer::nOnfootSendrate = *(int *)SAMP_ADDROF(0xEC0A8);
 int &SAMP::CLocalPlayer::nFiringSendrate = *(int *)SAMP_ADDROF(0xEC0B0);
 int &SAMP::CLocalPlayer::nSendMultiplier = *(int *)SAMP_ADDROF(0xEC0B4);
+bool &SAMP::CLocalPlayer::bDrawCameraTargetLabel = *(bool *)SAMP_ADDROF(0x104908);
 
 SAMP::CLocalPlayer::CLocalPlayer() {
 	((void(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x4A50))(this);
@@ -189,4 +190,32 @@ int SAMP::CLocalPlayer::GetOnfootSendrate() {
 
 int SAMP::CLocalPlayer::GetUndrivenSendrate() {
 	return ((int(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x39F0))(this);
+}
+
+SAMP::CPed *SAMP::CLocalPlayer::GetPed() {
+	return ((CPed *(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x2D60))(this);
+}
+
+D3DCOLOR SAMP::CLocalPlayer::GetColorAsRGBA() {
+	return ((D3DCOLOR(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x3D70))(this);
+}
+
+void SAMP::CLocalPlayer::DrawCameraTargetLabel() {
+	((void(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x4670))(this);
+}
+
+void SAMP::CLocalPlayer::ProcessSpectating() {
+	((void(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x6310))(this);
+}
+
+void SAMP::CLocalPlayer::SendGiveDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart) {
+	((void(__thiscall *)(CLocalPlayer *, ID, float, int, int))SAMP_ADDROF(0x6770))(this, nPlayer, fDamage, nWeapon, nBodyPart);
+}
+
+void SAMP::CLocalPlayer::SendTakeDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart) {
+	((void(__thiscall *)(CLocalPlayer *, ID, float, int, int))SAMP_ADDROF(0x6660))(this, nPlayer, fDamage, nWeapon, nBodyPart);
+}
+
+void SAMP::CLocalPlayer::ProcessSurfing() {
+	((void(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x3460))(this);
 }

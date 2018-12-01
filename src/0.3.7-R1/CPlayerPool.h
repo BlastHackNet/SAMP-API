@@ -57,6 +57,9 @@ public:
 	BOOL IsNPC(ID nId);
 	void SetPing(ID nId, int nPing);
 	void SetScore(ID nId, int nScore);
+	CLocalPlayer *GetLocalPlayer();
+	int GetScore(ID nPlayer);
+	unsigned int GetPing(ID nPlayer);
 };
 
 SAMP_END

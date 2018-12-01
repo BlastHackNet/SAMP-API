@@ -56,3 +56,11 @@ float SAMP::CCamera::DistToCamera(CVector *vPosition) {
 void SAMP::CCamera::Fade(bool bIn) {
 	((void(__thiscall *)(CCamera *, bool))SAMP_ADDROF(0x98DE0))(this, bIn);
 }
+
+void SAMP::CCamera::SetMatrix(CMatrix matrix) {
+	((void(__thiscall *)(CCamera *, CMatrix))SAMP_ADDROF(0x98E80))(this, matrix);
+}
+
+void SAMP::CCamera::TakeControl(::CEntity *pTarget, short nModeToGoTo, short nTypeOfSwitch) {
+	((void(__thiscall *)(CCamera *, ::CEntity *, short, short))SAMP_ADDROF(0x98F10))(this, pTarget, nModeToGoTo, nTypeOfSwitch);
+}

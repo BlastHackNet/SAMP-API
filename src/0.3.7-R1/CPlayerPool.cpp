@@ -85,3 +85,14 @@ void SAMP::CPlayerPool::SetScore(ID nId, int nScore) {
 	((void(__thiscall *)(CPlayerPool *, ID, int))SAMP_ADDROF(0xB6C0))(this, nId, nScore);
 }
 
+SAMP::CLocalPlayer *SAMP::CPlayerPool::GetLocalPlayer() {
+	return ((CLocalPlayer *(__thiscall *)(CPlayerPool *))SAMP_ADDROF(0x1A30))(this);
+}
+
+int SAMP::CPlayerPool::GetScore(ID nPlayer) {
+	return ((int(__thiscall *)(CPlayerPool *, ID))SAMP_ADDROF(0x6A190))(this, nPlayer);
+}
+
+unsigned int SAMP::CPlayerPool::GetPing(ID nPlayer) {
+	return ((unsigned int(__thiscall *)(CPlayerPool *, ID))SAMP_ADDROF(0x6A1C0))(this, nPlayer);
+}

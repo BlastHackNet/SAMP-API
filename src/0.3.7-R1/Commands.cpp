@@ -104,3 +104,7 @@ void SAMP::Commands::Debug::SetWorldWeather(char *pParam) {
 void SAMP::Commands::Debug::SetWorldTime(char *pParam) {
 	((void(__cdecl *)(char *))SAMP_ADDROF(0x652B0))(pParam);
 }
+
+void SAMP::Commands::ToggleTargetLabel(char *pParam) {
+	((void(__cdecl *)(char *))SAMP_ADDROF(0x64A10))(pParam);
+}

@@ -98,7 +98,9 @@ public:
 	ServerInfo				  *m_pServerInfo;
 	unsigned char				pad_8[24];
 	char							m_szHostAddress[257];
-	char							m_szHostname[259];
+	char							m_szHostname[257];
+	bool							m_bDisableCollision; // turns off interacting with any player in a vehicle
+	bool							unknown;
 	bool							m_bNametagStatus;
 	unsigned int				m_nPort;
 	BOOL							m_bLanMode;

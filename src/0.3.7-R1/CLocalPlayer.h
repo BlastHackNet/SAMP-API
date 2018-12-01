@@ -90,11 +90,13 @@ public:
 	unsigned char				m_nCurrentInterior;
 	BOOL							m_bInRCMode;
 	
-	ID								m_nAimedObject;
-	ID								m_nAimedVehicle;
-	ID								m_nAimedPlayer;
-	ID								m_nAimedActor;
-	
+	struct {
+		ID	m_nObject;
+		ID	m_nVehicle;
+		ID	m_nPlayer;
+		ID	m_nActor;
+	}								m_cameraTarget;
+
 	struct {
 		CVector			m_vDirection;
 		unsigned long	m_dwLastUpdateTick;
@@ -143,11 +145,13 @@ public:
 	static int &nOnfootSendrate; // = NETMODE_ONFOOT_SENDRATE;
 	static int &nFiringSendrate; // = NETMODE_FIRING_SENDRATE;
 	static int &nSendMultiplier; // = NETMODE_SEND_MULTIPLIER;
+	static bool &bDrawCameraTargetLabel;
 
 	static void SendSpawnRequest();
 
 	CLocalPlayer();
 
+	CPed *GetPed();
 	void ResetData();
 	void ProcessHead();
 	void SetSpecialAction(char nAction);
@@ -156,6 +160,7 @@ public:
 	BOOL Spawn();
 	void SetColor(D3DCOLOR dwColor);
 	D3DCOLOR GetColorAsARGB();
+	D3DCOLOR GetColorAsRGBA();
 	void ProcessWorldBoundsOnfoot();
 	void ProcessWorldBoundsIncar();
 	void RequestSpawn();
@@ -190,6 +195,11 @@ public:
 	int GetUndrivenSendrate();
 	int GetOnfootSendrate();
 	int GetIncarSendrate();
+	void DrawCameraTargetLabel();
+	void ProcessSpectating();
+	void SendTakeDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart);
+	void SendGiveDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart);
+	void ProcessSurfing();
 };
 
 SAMP_END

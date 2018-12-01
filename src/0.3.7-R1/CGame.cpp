@@ -13,6 +13,10 @@ SAMP::CGame *&SAMP::pGame = *(SAMP::CGame **)SAMP_ADDROF(0x21A10C);
 char *&SAMP::CGame::szGameTextMessage = *(char **)SAMP_ADDROF(0x13BEFC);
 bool *SAMP::CGame::aUsedPlayerSlots = (bool *)SAMP_ADDROF(0x13BF08);
 
+BOOL SAMP::CGame::GetDoesHeadMoves() {
+	return ((BOOL(__thiscall *)(CGame *))SAMP_ADDROF(0x2D30))(this);
+}
+
 void *SAMP::CGame::GetWindowHandle() {
 	return ((void *(__thiscall *)(CGame *))SAMP_ADDROF(0x2D00))(this);
 }

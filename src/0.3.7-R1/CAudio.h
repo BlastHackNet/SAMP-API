@@ -14,18 +14,13 @@
 
 SAMP_BEGIN
 
-enum eSoundState : unsigned int {
-	SOUND_STATE_FINISHED, 
-	SOUND_STATE_LOADED,
-	SOUND_STATE_PLAYING
-};
-
 class SAMP_API CAudio {
 public:
-	eSoundState m_nSoundState;
+	BOOL m_bSoundLoaded;
 
 	void PlaySound(int nSound, CVector vPosition);
-	void StartGameRadio(unsigned char nStation);
+	void PlayRadio(unsigned char nStation);
+	float GetRadioVolume();
 };
 
 SAMP_END

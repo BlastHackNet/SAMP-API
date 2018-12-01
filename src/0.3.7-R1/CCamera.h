@@ -14,6 +14,8 @@
 #include "CMatrix.h"
 #include "CEntity.h"
 
+class CEntity;
+
 SAMP_BEGIN
 
 class SAMP_API CCamera {
@@ -38,6 +40,8 @@ public:
 	void PointAt(CVector vPosition, unsigned char nSwitchType);
 	float DistToCamera(CVector *vPosition);
 	void Fade(bool bIn);
+	void SetMatrix(CMatrix matrix);
+	void TakeControl(::CEntity *pTarger, short nModeToGoTo, short nTypeOfSwitch);
 };
 
 SAMP_END

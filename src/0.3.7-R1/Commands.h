@@ -29,7 +29,7 @@ namespace Commands {
 	void SavePosition(char *pParam);
 	void SaveRawPosition(char *pParam);
 	
-	// will be registered if debug mode was enabled (samp.dll+219760) 
+	// will be registered if debug mode was enabled
 	namespace Debug {
 		void SetPlayerSkin(char *pParam);
 		void CreateVehicle(char *pParam);
@@ -42,6 +42,7 @@ namespace Commands {
 	void ToggleObjectsLight(char *pParam);
 	void DebugLabels(char *pParam);
 	void Rcon(char *pParam);
+	void ToggleTargetLabel(char *pParam);
 }
 
 SAMP_END_NP
