@@ -30,6 +30,8 @@ public:
 	
 	void OnLostDevice();
 	void OnResetDevice();
+
+	BOOL HasNoObstacles(CVector vPoint);
 };
 
 extern CLabel *&pLabel;

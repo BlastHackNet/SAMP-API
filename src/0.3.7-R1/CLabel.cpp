@@ -34,3 +34,7 @@ void SAMP::CLabel::OnResetDevice() {
 void SAMP::CLabel::Draw(CVector *pPos, const char *szText, D3DCOLOR dwColor, bool bShadow, bool bIfHasNoObstacles) {
 	((void(__thiscall *)(CLabel *, CVector *, const char *, D3DCOLOR, bool, bool))SAMP_ADDROF(0x675B0))(this, pPos, szText, dwColor, bShadow, bIfHasNoObstacles);
 }
+
+BOOL SAMP::CLabel::HasNoObstacles(CVector vPoint) {
+	return ((BOOL(__thiscall *)(CLabel *, CVector))SAMP_ADDROF(0x67530))(this, vPoint);
+}
