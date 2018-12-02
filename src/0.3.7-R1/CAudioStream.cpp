@@ -19,6 +19,7 @@ SAMP::CAudioStream *&SAMP::pAudioStream = *(SAMP::CAudioStream **)SAMP_ADDROF(0x
 char *SAMP::CAudioStream::szInfo = (char *)SAMP_ADDROF(0x11A400);
 char *SAMP::CAudioStream::szIcyName = (char *)SAMP_ADDROF(0x11A1F0);
 char *SAMP::CAudioStream::szIcyUrl = (char *)SAMP_ADDROF(0x11A508);
+float &SAMP::CAudioStream::fRadius = *(float *)SAMP_ADDROF(0xF03AC);
 
 BOOL SAMP::CAudioStream::Initialize() {
 	return ((BOOL(__thiscall *)(CAudioStream *))SAMP_ADDROF(0x628C0))(this);
@@ -40,8 +41,8 @@ void SAMP::CAudioStream::Process(void *arglist) {
 	((void(__cdecl *)(void *))SAMP_ADDROF(0x62B40))(arglist);
 }
 
-BOOL SAMP::CAudioStream::Play(const char *szUrl, CVector vPosition, bool bIs3d) {
-	return ((BOOL(__thiscall *)(CAudioStream *, const char *, CVector, bool))SAMP_ADDROF(0x62DA0))(this, szUrl, vPosition, bIs3d);
+BOOL SAMP::CAudioStream::Play(const char *szUrl, CVector vPosition, float fDistance, bool bIs3d) {
+	return ((BOOL(__thiscall *)(CAudioStream *, const char *, CVector, float, bool))SAMP_ADDROF(0x62DA0))(this, szUrl, vPosition, fDistance, bIs3d);
 }
 
 void SAMP::CAudioStream::ControlGameRadio() {

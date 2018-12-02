@@ -13,13 +13,19 @@
 #include "CVector.h"
 //#include "CNetGame.h"
 
+#define SAMP_COMPRESS_ASPECT_RATIO(_VALUE) (_VALUE * 255)
+#define SAMP_COMPRESS_EXT_ZOOM(_VALUE) (_VALUE * 63)
+
+#define SAMP_DECOMPRESS_ASPECT_RATIO(_VALUE) (_VALUE / 255)
+#define SAMP_DECOMPRESS_EXT_ZOOM(_VALUE) (_VALUE / 63)
+
 #define SAMP_DEFAULT_PACKET_CTOR(_TYPE) inline _TYPE() { for (int i = 0; i < sizeof(*this); i++) ((unsigned char *)this)[i] = 0; }
 #define SAMP_PACKET_ID(_ID) static const unsigned char ID = _ID;
 
 SAMP_BEGIN
 
 enum eWeaponState : unsigned char {
-	WS_NO_BULLETS,
+	WS_NONE,
 	WS_LAST_BULLET,
 	WS_MORE_BULLETS,
 	WS_RELOADING
@@ -80,12 +86,12 @@ namespace PACKET {
 		float					m_fQuaternion[4];
 		CVector				m_vPosition;
 		CVector				m_vMoveSpeed;
-		float					m_fVehicleHealth;
+		float					m_fHealth;
 		unsigned char		m_nDriverHealth;
 		unsigned char		m_nDriverArmor;
 		unsigned char		m_nCurrentWeapon;
-		unsigned char		m_bSiren;
-		unsigned char		m_bLandingGear;
+		bool					m_bSiren;
+		bool					m_bLandingGear;
 		ID						m_nTrailer;
 		union {
 			unsigned short	m_aHydraThrustAngle[2];
@@ -104,7 +110,7 @@ namespace PACKET {
 		float				m_fAimZ;
 		unsigned char	m_nCameraExtZoom : 6;
 		eWeaponState	m_nWeaponState : 2;
-		unsigned char	field_;
+		char				m_nAspectRatio;
 	
 		SAMP_PACKET_ID(203)
 

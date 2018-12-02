@@ -29,14 +29,15 @@ public:
 	static char *szInfo; // "<artist> - <title>"
 	static char *szIcyName;
 	static char *szIcyUrl; // unused
-	
+	static float &fRadius;
+
 	static void _ConstructInfo();
 	static void Process(void *arglist); // thread
 
 	BOOL Initialize();
 	BOOL Stop(bool bWait);
-	void ConstructInfo();
-	BOOL Play(const char *szUrl, CVector vPosition, bool bIs3d);
+	void ConstructInfo(); // jmp _ConstructInfo
+	BOOL Play(const char *szUrl, CVector vPosition, float fDistance, bool bIs3d);
 	void ControlGameRadio();
 	void DrawInfo();
 };

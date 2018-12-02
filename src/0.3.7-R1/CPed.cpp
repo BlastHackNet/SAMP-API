@@ -340,3 +340,7 @@ BOOL SAMP::CPed::Destroy() {
 void SAMP::CPed::ApplyCommandTask(const char *szTaskName, int p1, int p2, int p3, CVector *p4, int p5, float p6, int p7, int p8, int p9) {
 	((void(__thiscall *)(CPed *, const char *, int, int, int, CVector *, int, float, int, int, int))SAMP_ADDROF(0xA8870))(this, szTaskName, p1, p2, p3, p4, p5, p6, p7, p8, p9);
 }
+
+CWeapon *SAMP::CPed::GetCurrentWeaponSlot() {
+	return ((CWeapon *(__thiscall *)(CPed *))SAMP_ADDROF(0xA6A00))(this);
+}
