@@ -9,8 +9,8 @@
 
 #include "CVehicle.h"
 
-SAMP::CVehicle::CVehicle(int nModel, CVector vPos, float fRotation, BOOL bKeepModelLoaded, BOOL arg5) {
-	((void(__thiscall *)(CVehicle *, int, CVector, float, BOOL, BOOL))SAMP_ADDROF(0xB1E70))(this, nModel, vPos, fRotation, bKeepModelLoaded, arg5);
+SAMP::CVehicle::CVehicle(int nModel, CVector vPos, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren) {
+	((void(__thiscall *)(CVehicle *, int, CVector, float, BOOL, BOOL))SAMP_ADDROF(0xB1E70))(this, nModel, vPos, fRotation, bKeepModelLoaded, bHasSiren);
 }
 
 void SAMP::CVehicle::ResetPointers() {

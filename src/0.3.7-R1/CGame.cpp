@@ -233,8 +233,8 @@ SAMP::CPed *SAMP::CGame::NewPlayer(int nSkin, CVector vPos, float fRotation, int
 	return ((CPed *(__thiscall *)(CGame *, int, CVector, float, int, int))SAMP_ADDROF(0x9B750))(this, nSkin, vPos, fRotation, arg4, arg5);
 }
 
-SAMP::CVehicle *SAMP::CGame::NewVehicle(int nType, CVector vPos, float fRotation, int arg4) {
-	return ((CVehicle *(__thiscall *)(CGame *, int, CVector, float, int))SAMP_ADDROF(0x9B890))(this, nType, vPos, fRotation, arg4);
+SAMP::CVehicle *SAMP::CGame::NewVehicle(int nType, CVector vPos, float fRotation, BOOL bHasSiren) {
+	return ((CVehicle *(__thiscall *)(CGame *, int, CVector, float, int))SAMP_ADDROF(0x9B890))(this, nType, vPos, fRotation, bHasSiren);
 }
 
 SAMP::CObject *SAMP::CGame::NewObject(int nModel, CVector vPos, CVector vRot, float fDrawDistance) {

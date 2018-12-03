@@ -39,13 +39,13 @@ public:
 	BOOL						m_bUnoccupiedSync;
 	BOOL						m_bRemoteUnocSync;	
 	BOOL						m_bKeepModelLoaded;
-	int						field_8b; // it is something about audio stream
+	int						m_bHasSiren;
 	IDirect3DTexture9	  *m_pLicensePlate;
 	unsigned char			m_szLicensePlateText[LICENSE_PLATE_TEXT_LEN + 1];
 	GTAREF					m_hMarker;
 
 	CVehicle() { *(void **)this = (void *)SAMP_ADDROF(0xDB1AC); }
-	CVehicle(int nModel, CVector vPos, float fRotation, BOOL bKeepModelLoaded, BOOL arg5); // field_8b = arg5
+	CVehicle(int nModel, CVector vPos, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren);
 
 	virtual ~CVehicle() {}
 	virtual void Add() {}

@@ -35,7 +35,7 @@ public:
 		int			  m_nPanelDamageStatus;
 		char			  m_nLightDamageStatus;
 		bool			  m_bDoorsLocked;
-		char			  field_27;
+		char			  m_bHasSiren;
 	};
 
 	int						m_nCount;
@@ -56,7 +56,7 @@ public:
 	BOOL						m_bIsDestroyed[MAX_VEHICLES];
 	unsigned long			m_dwTickWhenDestroyed[MAX_VEHICLES];
 	CVector					m_vSpawnPos[MAX_VEHICLES];
-	BOOL						m_bLicensePlatesInitialized;
+	BOOL						m_bNeedsToInitLicensePlates;
 
 	CVehiclePool();
 	~CVehiclePool();
@@ -77,6 +77,7 @@ public:
 	void DestructLicensePlates();
 	BOOL DoestExist(ID nId);
 	CVehicle *At(ID nId);
+	void SetParams(ID nVehicle, bool bLocked, bool bObjective);
 };
 
 SAMP_END

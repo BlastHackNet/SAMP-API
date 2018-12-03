@@ -69,7 +69,7 @@ public:
 	}
 
 	CPed *NewPlayer(int nSkin, CVector vPos, float fRotation, int arg4, int arg5);
-	CVehicle *NewVehicle(int nType, CVector vPos, float fRotation, int arg4);
+	CVehicle *NewVehicle(int nType, CVector vPos, float fRotation, BOOL bHasSiren);
 	CObject *NewObject(int nModel, CVector vPos, CVector vRot, float fDrawDistance);
 
 	BOOL GetDoesHeadMoves();

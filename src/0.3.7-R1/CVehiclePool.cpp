@@ -80,3 +80,7 @@ BOOL SAMP::CVehiclePool::DoestExist(ID nVehicle) {
 SAMP::CVehicle *SAMP::CVehiclePool::At(ID nId) {
 	return ((CVehicle *(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1110))(this, nId);
 }
+
+void SAMP::CVehiclePool::SetParams(ID nVehicle, bool bLocked, bool bObjective) {
+	((void(__thiscall *)(CVehiclePool *, ID, bool, bool))SAMP_ADDROF(0x1B040))(this, nVehicle, bLocked, bObjective);
+}
