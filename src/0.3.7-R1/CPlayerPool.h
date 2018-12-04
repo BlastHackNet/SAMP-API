@@ -47,7 +47,6 @@ public:
 	void SetAt(ID nId, CPlayerInfo *pPlayer); // m_pRemotePlayer[nIdx] = pPlayer (unused)
 	const char *GetNickname(ID nId);
 	ID GetId(::CPed *pPed); // from game ped
-	int GetPlayerCount(BOOL bIncludeNonStreamed);
 	void ForceCollision(); // enable collision for all players
 	void RestoreCollision(); // restore the old collision state
 	const char *GetLocalPlayerNickname(); // returns m_localInfo.m_szName.c_str()
