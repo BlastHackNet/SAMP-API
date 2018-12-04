@@ -45,10 +45,6 @@ SAMP::ID SAMP::CPlayerPool::GetId(::CPed *pPed) {
 	return ((ID(__thiscall *)(CPlayerPool *, ::CPed *))SAMP_ADDROF(0x10420))(this, pPed);
 }
 
-int SAMP::CPlayerPool::GetPlayerCount(BOOL bIncludeNonStreamed) {
-	return ((int(__thiscall *)(CPlayerPool *, BOOL))SAMP_ADDROF(0x10520))(this, bIncludeNonStreamed);
-}
-
 void SAMP::CPlayerPool::ForceCollision() {
 	((void(__thiscall *)(CPlayerPool *))SAMP_ADDROF(0x107B0))(this);
 }
