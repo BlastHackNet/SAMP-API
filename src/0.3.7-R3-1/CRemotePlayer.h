@@ -52,7 +52,7 @@ public:
 	PACKET::AimData			m_aimData;
 	PACKET::PassengerData	m_passengerData;
 	PACKET::OnfootData		m_onfootData;
-	char field_2;
+	unsigned char           m_nTeam;
 	unsigned char				m_nState;
 	unsigned char				m_nSeatId;
 	int field_3;
