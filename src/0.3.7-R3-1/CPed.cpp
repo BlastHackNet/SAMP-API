@@ -400,3 +400,23 @@ void SAMP::CPed::SetCameraMode(char nMode) {
 void SAMP::CPed::SetCameraExtZoomAndAspectRatio(float fExtZoom, float fAspectRatio) {
 	((void(__thiscall *)(CPed *, float, float))SAMP_ADDROF(0x13F90))(this, fExtZoom, fAspectRatio);
 }
+
+BOOL SAMP::CPed::HasAccessory() {
+	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xAE5A0))(this);
+}
+
+void SAMP::CPed::DeleteAccessory(int nSlot) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xAE5C0))(this, nSlot);
+}
+
+BOOL SAMP::CPed::GetAccessoryState(int nSlot) {
+	return ((BOOL(__thiscall *)(CPed *, int))SAMP_ADDROF(0xAE620))(this, nSlot);
+}
+
+void SAMP::CPed::DeleteAllAccessories() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xB0220))(this);
+}
+
+void SAMP::CPed::AddAccessory(int nSlot, const Accessory *pInfo) {
+	((void(__thiscall *)(CPed *, int, const Accessory *))SAMP_ADDROF(0xB0280))(this, nSlot, pInfo);
+}

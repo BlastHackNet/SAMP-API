@@ -15,6 +15,8 @@
 #include "AimStuff.h"
 #include "ControllerState.h"
 
+#define MAX_ACCESSORIES 10
+
 class CPed;
 class CWeapon;
 class CEntity;
@@ -23,11 +25,27 @@ class CWeaponInfo;
 
 SAMP_BEGIN
 
+struct SAMP_API Accessory {
+	int			m_nModel;
+	int			m_nBone;
+	CVector		m_offset;
+	CVector		m_rotation;
+	CVector		m_scale;
+	D3DCOLOR		m_firstMaterialColor;
+	D3DCOLOR		m_secondMaterialColor;
+};
+
 class SAMP_API CPed : public CEntity {
 public:
 	// void **m_lpVtbl = samp.dll+0xED0FC;
 	BOOL					m_bUsingCellphone;
-	unsigned char		pad_4c[600];
+	
+	struct SAMP_API {
+		BOOL					m_bNotEmpty[MAX_ACCESSORIES];
+		Accessory			m_info[MAX_ACCESSORIES];
+		class CObject	  *m_pObject[MAX_ACCESSORIES];
+	}						m_accessories;
+
 	::CPed			  *m_pGamePed;
 	unsigned int		pad_2a8[2];
 	unsigned char		m_nPlayerNumber;
@@ -153,6 +171,11 @@ public:
 	void Destroy();
 	void SetCameraMode(char nMode);
 	void SetCameraExtZoomAndAspectRatio(float fExtZoom, float fAspectRatio);
+	BOOL HasAccessory();
+	void DeleteAccessory(int nSlot);
+	BOOL GetAccessoryState(int nSlot);
+	void DeleteAllAccessories();
+	void AddAccessory(int nSlot, const Accessory *pInfo);
 };
 
 SAMP_END
