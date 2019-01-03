@@ -27,7 +27,7 @@ public:
 	char pad_0[6];
 	int						m_nModel;
 	char pad_1;
-	bool						m_bDontCollideWithCamera
+	bool						m_bDontCollideWithCamera;
 	float						m_fDrawDistance;
 	float field_0;
 	CVector					m_position;
