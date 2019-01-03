@@ -107,9 +107,14 @@ public:
 	char							m_szName[256];
 	
 	struct SAMP_API {
-		ID				m_nVehicle;
+		ID				m_nEntityId; // vehicle 0 =< id < 2000; object 2000 <= id < 3000
 		TICK			m_lastUpdate;
-		CVehicle	  *m_pVehicle;
+		
+		union SAMP_API {
+			CVehicle	*m_pVehicle;
+			CObject	*m_pObject;
+		};
+
 		BOOL			m_bStuck;
 		BOOL			m_bIsActive;
 		CVector		m_position;
@@ -149,7 +154,7 @@ public:
 	void SetSpecialAction(char nId);
 	char GetSpecialAction();
 	void UpdateSurfing();
-	void SetSurfing(CVehicle *pVehicle, int a3);
+	void SetSurfing(CVehicle *pVehicle, BOOL bStuck);
 	void ProcessSurfing();
 	BOOL NeedsToUpdate(const void *pOld, const void *pNew, unsigned int nLen);
 	int GetIncarSendRate();

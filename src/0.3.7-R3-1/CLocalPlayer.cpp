@@ -37,8 +37,8 @@ void SAMP::CLocalPlayer::UpdateSurfing() {
 	((void(__thiscall *)(CLocalPlayer *))SAMP_ADDROF(0x3460))(this);
 }
 
-void SAMP::CLocalPlayer::SetSurfing(CVehicle *pVehicle, int a3) {
-	((void(__thiscall *)(CLocalPlayer *, CVehicle *, int))SAMP_ADDROF(0x35E0))(this, pVehicle, a3);
+void SAMP::CLocalPlayer::SetSurfing(CVehicle *pVehicle, BOOL bStuck) {
+	((void(__thiscall *)(CLocalPlayer *, CVehicle *, BOOL))SAMP_ADDROF(0x35E0))(this, pVehicle, bStuck);
 }
 
 void SAMP::CLocalPlayer::ProcessSurfing() {
