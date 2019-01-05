@@ -76,7 +76,7 @@ public:
 	unsigned char				m_nUpdateType;
 	TICK							m_lastUpdate;
 	TICK							m_lastTimestamp;
-	int field_4;
+	BOOL                    m_bPerformingCustomAnimation;
 	int							m_nStatus;
 	
 	struct SAMP_API {
