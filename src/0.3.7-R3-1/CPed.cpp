@@ -420,3 +420,7 @@ void SAMP::CPed::DeleteAllAccessories() {
 void SAMP::CPed::AddAccessory(int nSlot, const Accessory *pInfo) {
 	((void(__thiscall *)(CPed *, int, const Accessory *))SAMP_ADDROF(0xB0280))(this, nSlot, pInfo);
 }
+
+SAMP::CObject *SAMP::CPed::GetAccessory(int nSlot) {
+	return ((CObject *(__thiscall *)(CPed *, int))SAMP_ADDROF(0x13330))(this, nSlot);
+}

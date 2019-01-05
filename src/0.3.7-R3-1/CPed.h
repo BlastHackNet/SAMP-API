@@ -176,6 +176,7 @@ public:
 	BOOL GetAccessoryState(int nSlot);
 	void DeleteAllAccessories();
 	void AddAccessory(int nSlot, const Accessory *pInfo);
+	CObject *GetAccessory(int nSlot);
 };
 
 SAMP_END
