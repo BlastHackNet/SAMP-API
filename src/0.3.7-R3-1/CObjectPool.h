@@ -39,6 +39,7 @@ public:
 	void ShutdownMaterials();
 	void Draw();
 	void DrawLast();
+	CObject *GetObject(ID nId);
 };
 
 SAMP_END
