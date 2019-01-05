@@ -100,3 +100,7 @@ int SAMP::CPlayerPool::GetCount(BOOL bIncludeNPC) {
 SAMP::CLocalPlayer *SAMP::CPlayerPool::GetLocalPlayer() {
 	return ((CLocalPlayer *(__thiscall *)(CPlayerPool *))SAMP_ADDROF(0x1A30))(this);
 }
+
+SAMP::CObject *SAMP::CPlayerPool::FindAccessory(::CObject *pGameObject) {
+	return ((CObject *(__thiscall *)(CPlayerPool *, ::CObject *))SAMP_ADDROF(0x137F0))(this, pGameObject);
+}
