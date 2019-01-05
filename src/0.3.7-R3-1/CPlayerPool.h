@@ -64,6 +64,7 @@ public:
 	int GetLocalPlayerScore();
 	int GetCount(BOOL bIncludeNPC = 0);
 	CLocalPlayer *GetLocalPlayer();
+   CObject *FindAccessory(::CObject *pGameObject);
 };
 
 SAMP_END
