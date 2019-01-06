@@ -25,11 +25,8 @@ public:
 	// void **m_lpVtbl = 0xEA3B8;
 	ID3DXFont *m_pFont;
 
-	CFont() { *(void **)this = (void *)SAMP_ADDROF(0xEA3B8); }
-	CFont(ID3DXFont *pFont) {
-		*(void **)this = (void *)SAMP_ADDROF(0xEA3B8);
-		m_pFont = pFont;
-	}
+	CFont();
+	CFont(ID3DXFont *pFont);
 
    // IUnknown
 	STDMETHOD(QueryInterface)(THIS_ REFIID iid, LPVOID *ppv) PURE;
@@ -64,6 +61,9 @@ class SAMP_API CFont {
 public:
 	void **m_lpVtbl;
 	ID3DXFont *m_pFont;
+
+	CFont();
+	CFont(ID3DXFont *pFont);
 };
 
 #endif
