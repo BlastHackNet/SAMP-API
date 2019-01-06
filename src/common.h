@@ -1,5 +1,5 @@
 /*
-	This is a SAMP API project file.
+	This is a SAMP (0.3.7-R1) API project file.
 	Developer: LUCHARE <luchare.dev@gmail.com>
 	
 	See more here https://github.com/LUCHARE/SAMP-API
@@ -20,6 +20,8 @@
 #define SAMP_ADDROF(_OFFSET) (SAMP::GetHandle() + _OFFSET)
 
 #define SAMP_UNUSED 0
+
+#define SAMP_VIRTUAL {}
 
 struct ID3DXFont;
 struct ID3DXSprite;
