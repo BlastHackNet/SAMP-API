@@ -11,16 +11,19 @@
 
 #include "common.h"
 #include "CRect.h"
+#include "CFont.h"
+
+#undef DrawText
 
 SAMP_BEGIN
 
 class SAMP_API CFonts {
 public:
-	ID3DXFont			*m_pFont;
-	ID3DXFont			*m_pLittleFont;
-	ID3DXFont			*m_pShadow;
-	ID3DXFont			*m_pLittleShadow;
-	ID3DXFont			*m_pLicensePlateFont;
+	CFont					*m_pFont;
+	CFont					*m_pLittleFont;
+	CFont					*m_pShadow;
+	CFont					*m_pLittleShadow;
+	CFont					*m_pLicensePlateFont;
 	ID3DXSprite			*m_pDefaultSprite;
 	IDirect3DDevice9	*m_pDevice;
 	char					*m_szTempBuffer;

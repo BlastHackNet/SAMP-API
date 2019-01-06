@@ -100,9 +100,9 @@ public:
 		x512y512 = 140
 	};
 
-	virtual ~CObject() {}
-	virtual void Add() {}
-	virtual void Remove() {}
+	virtual ~CObject() SAMP_VIRTUAL
+	virtual void Add() SAMP_VIRTUAL
+	virtual void Remove() SAMP_VIRTUAL
 
 	CObject() { *(void **)this = (void *)SAMP_ADDROF(0xECD1C); }
 	CObject(int nModel, CVector position, CVector rotation, float fDrawDistance, int a10, char a11, char a12);

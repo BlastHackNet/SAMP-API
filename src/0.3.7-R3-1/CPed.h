@@ -70,7 +70,7 @@ public:
 
 	enum StuffType { None, Beer, Beer1, Glass, Ciggi };
 
-	virtual ~CPed() {}
+	virtual ~CPed() SAMP_VIRTUAL
 
 	CPed();
 	CPed(int nPlayerNumber, int nModel, CVector position, float fRotation);

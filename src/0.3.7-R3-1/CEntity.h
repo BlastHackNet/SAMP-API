@@ -27,9 +27,9 @@ public:
 
 	CEntity();
 
-	virtual ~CEntity() {}
-	virtual void Add() {} // adds entity to the game world
-	virtual void Remove() {} // removes entity from the game world
+	virtual ~CEntity() SAMP_VIRTUAL
+	virtual void Add() SAMP_VIRTUAL // adds entity to the game world
+	virtual void Remove() SAMP_VIRTUAL // removes entity from the game world
 
 	void GetMatrix(CMatrix *pMatrix);
 	void SetMatrix(CMatrix matrix);

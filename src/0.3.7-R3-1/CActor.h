@@ -25,7 +25,7 @@ public:
 	bool		m_bNeedsToCreateMarker;
 	bool		m_bInvulnerable;
 
-	virtual ~CActor() {}
+	virtual ~CActor() SAMP_VIRTUAL
 
 	CActor() { *(void **)this = (void *)SAMP_ADDROF(0xEC298); }
 	CActor(int nModel, CVector position, float fRotation);

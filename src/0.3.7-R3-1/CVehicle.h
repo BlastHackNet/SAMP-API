@@ -45,9 +45,9 @@ public:
 	char						m_szLicensePlateText[MAX_LICENSE_PLATE_TEXT + 1];
 	GTAREF					m_marker;
 
-	virtual ~CVehicle() {}
-	virtual void Add() {}
-	virtual void Remove() {}
+	virtual ~CVehicle() SAMP_VIRTUAL
+	virtual void Add() SAMP_VIRTUAL
+	virtual void Remove() SAMP_VIRTUAL
 
 	CVehicle() { *(void **)this = (void *)SAMP_ADDROF(0xED6E8); }
 	CVehicle(int nModel, CVector position, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren);
