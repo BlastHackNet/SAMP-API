@@ -152,7 +152,7 @@ class lplate_editor {
 		ImGui::SameLine();
 	}
 public:
-	lplate() {
+	lplate_editor() {
 		m_bDraw = FALSE;
 		m_bInited = FALSE;
 		std::ifstream sets("l-plate", std::ifstream::binary);
@@ -166,7 +166,7 @@ public:
 		writeToProtectedMemoryRegion<BYTE>(LPLATE_RESET_PATCH, 0xEB);
 	}
 
-	~lplate() {
+	~lplate_editor() {
 		std::ofstream sets("l-plate", std::ofstream::trunc | std::ofstream::binary);
 		if (sets.is_open()) sets.write(reinterpret_cast<LPCSTR>(&m_info), sizeof(m_info));
 		sets.close();
