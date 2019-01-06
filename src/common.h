@@ -1,5 +1,5 @@
 /*
-	This is a SAMP (0.3.7-R1) API project file.
+	This is a SAMP API project file.
 	Developer: LUCHARE <luchare.dev@gmail.com>
 	
 	See more here https://github.com/LUCHARE/SAMP-API
