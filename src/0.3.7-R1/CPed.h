@@ -23,7 +23,7 @@ class CWeaponInfo;
 
 SAMP_BEGIN
 
-enum StuffType : unsigned int {
+enum StuffType {
 	STUFF_TYPE_NONE,
 	STUFF_TYPE_BEER,
 	STUFF_TYPE_DYN_BEER,
