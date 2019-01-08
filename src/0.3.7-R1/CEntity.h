@@ -13,49 +13,54 @@
 #include "CMatrix.h"
 
 class CEntity;
+struct RwObject;
 
 SAMP_BEGIN
 
 class CEntity {
 public:
-	// void **lpVtbl = samp.dll+0xD9EBC;
-	unsigned char		pad_4[60];
+	// void **m_lpVtbl = 0xD9EBC;
+	char pad_4[60];
 	::CEntity		  *m_pGameEntity;
-	GTAREF				m_dwHandle;
+	GTAREF				m_handle;
 
 	CEntity();
 	
-	virtual ~CEntity() {}
-	virtual void Add() {}
-	virtual void Remove() {}
+	virtual ~CEntity() SAMP_VIRTUAL
+	virtual void Add() SAMP_VIRTUAL
+	virtual void Remove() SAMP_VIRTUAL
 
 	void GetMatrix(CMatrix *pMatrix);
 	void SetMatrix(CMatrix matrix);
-	void TeleportTo(CVector vPosition);
-	void GetMoveSpeed(CVector *pSpeed);
-	void SetMoveSpeed(CVector vSpeed);
-	void GetTurnSpeed(CVector *pSpeed);
-	void SetTurnSpeed(CVector vSpeed);
-	void GetBoundCentre(CVector *pCentre);
-	int GetModelId();
-	float GetDistToLocalPlayerPedNoHeight();
-	float GetDistToLocalPlayerPed();
-	float GetDistToCamera();
-	float GetDistToPoint(CVector vPoint);
-	void UpdateRwFrame();
+	void GetSpeed(CVector *pVec);
+	void SetSpeed(CVector vec);
+	void GetTurnSpeed(CVector *pVec);
+	void SetTurnSpeed(CVector vec);
 	void ApplyTurnSpeed();
 	float GetDistanceFromCentreOfMassToBaseOfModel();
+	void GetBoundCentre(CVector *pVec);
 	void SetModelIndex(int nModel);
-	int IsAdded();
-	int EnforceWorldBoundries(float fPX, float fZX, float fPY, float fNY);
-	int HasExceededWorldBoundries(float fPX, float fZX, float fPY, float fNY);
-	void SetClumpAlpha(unsigned char nValue);
-	void SetFromEuler(CVector vAngles);
-	void GetEulerInverted(float *pX, float *pY, float *pZ);
-	void ApplyTurnForce(CVector vDirection, CVector vVelocity);
+	int GetModelIndex();
+	void Teleport(CVector position);
+	float GetDistanceToLocalPlayer();
+	float GetDistanceToCamera();
+	float GetDistanceToPoint(CVector position);
+	BOOL DoesExist(); // does entity exist in the game world?
+	BOOL EnforceWorldBoundries(float fPX, float fZX, float fPY, float fNY);
+	BOOL HasExceededWorldBoundries(float fPX, float fZX, float fPY, float fNY);
+	void GetEulerInverted(float *x, float *y, float *z);
+	BOOL IsIgnored();
 	BOOL IsStationary();
-	void *GetRwObject(); // RwObject/RpClump/RpAtomic
-	bool IsIgnored(); // m_pGameEntity == *(::CEntity *)0xB7CD68
+	BOOL GetCollisionFlag();
+	void SetCollisionFlag(BOOL bEnable);
+	RwObject *GetRwObject();
+	void DeleteRwObject();
+	void UpdateRwFrame();
+	float GetDistanceToLocalPlayerNoHeight();
+	void SetCollisionProcessed(BOOL bProcessed);
+	void ApplyTurnForce(CVector direction, CVector velocity);
+	void SetFromEuler(CVector angles);
+	void SetClumpAlpha(int nValue);
 };
 
 SAMP_END

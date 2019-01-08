@@ -13,14 +13,17 @@
 #include "AimStuff.h"
 #include "CEntity.h"
 
+#define MAX_ACCESSORIES 10
+
 class CPed;
+class CWeapon;
 class CEntity;
 class CVehicle;
-class CWeapon;
+class CWeaponInfo;
 
 SAMP_BEGIN
 
-enum eStuffType : unsigned int {
+enum StuffType : unsigned int {
 	STUFF_TYPE_NONE,
 	STUFF_TYPE_BEER,
 	STUFF_TYPE_DYN_BEER,
@@ -28,47 +31,63 @@ enum eStuffType : unsigned int {
 	STUFF_TYPE_CIGGI
 };
 
+struct SAMP_API Accessory {
+	int			m_nModel;
+	int			m_nBone;
+	CVector		m_offset;
+	CVector		m_rotation;
+	CVector		m_scale;
+	D3DCOLOR		m_firstMaterialColor;
+	D3DCOLOR		m_secondMaterialColor;
+};
+
 class SAMP_API CPed : public CEntity {
 public:
-	// void **m_lpVtbl = samp.dll+0xDAC2C;
+	// void **m_lpVtbl = 0xDAC2C;
 	BOOL					m_bUsingCellphone;
-	unsigned char		pad_4c[600];
-	::CPed			  *m_pGamePed;
-	unsigned int		pad_2a8[2];
-	unsigned char		m_nPlayerNumber;
-	unsigned int		pad_2b1[2];
-	GTAREF				m_dwParachuteObject;
-	GTAREF				m_dwUrinatingParticle;
 	
-	struct {
-		eStuffType		m_nType;
-		GTAREF			m_dwObjectHandle;
-		unsigned int	m_nDrunkLevel;
+	struct SAMP_API {
+		BOOL					m_bNotEmpty[MAX_ACCESSORIES];
+		Accessory			m_info[MAX_ACCESSORIES];
+		class CObject	  *m_pObject[MAX_ACCESSORIES];
+	}						m_accessories;
+	
+	::CPed			  *m_pGamePed;
+	int pad_2a8[2];
+	NUMBER				m_nPlayerNumber;
+	int pad_2b1[2];
+	GTAREF				m_parachuteObject;
+	GTAREF				m_urinatingParticle;
+	
+	struct SAMP_API {
+		int		m_nType;
+		GTAREF	m_object;
+		int		m_nDrunkLevel;
 	}						m_stuff;
 	
-	GTAREF				m_dwArrow;
-	unsigned char		field_2de;
+	GTAREF				m_arrow;
+	char field_2de;
 	BOOL					m_bIsDancing;
-	unsigned int		m_nDanceStyle;
-	unsigned int		m_nLastDanceMove;
-	unsigned char		pad_2de[20];
+	int					m_nDanceStyle;
+	int					m_nLastDanceMove;
+	char pad_2de[20];
 	BOOL					m_bIsUrinating;
-	unsigned char		pad[55];
+	char pad[55];
 
 	CPed(); // returns local player ped
-	CPed(unsigned char nPlayerNumber, int nModel, CVector vPosition, float fRotation);
+	CPed(unsigned char nPlayerNumber, int nModel, CVector position, float fRotation);
 
-	virtual ~CPed() {}
+	virtual ~CPed() SAMP_VIRTUAL
 
 	void ResetPointers();
 	void SetInitialState();
-	AimStuff::Aim *GetCurrentAim();
-	void SetCurrentAim(AimStuff::Aim *pAim);
-	unsigned char GetCurrentWeapon();
-	int GetCurrentVehicleIdx(); // for the game vehicle pool
-	void HideMarker();
+	AimStuff::Aim *GetAim();
+	void SetAim(const AimStuff::Aim *pAim);
+	char GetCurrentWeapon();
+	GTAREF GetVehicleRef();
+	void DeleteArrow();
 	BOOL IsOnScreen();
-	void SetImmunities(int BP, int FP, int EP, int CP, int MP);
+	void SetImmunities(BOOL BP, BOOL FP, BOOL EP, BOOL CP, BOOL MP);
 	float GetHealth();
 	void SetHealth(float fValue);
 	float GetArmour();
@@ -76,72 +95,95 @@ public:
 	int GetFlags();
 	void SetFlags(int nValue);
 	BOOL IsDead();
-	int GetState();
-	void SetState(int nValue);
-	void SetTargetRotation(float fValue);
-	void ForceTargetRotation(float fValue);
+	char GetState();
+	void SetState(char nValue);
+	float GetRotation();
+	void ForceRotation(float fValue);
+	void SetRotation(float fValue);
 	BOOL IsPassenger();
 	::CVehicle *GetVehicle();
-	void ClearAllWeapons();
-	void SetArmedWeapon(int nWeapon, bool bGameFunc);
-	float GetDistanceToEntity(CEntity *pEntity);
-	int GetSeatIdx(); // returns the vehicle seat where this player is sitting
-	void PutInVehicle(unsigned long hVehicle, int nSeatId);
-	void EnterVehicle(unsigned long hVehicle, bool bPassenger);
-	void ExitFromVehicle();
-	void RemoveFromVehicleAndPutAt(CVector vPosition);
-	void SetSpawn(CVector *pPos, float fRotation);
-	void TogglePlayerControllable(bool bEnable);
-	unsigned char FindDeathReasonAndResponsiblePlayer(ID *nPlayer);
+	void ClearWeapons();
+	void SetArmedWeapon(int nWeapon, bool bGameFunc = true);
+	void RemoveWeaponWhenEnteringVehicle();
+	CWeapon *GetCurrentWeaponSlot();
+	BOOL CurrentWeaponHasAmmo();
+	float GetDistanceToEntity(const CEntity *pEntity);
+	int GetVehicleSeatIndex();
+	void PutIntoVehicle(GTAREF vehicle, int nSeat);
+	void EnterVehicle(GTAREF vehicle, BOOL bAsPassenger);
+	void ExitVehicle();
+	void WarpFromVehicle(CVector putAt);
+	void SetSpawnInfo(const CVector *pPosition, float fRotation);
+	void SetControllable(BOOL bEnable);
+	char GetDeathInfo(ID *pKiller);
+	::CEntity *GetFloor();
+	::CWeaponInfo *GetCurrentWeaponInfo();
 	void HandsUp();
 	BOOL DoesHandsUp();
 	void HoldObject(int nModel);
-	void StartJetpack();
-	void StopJetpack();
+	void EnableJetpack();
+	void DisableJetpack();
 	BOOL HasJetpack();
-	BOOL StartPassengerDriveByMode();
-	void ExtinguishFire();
-	void SetWalkStyle(int nStyle);
-	void SetMoney(int nCount);
-	void ApplyAnim(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime);
-	BOOL IsPerformingAnimation(const char *szAnim);
-	void SetInterior(unsigned char nId, bool bRefresh);
-	void CheckVehicleParachute();
+	BOOL EnablePassengerDrivebyMode();
+	void Extinguish();
+	unsigned short GetCurrentWeaponAmmo();
+	::CWeapon *GetWeaponSlot(int nWeapon);
+	void SetWalkStyle(const char *szName);
+	void PerformAnimation(const char *szName, const char *szFile, float fFramedelta, int loopa, int nLockX, int nLockY, int nLockF, int nTime);
+	void LinkToInterior(char nId, BOOL bRefresh);
+	void DestroyParachute();
+	BOOL OpenParachute(); // create
+	void ProcessParachuteEvent(const char *szName);
 	BOOL IsOnGround();
 	void ResetDamageEntity();
-	void SetWeaponModelIndex(int nModel);
+	void RemoveWeaponModel(int nWeapon);
 	float GetAimZ();
 	void SetAimZ(float fValue);
 	::CEntity *GetContactEntity();
 	::CVehicle *GetContactVehicle();
 	int GetStat();
-	BOOL IsPerformingCustomAnim();
+	BOOL PerformingCustomAnimation();
 	void StartDancing(int nStyle);
 	void StopDancing();
 	BOOL DoesDancing();
-	const char *GetDanceAnimForMove(int nMove);
+	const char *GetAnimationForDance(int nMove);
 	void DropStuff();
+	int GetStuff(); // type
+	BOOL ApplyStuff();
 	void ProcessDrunk();
-	unsigned int GetDrunkLevel();
+	int GetDrunkLevel();
 	void SetDrunkLevel(int nValue);
-	void ToggleCellphone(bool bEnable);
-	BOOL IsCellphoneEnabled();
-	char GetFightingStyle();
-	void SetFightingStyle(char nStyle);
+	void ApplyCommandTask(const char *szName, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
+	void DestroyCommandTask();
+	void EnableCellphone(BOOL bEnable);
+	BOOL UsingCellphone();
+	void SetFightingStyle(int nStyle);
 	void StartUrinating();
 	void StopUrinating();
 	BOOL DoesUrinating();
-	void GetBonePosition(int nBone, CVector *pPos); // bUpdateSkinBones = false
-	void SetKeys(unsigned short nKeys, unsigned short lrAnalog, unsigned short udAnalog);
-	void CreateMarker(D3DCOLOR dwColor);
-	void GiveWeapon(int nWeapon, int nAmmo);
+	const char *GetLoadedShoppingDataSubsection();
+	void LoadShoppingDataSubsection(const char *szName);
+	::CPed *GetAimedPed();
+	void SetKeys(short controllerState, short sLeftStickX, short sLeftStickY);
+	short GetKeys(short *pLeftStickX, short *pLeftStickY);
+	void CreateArrow(int nColor);
+	void SetModelIndex(int nModel);
 	void Kill();
-	void GiveStuff(eStuffType nType);
-	unsigned short GetKeys(short *pLeftStickX, short *pLeftStickY);
+	void SetWeaponAmmo(unsigned char nWeapon, unsigned short nAmmo);
+	void ProcessDancing();
+	void GiveStuff(int nType);
+	void Destroy();
+	void SetCameraMode(char nMode);
+	void SetCameraExtZoomAndAspectRatio(float fExtZoom, float fAspectRatio);
+	BOOL HasAccessory();
+	void DeleteAccessory(int nSlot);
+	BOOL GetAccessoryState(int nSlot);
+	void DeleteAllAccessories();
+	void AddAccessory(int nSlot, const Accessory *pInfo);
+	CObject *GetAccessory(int nSlot);
+	void GetBonePosition(int nBone, CVector *pPosition);
+	void GiveWeapon(int nWeapon, int nAmmo);
 	BOOL IsInVehicle();
-	BOOL Destroy();
-	void ApplyCommandTask(const char *szTaskName, int p1, int p2, int p3, CVector *p4, int p5, float p6, int p7, int p8, int p9);
-	CWeapon *GetCurrentWeaponSlot();
 };
 
 SAMP_END

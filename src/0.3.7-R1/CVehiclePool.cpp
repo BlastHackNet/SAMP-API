@@ -17,70 +17,74 @@ SAMP::CVehiclePool::~CVehiclePool() {
 	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B570))(this);
 }
 
-BOOL SAMP::CVehiclePool::New(const VehicleInfo *pVehicle) {
-	return ((BOOL(__thiscall *)(CVehiclePool *, const VehicleInfo *))SAMP_ADDROF(0x1B590))(this, pVehicle);
+BOOL SAMP::CVehiclePool::Create(Info *pVehicle) {
+	return ((BOOL(__thiscall *)(CVehiclePool *, Info *))SAMP_ADDROF(0x1B590))(this, pVehicle);
 }
 
 BOOL SAMP::CVehiclePool::Delete(ID nId) {
 	return ((BOOL(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1AF90))(this, nId);
 }
 
-void SAMP::CVehiclePool::AddToWaitingList(const VehicleInfo *pVehicle) {
-	((void(__thiscall *)(CVehiclePool *, const VehicleInfo *))SAMP_ADDROF(0x1B220))(this, pVehicle);
+void SAMP::CVehiclePool::AddToWaitingList(const Info *pVehicle) {
+	((void(__thiscall *)(CVehiclePool *, const Info *))SAMP_ADDROF(0x1B220))(this, pVehicle);
 }
 
 void SAMP::CVehiclePool::ProcessWaitingList() {
 	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B810))(this);
 }
 
-void SAMP::CVehiclePool::SendVehicleDestroyedNotification(ID nId) {
+void SAMP::CVehiclePool::SendDestroyNotification(ID nId) {
 	((void(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1B740))(this, nId);
 }
 
-SAMP::ID SAMP::CVehiclePool::FindNearestVehicle() {
+SAMP::ID SAMP::CVehiclePool::GetNearest() {
 	return ((ID(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B110))(this);
 }
 
-SAMP::ID SAMP::CVehiclePool::FindVehicle(::CVehicle *pVehicle) {
-	return ((ID(__thiscall *)(CVehiclePool *, ::CVehicle *))SAMP_ADDROF(0x1B0A0))(this, pVehicle);
+SAMP::ID SAMP::CVehiclePool::Find(::CVehicle *pGameObject) {
+	return ((ID(__thiscall *)(CVehiclePool *, ::CVehicle *))SAMP_ADDROF(0x1B0A0))(this, pGameObject);
 }
 
-SAMP::GTAREF SAMP::CVehiclePool::GetHandle(ID nId) {
-	return ((GTAREF(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1B0D0))(this, nId);
+SAMP::GTAREF SAMP::CVehiclePool::GetRef(int nId) {
+	return ((GTAREF(__thiscall *)(CVehiclePool *, int))SAMP_ADDROF(0x1B0D0))(this, nId);
 }
 
-SAMP::GTAREF SAMP::CVehiclePool::GetHandle(::CVehicle *pVehicle) {
-	return ((GTAREF(__thiscall *)(CVehiclePool *, ::CVehicle *))SAMP_ADDROF(0x1B0F0))(this, pVehicle);
+SAMP::GTAREF SAMP::CVehiclePool::GetRef(::CVehicle *pGameObject) {
+	return ((GTAREF(__thiscall *)(CVehiclePool *, ::CVehicle *))SAMP_ADDROF(0x1B0F0))(this, pGameObject);
 }
 
 void SAMP::CVehiclePool::Process() {
 	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B8D0))(this);
 }
 
-void SAMP::CVehiclePool::LinkVehicleToInterior(ID nId, char nInterior) {
-	((void(__thiscall *)(CVehiclePool *, ID, char))SAMP_ADDROF(0x1B010))(this, nId, nInterior);
+void SAMP::CVehiclePool::ChangeInterior(ID nId, int nInteriorId) {
+	((void(__thiscall *)(CVehiclePool *, ID, char))SAMP_ADDROF(0x1B010))(this, nId, nInteriorId);
 }
 
-SAMP::ID SAMP::CVehiclePool::FindNearestVehicle(CVector vPos) {
-	return ((ID(__thiscall *)(CVehiclePool *, CVector))SAMP_ADDROF(0x1B180))(this, vPos);
+SAMP::ID SAMP::CVehiclePool::GetNearest(CVector point) {
+	return ((ID(__thiscall *)(CVehiclePool *, CVector))SAMP_ADDROF(0x1B180))(this, point);
 }
 
 void SAMP::CVehiclePool::ConstructLicensePlates() {
 	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B280))(this);
 }
 
-void SAMP::CVehiclePool::DestructLicensePlates() {
+void SAMP::CVehiclePool::ShutdownLicensePlates() {
 	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1B2F0))(this);
 }
 
-BOOL SAMP::CVehiclePool::DoestExist(ID nVehicle) {
-	return ((BOOL(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1140))(this, nVehicle);
+BOOL SAMP::CVehiclePool::DoesExist(ID nId) {
+	return ((BOOL(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1140))(this, nId);
 }
 
-SAMP::CVehicle *SAMP::CVehiclePool::At(ID nId) {
+SAMP::CVehicle *SAMP::CVehiclePool::GetObject(ID nId) {
 	return ((CVehicle *(__thiscall *)(CVehiclePool *, ID))SAMP_ADDROF(0x1110))(this, nId);
 }
 
-void SAMP::CVehiclePool::SetParams(ID nVehicle, bool bLocked, bool bObjective) {
-	((void(__thiscall *)(CVehiclePool *, ID, bool, bool))SAMP_ADDROF(0x1B040))(this, nVehicle, bLocked, bObjective);
+void SAMP::CVehiclePool::SetParams(ID nVehicle, bool bIsObjective, bool bIsLocked) {
+	((void(__thiscall *)(CVehiclePool *, ID, bool, bool))SAMP_ADDROF(0x1B040))(this, nVehicle, bIsObjective, bIsLocked);
+}
+
+void SAMP::CVehiclePool::UpdateCount() {
+	((void(__thiscall *)(CVehiclePool *))SAMP_ADDROF(0x1AEC0))(this);
 }

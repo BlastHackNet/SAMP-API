@@ -19,7 +19,7 @@ SAMP_BEGIN
 
 class SAMP_API CMenu {
 public:
-	struct Interaction {
+	struct SAMP_API Interaction {
 		BOOL m_bMenu;
 		BOOL m_bRow[MAX_MENU_ITEMS];
 		BOOL m_bPadding[8 - ((MAX_MENU_ITEMS + 1) % 8)]; 
@@ -36,21 +36,19 @@ public:
 	unsigned char  m_nColumns;
 	Interaction		m_interaction;
 	unsigned char	m_nColumnCount[MAX_COLUMNS];
-	GTAREF			m_hPanel;
+	GTAREF			m_panel;
 
 	CMenu(const char *szTitle, float fX, float fY, float fFirstColumnWidth, float fSecondColumnWidth, const Interaction *pInteraction);
-	~CMenu() {
-		Hide();
-	}
+	CMenu() { Hide(); }
 
-	void Show();
+	void AddItem(NUMBER nColumn, NUMBER nRow, const char *szText);
+	void SetColumnTitle(NUMBER nColumn, const char *szText);
 	void Hide();
-	void AddItem(char nColumn, char nRow, const char *szText);
-	void SetColumnTitle(char nColumn, const char *szText);
-	char *GetItem(char nColumn, char nRow);
+	char *GetItem(NUMBER nColumn, NUMBER nRow);
 	char *GetTitle();
-	char *MS(char nColumn, char nRow);
+	char *MS(NUMBER nColumn, NUMBER nRow);
 	char GetActiveRow();
+	void Show();
 };
 
 SAMP_END

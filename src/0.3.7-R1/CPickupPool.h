@@ -19,12 +19,12 @@ SAMP_BEGIN
 struct SAMP_API Pickup {
 	int		m_nModel;
 	int		m_nType;
-	CVector	m_vPosition;
+	CVector	m_position;
 };
 
 struct SAMP_API WeaponPickup {
-	bool  m_bDroppedWeapon;
-	ID		m_nPlayer;
+	bool  m_bExists;
+	ID		m_nExOwner;
 };
 
 class SAMP_API CPickupPool {
@@ -34,17 +34,17 @@ public:
 	int				m_nId[MAX_PICKUPS];
 	unsigned long	m_nTimer[MAX_PICKUPS];
 	WeaponPickup	m_weapon[MAX_PICKUPS];
-	Pickup			m_pickup[MAX_PICKUPS];
+	Pickup			m_object[MAX_PICKUPS];
 
 	CPickupPool();
 	~CPickupPool();
 
-	void New(Pickup *pPickup, int nId);
-	void New(int nModel, CVector vPos, int nAmmo, ID nExOwner);
+	void Create(Pickup *pData, ID nId);
+	void CreateWeapon(int nModel, CVector position, int nAmmo, ID nExOwner);
 	void Delete(int nId);
-	void Delete(ID nExOwnerId);
-	void SendPickedUp(int nId);
-	int GetIndexById(int nId);
+	void DeleteWeapon(ID nExOwner);
+	int GetIndex(int nId);
+	void SendNotification(int nId);
 	void Process();
 };
 

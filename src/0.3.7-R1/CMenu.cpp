@@ -21,24 +21,24 @@ void SAMP::CMenu::Hide() {
 	((void(__thiscall *)(CMenu *))SAMP_ADDROF(0xA24C0))(this);
 }
 
-void SAMP::CMenu::AddItem(char nColumn, char nRow, const char *szText) {
-	((void(__thiscall *)(CMenu *, char, char, const char *))SAMP_ADDROF(0xA2460))(this, nColumn, nRow, szText);
+void SAMP::CMenu::AddItem(NUMBER nColumn, NUMBER nRow, const char *szText) {
+	((void(__thiscall *)(CMenu *, NUMBER, NUMBER, const char *))SAMP_ADDROF(0xA2460))(this, nColumn, nRow, szText);
 }
 
-void SAMP::CMenu::SetColumnTitle(char nColumn, const char *szText) {
-	((void(__thiscall *)(CMenu *, char, const char *))SAMP_ADDROF(0xA2490))(this, nColumn, szText);
+void SAMP::CMenu::SetColumnTitle(NUMBER nColumn, const char *szText) {
+	((void(__thiscall *)(CMenu *, NUMBER, const char *))SAMP_ADDROF(0xA2490))(this, nColumn, szText);
 }
 
-char *SAMP::CMenu::GetItem(char nColumn, char nRow) {
-	return ((char *(__thiscall *)(CMenu *, char, char))SAMP_ADDROF(0xA24E0))(this, nColumn, nRow);
+char *SAMP::CMenu::GetItem(NUMBER nColumn, NUMBER nRow) {
+	return ((char *(__thiscall *)(CMenu *, NUMBER, NUMBER))SAMP_ADDROF(0xA24E0))(this, nColumn, nRow);
 }
 
 char *SAMP::CMenu::GetTitle() {
 	return ((char *(__thiscall *)(CMenu *))SAMP_ADDROF(0xA2500))(this);
 }
 
-char *SAMP::CMenu::MS(char nColumn, char nRow) {
-	return ((char *(__thiscall *)(CMenu *, char, char))SAMP_ADDROF(0xA2530))(this, nColumn, nRow);
+char *SAMP::CMenu::MS(NUMBER nColumn, NUMBER nRow) {
+	return ((char *(__thiscall *)(CMenu *, NUMBER, NUMBER))SAMP_ADDROF(0xA2530))(this, nColumn, nRow);
 }
 
 char SAMP::CMenu::GetActiveRow() {

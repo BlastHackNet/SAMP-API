@@ -23,7 +23,7 @@ BOOL SAMP::InputHandler::CharInputHandler(unsigned int nChar) {
 	return ((BOOL(__cdecl *)(unsigned int))SAMP_ADDROF(0x5DA80))(nChar);
 }
 
-BOOL SAMP::InputHandler::Init() {
+BOOL SAMP::InputHandler::Initialize() {
 	return ((BOOL(__cdecl *)())SAMP_ADDROF(0x5E3B0))();
 }
 

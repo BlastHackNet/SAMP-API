@@ -25,43 +25,47 @@ void SAMP::CRemotePlayer::ProcessHead() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x10EA0))(this);
 }
 
-void SAMP::CRemotePlayer::SetMarkerState(int nState) {
-	((void(__thiscall *)(CRemotePlayer *, int))SAMP_ADDROF(0x10FF0))(this, nState);
+void SAMP::CRemotePlayer::SetMarkerState(BOOL bState) {
+	((void(__thiscall *)(CRemotePlayer *, BOOL))SAMP_ADDROF(0x10FF0))(this, bState);
 }
 
-void SAMP::CRemotePlayer::CreateMarkerAt(CVector vPosition) {
-	((void(__thiscall *)(CRemotePlayer *, CVector))SAMP_ADDROF(0x11030))(this, vPosition);
+void SAMP::CRemotePlayer::SetMarkerPosition(int x, int y, int z) {
+	((void(__thiscall *)(CRemotePlayer *, int, int, int))SAMP_ADDROF(0x11030))(this, x, y, z);
 }
 
-BOOL SAMP::CRemotePlayer::SurfingOrInTurretMode() {
+BOOL SAMP::CRemotePlayer::Surfing() {
 	return ((BOOL(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x110D0))(this);
+}
+
+BOOL SAMP::CRemotePlayer::SurfingOnObject() {
+	return ((BOOL(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11100))(this);
 }
 
 void SAMP::CRemotePlayer::ProcessSurfing() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11130))(this);
 }
 
-void SAMP::CRemotePlayer::PutInVehicle() {
+void SAMP::CRemotePlayer::OnEnterVehicle() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x112D0))(this);
 }
 
-void SAMP::CRemotePlayer::RemoveFromVehicle() {
+void SAMP::CRemotePlayer::OnExitVehicle() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x113A0))(this);
 }
 
-void SAMP::CRemotePlayer::ProcessSpecialActions() {
+void SAMP::CRemotePlayer::ProcessSpecialAction() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x113F0))(this);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::AimData *pData) {
+void SAMP::CRemotePlayer::Update(PACKET::AimData *pData) {
 	((void(__thiscall *)(CRemotePlayer *, PACKET::AimData *))SAMP_ADDROF(0x12080))(this, pData);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::UnoccupiedData *pData) {
+void SAMP::CRemotePlayer::Update(PACKET::UnoccupiedData *pData) {
 	((void(__thiscall *)(CRemotePlayer *, PACKET::UnoccupiedData *))SAMP_ADDROF(0x121D0))(this, pData);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::TrailerData *pData) {
+void SAMP::CRemotePlayer::Update(PACKET::TrailerData *pData) {
 	((void(__thiscall *)(CRemotePlayer *, PACKET::TrailerData *))SAMP_ADDROF(0x12520))(this, pData);
 }
 
@@ -73,35 +77,31 @@ float SAMP::CRemotePlayer::GetDistanceToPlayer(CRemotePlayer *pPlayer) {
 	return ((float(__thiscall *)(CRemotePlayer *, CRemotePlayer *))SAMP_ADDROF(0x12930))(this, pPlayer);
 }
 
-void SAMP::CRemotePlayer::ChangeState(int nOldState, int nNewState) {
-	((void(__thiscall *)(CRemotePlayer *, int, int))SAMP_ADDROF(0x12AE0))(this, nOldState, nNewState);
+void SAMP::CRemotePlayer::ChangeState(char nOldState, char nNewState) {
+	((void(__thiscall *)(CRemotePlayer *, char, char))SAMP_ADDROF(0x12AE0))(this, nOldState, nNewState);
 }
 
 int SAMP::CRemotePlayer::GetStatus() {
 	return ((int(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x12BA0))(this);
 }
 
-void SAMP::CRemotePlayer::SetState(int nState) {
-	((void(__thiscall *)(CRemotePlayer *, int))SAMP_ADDROF(0x12E00))(this, nState);
+BOOL SAMP::CRemotePlayer::Spawn(int a2, int nModel, CVector *pPosition, float fRotation, D3DCOLOR color, char nFightingStyle) {
+	return ((BOOL(__thiscall *)(CRemotePlayer *, int, int, CVector *, float, D3DCOLOR, char))SAMP_ADDROF(0x13890))(this, a2, nModel, pPosition, fRotation, color, nFightingStyle);
 }
 
-BOOL SAMP::CRemotePlayer::Spawn(int nTeam, int nSkin, int nPlayerNumber, CVector *pPos, float fRotation, D3DCOLOR dwColor, char nFightingStyle) {
-	return ((BOOL(__thiscall *)(CRemotePlayer *, int, int, int, CVector *, float, D3DCOLOR, char))SAMP_ADDROF(0x13890))(this, nTeam, nSkin, nPlayerNumber, pPos, fRotation, dwColor, nFightingStyle);
+void SAMP::CRemotePlayer::Update(PACKET::OnfootData *pData, TICK timestamp) {
+	((void(__thiscall *)(CRemotePlayer *, PACKET::OnfootData *, TICK))SAMP_ADDROF(0x139A0))(this, pData, timestamp);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::OnfootData *pData) {
-	((void(__thiscall *)(CRemotePlayer *, PACKET::OnfootData *))SAMP_ADDROF(0x139A0))(this, pData);
+void SAMP::CRemotePlayer::Update(PACKET::IncarData *pData, TICK timestamp) {
+	((void(__thiscall *)(CRemotePlayer *, PACKET::IncarData *, TICK))SAMP_ADDROF(0x13A80))(this, pData, timestamp);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::IncarData *pData) {
-	((void(__thiscall *)(CRemotePlayer *, PACKET::IncarData *))SAMP_ADDROF(0x13A80))(this, pData);
+void SAMP::CRemotePlayer::Update(PACKET::PassengerData *pData, TICK timestamp) {
+	((void(__thiscall *)(CRemotePlayer *, PACKET::PassengerData *, TICK))SAMP_ADDROF(0x13B70))(this, pData, timestamp);
 }
 
-void SAMP::CRemotePlayer::Synchronize(PACKET::PassengerData *pData) {
-	((void(__thiscall *)(CRemotePlayer *, PACKET::PassengerData *))SAMP_ADDROF(0x13B70))(this, pData);
-}
-
-void SAMP::CRemotePlayer::Reset() {
+void SAMP::CRemotePlayer::Remove() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x13C60))(this);
 }
 
@@ -109,11 +109,11 @@ void SAMP::CRemotePlayer::Kill() {
 	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x13CA0))(this);
 }
 
-void SAMP::CRemotePlayer::Say(const char *szText) {
+void SAMP::CRemotePlayer::Chat(const char *szText) {
 	((void(__thiscall *)(CRemotePlayer *, const char *))SAMP_ADDROF(0x13D30))(this, szText);
 }
 
-float SAMP::CRemotePlayer::GetDistanceToLocalPlayerPed() {
+float SAMP::CRemotePlayer::GetDistanceToLocalPlayer() {
 	return ((float(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x129A0))(this);
 }
 
@@ -133,10 +133,42 @@ D3DCOLOR SAMP::CRemotePlayer::GetColorAsRGBA() {
 	return ((D3DCOLOR(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x129F0))(this);
 }
 
-void SAMP::CRemotePlayer::SetColor(D3DCOLOR dwColor) {
-	((void(__thiscall *)(CRemotePlayer *, D3DCOLOR))SAMP_ADDROF(0x129D0))(this, dwColor);
+void SAMP::CRemotePlayer::SetColor(D3DCOLOR color) {
+	((void(__thiscall *)(CRemotePlayer *, D3DCOLOR))SAMP_ADDROF(0x129D0))(this, color);
 }
 
-void SAMP::CRemotePlayer::SetPositionAndSpeed(CVector *pPos, CVector *pSpeed) {
-	((void(__thiscall *)(CRemotePlayer *, CVector *, CVector *))SAMP_ADDROF(0x11A60))(this, pPos, pSpeed);
+void SAMP::CRemotePlayer::SetOnfootTargetSpeedAndPosition(CVector *pPosition, CVector *pSpeed) {
+	((void(__thiscall *)(CRemotePlayer *, CVector *, CVector *))SAMP_ADDROF(0x11A60))(this, pPosition, pSpeed);
+}
+
+void SAMP::CRemotePlayer::Update(PACKET::BulletData *pData) {
+	((void(__thiscall *)(CRemotePlayer *, PACKET::BulletData *))SAMP_ADDROF(0x12BE0))(this, pData);
+}
+
+BOOL SAMP::CRemotePlayer::DoesExist() {
+	return ((BOOL(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x1080))(this);
+}
+
+void SAMP::CRemotePlayer::UpdateOnfootRotation() {
+	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11990))(this);
+}
+
+void SAMP::CRemotePlayer::UpdateOnfootSpeedAndPosition() {
+	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11840))(this);
+}
+
+void SAMP::CRemotePlayer::UpdateIncarSpeedAndPosition() {
+	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11AC0))(this);
+}
+
+void SAMP::CRemotePlayer::UpdateIncarRotation() {
+	((void(__thiscall *)(CRemotePlayer *))SAMP_ADDROF(0x11DA0))(this);
+}
+
+void SAMP::CRemotePlayer::SetIncarTargetSpeedAndPosition(CMatrix *pMatrix, CVector *pPosition, CVector *pSpeed) {
+	((void(__thiscall *)(CRemotePlayer *, CMatrix *, CVector *, CVector *))SAMP_ADDROF(0x11F10))(this, pMatrix, pPosition, pSpeed);
+}
+
+void SAMP::CRemotePlayer::UpdateTrain(CMatrix *pMatrix, CVector *pSpeed, float fSpeed) {
+	((void(__thiscall *)(CRemotePlayer *, CMatrix *, CVector *, float))SAMP_ADDROF(0x11F80))(this, pMatrix, pSpeed, fSpeed);
 }

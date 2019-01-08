@@ -14,43 +14,37 @@
 
 SAMP_BEGIN
 
-enum eChatEntryType : unsigned int {
+enum ChatEntry {
 	CHAT_TYPE_NONE = 0,
 	CHAT_TYPE_CHAT = 1 << 1,
 	CHAT_TYPE_INFO = 1 << 2,
 	CHAT_TYPE_DEBUG = 1 << 3
 };
 
-enum eChatWindowMode :  unsigned int {
-	CHAT_WINDOW_MODE_OFF,
-	CHAT_WINDOW_MODE_LIGHT,
-	CHAT_WINDOW_MODE_FULL
-};
-
 class SAMP_API CChat {
 public:
 	unsigned int			m_nPageSize;
-	char					  *m_pLastMsgText;
-	eChatWindowMode		m_nMode;
+	char					  *m_szLastMessage;
+	int						m_nMode;
 	bool						m_bTimestamps;
-	BOOL						m_bIsLogExist;
+	BOOL						m_bDoesLogExist;
 	char						m_szLogPath[261]; // MAX_PATH(+1)
-	CDXUTDialog			  *m_pGameUI; 
-	CDXUTEditBox        *m_pEditboxBg; 
+	CDXUTDialog			  *m_pGameUi; 
+	CDXUTEditBox        *m_pEditbox; 
 	CDXUTScrollBar	     *m_pScrollbar; 
-	D3DCOLOR					m_dwTextColor;  // 0xFFFFFFFF
-	D3DCOLOR					m_dwInfoColor;  // 0xFF88AA62
-	D3DCOLOR					m_dwDebugColor; // 0xFFA9C4E4
-	unsigned long			m_dwWindowBottom;
-	struct {
-		unsigned int	m_nTimestamp;
+	D3DCOLOR					m_textColor;  // 0xFFFFFFFF
+	D3DCOLOR					m_infoColor;  // 0xFF88AA62
+	D3DCOLOR					m_debugColor; // 0xFFA9C4E4
+	long						m_nWindowBottom;
+	struct SAMP_API {
+		__int32			m_timestamp;
 		char				m_szPrefix[28];
 		char				m_szText[144];
-		unsigned char	unknown[64];
-		eChatEntryType	m_nType;
+		char unused[64];
+		int				m_nType;
 		D3DCOLOR			m_dwTextColor;
 		D3DCOLOR			m_dwPrefixColor;
-	}							m_aEntry[100];
+	}							m_entry[100];
 	CFonts				  *m_pFontRenderer;
 	ID3DXSprite			  *m_pTextSprite;
 	ID3DXSprite			  *m_pSprite;
@@ -66,35 +60,39 @@ public:
 #endif
 	int						pad_[2];
 	BOOL						m_bRedraw;
-	unsigned long			m_nScrollbarPos;
-	unsigned long			m_nCharHeight; // this is the height of the "Y" 
-	unsigned long			m_nTimestampWidth;
+	long						m_nScrollbarPos;
+	long						m_nCharHeight; // this is the height of the "Y" 
+	long						m_nTimestampWidth;
+
+	enum { Off, NoShadow, Normal };
 
 	CChat(IDirect3DDevice9 *pDevice, CFonts *pFontRenderer, const char *pChatLogPath);
 	~CChat();
 
-	void CycleMode();
-	void CalcSizes();
+	int GetMode() { return m_nMode; }
+	void SwitchMode();
+	void RecalcFontSize();
 	void OnLostDevice();
-	void OnResetDevice();
 	void UpdateScrollbar();
-	void SetPageSize(unsigned int nSize);
+	void SetPageSize(int nValue);
 	void PageUp();
 	void PageDown();
 	void ScrollToBottom();
-	void RenderText(const char *pText, CRect rect, D3DCOLOR dwColor);
-	void LogToFile(int nEntryType, const char *pText);
-	void ResetDialogControls(CDXUTDialog *pGameUI);
-	void AddEntry(eChatEntryType nType, const char *pText, const char *pPrefix, D3DCOLOR dwTextColor, D3DCOLOR dwPrefixColor);
+	void Scroll(int nDelta);
+	void FilterOutInvalidChars(char *szString);
+	void PushBack();
+	void RenderEntry(const char *szText, CRect rect, D3DCOLOR color);
+	void Log(int nType, const char *szText, const char *szPrefix);
+	void ResetDialogControls(CDXUTDialog *pGameUi);
+	void Render();
+	void AddEntry(int nType, const char *szText, const char *szPrefix, D3DCOLOR textColor, D3DCOLOR prefixColor);
 	void Draw();
-	void DrawInDirectMode();
-	void AddChatMessage(const char *pNick, D3DCOLOR dwNickColor, const char *pText);
-	void AddClientMessage(D3DCOLOR dwColor, const char *pText);
-	void FilterInvalidChars(char *pText);
+	void RenderToSurface();
+	void AddChatMessage(const char *szPrefix, D3DCOLOR prefixColor, const char *szText);
+	void AddMessage(D3DCOLOR color, const char *szText);
+	void OnResetDevice();
 
 	static void Print(CChat *pChat, D3DCOLOR dwColor, const char *pFormat, ...);
-	// static void AddInfoMessage(CChat *pChat, char *pFormat, ...); // samp.dll+0x644a0
-	// static void AddDebugMessage(CChat *pChat, char *pFormat, ...); // samp.dll+0x64520
 };
 
 extern CChat *&pChat;

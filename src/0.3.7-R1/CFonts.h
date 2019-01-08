@@ -12,15 +12,19 @@
 #include "common.h"
 #include "CRect.h"
 
+#undef DrawText
+
 SAMP_BEGIN
+
+class CFont;
 
 class SAMP_API CFonts {
 public:
-	ID3DXFont			*m_pFont;
-	ID3DXFont			*m_pLittleFont;
-	ID3DXFont			*m_pShadow;
-	ID3DXFont			*m_pLittleShadow;
-	ID3DXFont			*m_pAnyFont;
+	CFont					*m_pFont;
+	CFont					*m_pLittleFont;
+	CFont					*m_pShadow;
+	CFont					*m_pLittleShadow;
+	CFont					*m_pLicensePlateFont;
 	ID3DXSprite			*m_pDefaultSprite;
 	IDirect3DDevice9	*m_pDevice;
 	char					*m_szTempBuffer;
@@ -30,14 +34,12 @@ public:
 
 	void OnLostDevice();
 	void OnResetDevice();
-
-	void GetTextScreenSize(void *pPoint, const char *szText, unsigned long dwFormat);
-	void GetLittleTextScreenSize(void *pPoint, const char *szText, unsigned long dwFormat);
-	
-	void RenderText(ID3DXSprite *pSprite, const char *szText, CRect rect, D3DCOLOR dwColor, bool bShadow);
-	void RenderLittleText(ID3DXSprite *pSprite, const char *szText, CRect rect, D3DCOLOR dwColor, bool bShadow);
-
-	void CreateFonts();
+	void GetTextScreenSize(void *pSize, const char *szText, int nFormat);
+	void GetLittleTextScreenSize(void *pSize, const char *szText, int nFormat);
+	void DrawText(ID3DXSprite *pSprite, const char *szText, CRect rect, D3DCOLOR color, BOOL bShadow);
+	void DrawLittleText(ID3DXSprite *pSprite, const char *szText, CRect rect, int nFormat, D3DCOLOR color, BOOL bShadow);
+	void DrawLicensePlateText(const char *szText, CRect rect, D3DCOLOR color);
+	void Reset();
 };
 
 extern CFonts *&pFontRenderer;

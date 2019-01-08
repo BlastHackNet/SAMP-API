@@ -16,10 +16,10 @@
 
 SAMP_BEGIN
 
-struct SAMP_API LabelInfo {
+struct SAMP_API TextLabel {
 	char		  *m_pText;
-	D3DCOLOR		m_dwColor;
-	CVector		m_vPosition;
+	D3DCOLOR		m_color;
+	CVector		m_position;
 	float			m_fDrawDistance;
 	bool			m_bBehindWalls;
 	ID				m_nAttachedToPlayer;
@@ -28,13 +28,13 @@ struct SAMP_API LabelInfo {
 
 class SAMP_API CLabelPool {
 public:
-	LabelInfo	m_label[MAX_TEXT_LABELS];
-	int			m_bNotEmpty[MAX_TEXT_LABELS];
+	TextLabel	m_object[MAX_TEXT_LABELS];
+	BOOL			m_bNotEmpty[MAX_TEXT_LABELS];
 
 	CLabelPool();
 	~CLabelPool();
 
-	void New(ID nId, const char *szText, D3DCOLOR dwColor, CVector vPos, float fDrawDistance, bool bBehindWalls, ID nAttachedToPlayer, ID nAttachedToVehicle);
+	void Create(ID nId, const char *szText, D3DCOLOR color, CVector position, float fDrawDistance, bool bBehindWalls, ID nAttachedToPlayer, ID nAttachedToVehicle);
 	BOOL Delete(ID nId);
 	void Draw();
 };

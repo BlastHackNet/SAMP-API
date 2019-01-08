@@ -9,7 +9,7 @@
 
 #include "CObjectSelection.h"
 
-SAMP::CObjectSelection *&SAMP::pObjectEditor = *(SAMP::CObjectSelection **)SAMP_ADDROF(0x21A0C8);
+SAMP::CObjectSelection *&SAMP::pObjectSelection = *(SAMP::CObjectSelection **)SAMP_ADDROF(0x21A0C8);
 
 SAMP::CObjectSelection::CObjectSelection() {
 	((void(__thiscall *)(CObjectSelection *))SAMP_ADDROF(0x69320))(this);
@@ -23,7 +23,7 @@ void SAMP::CObjectSelection::DrawLabels() {
 	((void(__thiscall *)(CObjectSelection *))SAMP_ADDROF(0x69380))(this);
 }
 
-void SAMP::CObjectSelection::ToggleEnabled(BOOL bEnable) {
+void SAMP::CObjectSelection::Enable(BOOL bEnable) {
 	((void(__thiscall *)(CObjectSelection *, BOOL))SAMP_ADDROF(0x694A0))(this, bEnable);
 }
 
@@ -31,7 +31,7 @@ void SAMP::CObjectSelection::Draw() {
 	((void(__thiscall *)(CObjectSelection *))SAMP_ADDROF(0x69520))(this);
 }
 
-void SAMP::CObjectSelection::SendEnterNotification() {
+void SAMP::CObjectSelection::SendNotification() {
 	((void(__thiscall *)(CObjectSelection *))SAMP_ADDROF(0x695F0))(this);
 }
 

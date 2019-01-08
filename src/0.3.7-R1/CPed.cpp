@@ -13,8 +13,8 @@ SAMP::CPed::CPed() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA6330))(this);
 }
 
-SAMP::CPed::CPed(unsigned char nPlayerNumber, int nModel, CVector vPosition, float fRotation) {
-	((void(__thiscall *)(CPed *, unsigned char, int, CVector, float))SAMP_ADDROF(0xAB580))(this, nPlayerNumber, nModel, vPosition, fRotation);
+SAMP::CPed::CPed(unsigned char nPlayerNumber, int nModel, CVector position, float fRotation) {
+	((void(__thiscall *)(CPed *, unsigned char, int, CVector, float))SAMP_ADDROF(0xAB580))(this, nPlayerNumber, nModel, position, fRotation);
 }
 
 void SAMP::CPed::ResetPointers() {
@@ -25,23 +25,23 @@ void SAMP::CPed::SetInitialState() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA6490))(this);
 }
 
-SAMP::AimStuff::Aim *SAMP::CPed::GetCurrentAim() {
+SAMP::AimStuff::Aim *SAMP::CPed::GetAim() {
 	return ((AimStuff::Aim *(__thiscall *)(CPed *))SAMP_ADDROF(0xA64E0))(this);
 }
 
-void SAMP::CPed::SetCurrentAim(AimStuff::Aim *pAim) {
-	((void(__thiscall *)(CPed *, AimStuff::Aim *))SAMP_ADDROF(0xA64F0))(this, pAim);
+void SAMP::CPed::SetAim(const AimStuff::Aim *pAim) {
+	((void(__thiscall *)(CPed *, const AimStuff::Aim *))SAMP_ADDROF(0xA64F0))(this, pAim);
 }
 
-unsigned char SAMP::CPed::GetCurrentWeapon() {
-	return ((unsigned char(__thiscall *)(CPed *))SAMP_ADDROF(0xA6510))(this);
+char SAMP::CPed::GetCurrentWeapon() {
+	return ((char(__thiscall *)(CPed *))SAMP_ADDROF(0xA6510))(this);
 }
 
-int SAMP::CPed::GetCurrentVehicleIdx() {
-	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA6550))(this);
+SAMP::GTAREF SAMP::CPed::GetVehicleRef() {
+	return ((GTAREF(__thiscall *)(CPed *))SAMP_ADDROF(0xA6550))(this);
 }
 
-void SAMP::CPed::HideMarker() {
+void SAMP::CPed::DeleteArrow() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA6570))(this);
 }
 
@@ -81,19 +81,19 @@ BOOL SAMP::CPed::IsDead() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA66D0))(this);
 }
 
-int SAMP::CPed::GetState() {
-	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA6700))(this);
+char SAMP::CPed::GetState() {
+	return ((char(__thiscall *)(CPed *))SAMP_ADDROF(0xA6700))(this);
 }
 
-void SAMP::CPed::SetState(int nValue) {
-	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA6710))(this, nValue);
+void SAMP::CPed::SetState(char nValue) {
+	((void(__thiscall *)(CPed *, char))SAMP_ADDROF(0xA6710))(this, nValue);
 }
 
-void SAMP::CPed::SetTargetRotation(float fValue) {
+void SAMP::CPed::SetRotation(float fValue) {
 	((void(__thiscall *)(CPed *, float))SAMP_ADDROF(0xA67D0))(this, fValue);
 }
 
-void SAMP::CPed::ForceTargetRotation(float fValue) {
+void SAMP::CPed::ForceRotation(float fValue) {
 	((void(__thiscall *)(CPed *, float))SAMP_ADDROF(0xA6820))(this, fValue);
 }
 
@@ -105,7 +105,7 @@ CVehicle *SAMP::CPed::GetVehicle() {
 	return ((CVehicle *(__thiscall *)(CPed *))SAMP_ADDROF(0xA68C0))(this);
 }
 
-void SAMP::CPed::ClearAllWeapons() {
+void SAMP::CPed::ClearWeapons() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA68D0))(this);
 }
 
@@ -113,40 +113,40 @@ void SAMP::CPed::SetArmedWeapon(int nWeapon, bool bGameFunc) {
 	((void(__thiscall *)(CPed *, int, bool))SAMP_ADDROF(0xA6920))(this, nWeapon, bGameFunc);
 }
 
-float SAMP::CPed::GetDistanceToEntity(CEntity *pEntity) {
-	return ((float(__thiscall *)(CPed *, CEntity *))SAMP_ADDROF(0xA6A60))(this, pEntity);
+float SAMP::CPed::GetDistanceToEntity(const CEntity *pEntity) {
+	return ((float(__thiscall *)(CPed *, const CEntity *))SAMP_ADDROF(0xA6A60))(this, pEntity);
 }
 
-int SAMP::CPed::GetSeatIdx() {
+int SAMP::CPed::GetVehicleSeatIndex() {
 	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA6AC0))(this);
 }
 
-void SAMP::CPed::PutInVehicle(unsigned long hVehicle, int nSeatId) {
-	((void(__thiscall *)(CPed *, unsigned long, int))SAMP_ADDROF(0xA6B50))(this, hVehicle, nSeatId);
+void SAMP::CPed::PutIntoVehicle(GTAREF vehicle, int nSeat) {
+	((void(__thiscall *)(CPed *, unsigned long, int))SAMP_ADDROF(0xA6B50))(this, vehicle, nSeat);
 }
 
-void SAMP::CPed::EnterVehicle(unsigned long hVehicle, bool bPassenger) {
-	((void(__thiscall *)(CPed *, unsigned long, bool))SAMP_ADDROF(0xA6CD0))(this, hVehicle, bPassenger);
+void SAMP::CPed::EnterVehicle(GTAREF vehicle, BOOL bAsPassenger) {
+	((void(__thiscall *)(CPed *, unsigned long, bool))SAMP_ADDROF(0xA6CD0))(this, vehicle, bAsPassenger);
 }
 
-void SAMP::CPed::ExitFromVehicle() {
+void SAMP::CPed::ExitVehicle() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA6DA0))(this);
 }
 
-void SAMP::CPed::RemoveFromVehicleAndPutAt(CVector vPosition) {
-	((void(__thiscall *)(CPed *, CVector))SAMP_ADDROF(0xA6E30))(this, vPosition);
+void SAMP::CPed::WarpFromVehicle(CVector putAt) {
+	((void(__thiscall *)(CPed *, CVector))SAMP_ADDROF(0xA6E30))(this, putAt);
 }
 
-void SAMP::CPed::SetSpawn(CVector *pPos, float fRotation) {
-	((void(__thiscall *)(CPed *, CVector *, float))SAMP_ADDROF(0xA7010))(this, pPos, fRotation);
+void SAMP::CPed::SetSpawnInfo(const CVector *pPosition, float fRotation) {
+	((void(__thiscall *)(CPed *, const CVector *, float))SAMP_ADDROF(0xA7010))(this, pPosition, fRotation);
 }
 
-void SAMP::CPed::TogglePlayerControllable(bool bEnable) {
-	((void(__thiscall *)(CPed *, bool))SAMP_ADDROF(0xA7050))(this, bEnable);
+void SAMP::CPed::SetControllable(BOOL bEnable) {
+	((void(__thiscall *)(CPed *, BOOL))SAMP_ADDROF(0xA7050))(this, bEnable);
 }
 
-unsigned char SAMP::CPed::FindDeathReasonAndResponsiblePlayer(ID *nPlayer) {
-	return ((unsigned char(__thiscall *)(CPed *, ID *))SAMP_ADDROF(0xA7110))(this, nPlayer);
+char SAMP::CPed::GetDeathInfo(ID *pKiller) {
+	return ((unsigned char(__thiscall *)(CPed *, ID *))SAMP_ADDROF(0xA7110))(this, pKiller);
 }
 
 void SAMP::CPed::HandsUp() {
@@ -161,11 +161,11 @@ void SAMP::CPed::HoldObject(int nModel) {
 	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA7480))(this, nModel);
 }
 
-void SAMP::CPed::StartJetpack() {
+void SAMP::CPed::EnableJetpack() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA75D0))(this);
 }
 
-void SAMP::CPed::StopJetpack() {
+void SAMP::CPed::DisableJetpack() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA7620))(this);
 }
 
@@ -173,35 +173,27 @@ BOOL SAMP::CPed::HasJetpack() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA7680))(this);
 }
 
-BOOL SAMP::CPed::StartPassengerDriveByMode() {
+BOOL SAMP::CPed::EnablePassengerDrivebyMode() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA7850))(this);
 }
 
-void SAMP::CPed::ExtinguishFire() {
+void SAMP::CPed::Extinguish() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA79B0))(this);
 }
 
-void SAMP::CPed::SetWalkStyle(int nStyle) {
-	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA7A90))(this, nStyle);
+void SAMP::CPed::SetWalkStyle(const char *szName) {
+	((void(__thiscall *)(CPed *, const char *))SAMP_ADDROF(0xA7A90))(this, szName);
 }
 
-void SAMP::CPed::SetMoney(int nCount) {
-	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA7AC0))(this, nCount);
+void SAMP::CPed::PerformAnimation(const char *szName, const char *szFile, float fFramedelta, int nLoopA, int nLockX, int nLockY, int nLockF, int nTime) {
+	((void(__thiscall *)(CPed *, const char*, const char *, float, int, int, int, int, int))SAMP_ADDROF(0xA7AF0))(this, szName, szFile, fFramedelta, nLoopA, nLockX, nLockY, nLockF, nTime);
 }
 
-void SAMP::CPed::ApplyAnim(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime) {
-	((void(__thiscall *)(CPed *, const char*, const char *, float, int, int, int, int, int))SAMP_ADDROF(0xA7AF0))(this, szAnim, szIFP, fFramedelta, bLockA, bLockX, bLockY, bLockF, nTime);
+void SAMP::CPed::LinkToInterior(char nId, BOOL bRefresh) {
+	((void(__thiscall *)(CPed *, char, BOOL))SAMP_ADDROF(0xA7C00))(this, nId, bRefresh);
 }
 
-BOOL SAMP::CPed::IsPerformingAnimation(const char *szAnim) {
-	return ((BOOL(__thiscall *)(CPed *, const char *))SAMP_ADDROF(0xA7BC0))(this, szAnim);
-}
-
-void SAMP::CPed::SetInterior(unsigned char nId, bool bRefresh) {
-	((void(__thiscall *)(CPed *, unsigned char, bool))SAMP_ADDROF(0xA7C00))(this, nId, bRefresh);
-}
-
-void SAMP::CPed::CheckVehicleParachute() {
+void SAMP::CPed::DestroyParachute() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA7CA0))(this);
 }
 
@@ -213,7 +205,7 @@ void SAMP::CPed::ResetDamageEntity() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA8140))(this);
 }
 
-void SAMP::CPed::SetWeaponModelIndex(int nModel) {
+void SAMP::CPed::RemoveWeaponModel(int nModel) {
 	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA817C))(this, nModel);
 }
 
@@ -237,7 +229,7 @@ int SAMP::CPed::GetStat() {
 	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA8260))(this);
 }
 
-BOOL SAMP::CPed::IsPerformingCustomAnim() {
+BOOL SAMP::CPed::PerformingCustomAnimation() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA82A0))(this);
 }
 
@@ -253,7 +245,7 @@ BOOL SAMP::CPed::DoesDancing() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA8400))(this);
 }
 
-const char *SAMP::CPed::GetDanceAnimForMove(int nMove) {
+const char *SAMP::CPed::GetAnimationForDance(int nMove) {
 	return ((const char *(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA8410))(this, nMove);
 }
 
@@ -265,28 +257,24 @@ void SAMP::CPed::ProcessDrunk() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA8690))(this);
 }
 
-unsigned int SAMP::CPed::GetDrunkLevel() {
-	return ((unsigned int(__thiscall *)(CPed *))SAMP_ADDROF(0xA8840))(this);
+int SAMP::CPed::GetDrunkLevel() {
+	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA8840))(this);
 }
 
 void SAMP::CPed::SetDrunkLevel(int nLevel) {
 	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA8850))(this, nLevel);
 }
 
-void SAMP::CPed::ToggleCellphone(bool bEnable) {
-	((void(__thiscall *)(CPed *, bool))SAMP_ADDROF(0xA8910))(this, bEnable);
+void SAMP::CPed::EnableCellphone(BOOL bEnable) {
+	((void(__thiscall *)(CPed *, BOOL))SAMP_ADDROF(0xA8910))(this, bEnable);
 }
 
-BOOL SAMP::CPed::IsCellphoneEnabled() {
+BOOL SAMP::CPed::UsingCellphone() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA8940))(this);
 }
 
-char SAMP::CPed::GetFightingStyle() {
-	return ((char(__thiscall *)(CPed *))SAMP_ADDROF(0xA8950))(this);
-}
-
-void SAMP::CPed::SetFightingStyle(char nStyle) {
-	((void(__thiscall *)(CPed *, char))SAMP_ADDROF(0xA8970))(this, nStyle);
+void SAMP::CPed::SetFightingStyle(int nStyle) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA8970))(this, nStyle);
 }
 
 void SAMP::CPed::StartUrinating() {
@@ -301,16 +289,16 @@ BOOL SAMP::CPed::DoesUrinating() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA8B00))(this);
 }
 
-void SAMP::CPed::GetBonePosition(int nBone, CVector *pPos) {
-	((void(__thiscall *)(CPed *, int, CVector *))SAMP_ADDROF(0xA8D70))(this, nBone, pPos);
+void SAMP::CPed::GetBonePosition(int nBone, CVector *pPosition) {
+	((void(__thiscall *)(CPed *, int, CVector *))SAMP_ADDROF(0xA8D70))(this, nBone, pPosition);
 }
 
-void SAMP::CPed::SetKeys(unsigned short nKeys, unsigned short lrAnalog, unsigned short udAnalog) {
-	((void(__thiscall *)(CPed *, unsigned short, unsigned short, unsigned short))SAMP_ADDROF(0xA9BE0))(this, nKeys, lrAnalog, udAnalog);
+void SAMP::CPed::SetKeys(short controllerState, short sLeftStickX, short sLeftStickY) {
+	((void(__thiscall *)(CPed *, short, short, short))SAMP_ADDROF(0xA9BE0))(this, controllerState, sLeftStickX, sLeftStickY);
 }
 
-void SAMP::CPed::CreateMarker(D3DCOLOR dwColor) {
-	((void(__thiscall *)(CPed *, D3DCOLOR))SAMP_ADDROF(0xAA000))(this, dwColor);
+void SAMP::CPed::CreateArrow(int nColor) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xAA000))(this, nColor);
 }
 
 void SAMP::CPed::GiveWeapon(int nWeapon, int nAmmo) {
@@ -321,26 +309,122 @@ void SAMP::CPed::Kill() {
 	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xAA8A0))(this);
 }
 
-void SAMP::CPed::GiveStuff(eStuffType nType) {
-	((void(__thiscall *)(CPed *, eStuffType))SAMP_ADDROF(0xAABA0))(this, nType);
+void SAMP::CPed::GiveStuff(int nType) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xAABA0))(this, nType);
 }
 
-unsigned short SAMP::CPed::GetKeys(short *pLeftStickX, short *pLeftStickY) {
-	return ((unsigned short(__thiscall *)(CPed *, short *, short *))SAMP_ADDROF(0xA9E70))(this, pLeftStickX, pLeftStickY);
+short SAMP::CPed::GetKeys(short *pLeftStickX, short *pLeftStickY) {
+	return ((short(__thiscall *)(CPed *, short *, short *))SAMP_ADDROF(0xA9E70))(this, pLeftStickX, pLeftStickY);
 }
 
 BOOL SAMP::CPed::IsInVehicle() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA6730))(this);
 }
 
-BOOL SAMP::CPed::Destroy() {
-	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0x9B850))(this);
+void SAMP::CPed::Destroy() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xAB840))(this);
 }
 
-void SAMP::CPed::ApplyCommandTask(const char *szTaskName, int p1, int p2, int p3, CVector *p4, int p5, float p6, int p7, int p8, int p9) {
-	((void(__thiscall *)(CPed *, const char *, int, int, int, CVector *, int, float, int, int, int))SAMP_ADDROF(0xA8870))(this, szTaskName, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+void SAMP::CPed::ApplyCommandTask(const char *szName, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) {
+	((void(__thiscall *)(CPed *, const char *, int, int, int, int, int, int, int, int, int))SAMP_ADDROF(0xA8870))(this, szName, a3, a4, a5, a6, a7, a8, a9, a10, a11);
 }
 
 CWeapon *SAMP::CPed::GetCurrentWeaponSlot() {
 	return ((CWeapon *(__thiscall *)(CPed *))SAMP_ADDROF(0xA6A00))(this);
+}
+
+BOOL SAMP::CPed::HasAccessory() {
+	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA96D0))(this);
+}
+
+void SAMP::CPed::DeleteAccessory(int nSlot) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA96F0))(this, nSlot);
+}
+
+BOOL SAMP::CPed::GetAccessoryState(int nSlot) {
+	return ((BOOL(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA9750))(this, nSlot);
+}
+
+void SAMP::CPed::DeleteAllAccessories() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xAB380))(this);
+}
+
+void SAMP::CPed::AddAccessory(int nSlot, const Accessory *pInfo) {
+	((void(__thiscall *)(CPed *, int, const Accessory *))SAMP_ADDROF(0xAB3E0))(this, nSlot, pInfo);
+}
+
+SAMP::CObject *SAMP::CPed::GetAccessory(int nSlot) {
+	return ((CObject *(__thiscall *)(CPed *, int))SAMP_ADDROF(0x101E0))(this, nSlot);
+}
+
+void SAMP::CPed::SetModelIndex(int nModel) {
+	((void(__thiscall *)(CPed *, int))SAMP_ADDROF(0xAA820))(this, nModel);
+}
+
+CPed *SAMP::CPed::GetAimedPed() {
+	return ((::CPed *(__thiscall *)(CPed *))SAMP_ADDROF(0xA9800))(this);
+}
+
+void SAMP::CPed::DestroyCommandTask() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA88C0))(this);
+}
+
+int SAMP::CPed::GetStuff() {
+	return ((int(__thiscall *)(CPed *))SAMP_ADDROF(0xA8530))(this);
+}
+
+BOOL SAMP::CPed::ApplyStuff() {
+	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA8540))(this);
+}
+
+float SAMP::CPed::GetRotation() {
+	return ((float(__thiscall *)(CPed *))SAMP_ADDROF(0xA6750))(this);
+}
+
+void SAMP::CPed::RemoveWeaponWhenEnteringVehicle() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xA69D0))(this);
+}
+
+BOOL SAMP::CPed::CurrentWeaponHasAmmo() {
+	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA6A20))(this);
+}
+
+CEntity *SAMP::CPed::GetFloor() {
+	return ((::CEntity *(__thiscall *)(CPed *))SAMP_ADDROF(0xA72D0))(this);
+}
+
+CWeaponInfo *SAMP::CPed::GetCurrentWeaponInfo() {
+	return ((::CWeaponInfo *(__thiscall *)(CPed *))SAMP_ADDROF(0xA7380))(this);
+}
+
+unsigned short SAMP::CPed::GetCurrentWeaponAmmo() {
+	return ((unsigned short(__thiscall *)(CPed *))SAMP_ADDROF(0xA7A10))(this);
+}
+
+CWeapon *SAMP::CPed::GetWeaponSlot(int nWeapon) {
+	return ((::CWeapon *(__thiscall *)(CPed *, int))SAMP_ADDROF(0xA7A50))(this, nWeapon);
+}
+
+BOOL SAMP::CPed::OpenParachute() {
+	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xA7D90))(this);
+}
+
+void SAMP::CPed::ProcessParachuteEvent(const char *szName) {
+	((void(__thiscall *)(CPed *, const char *))SAMP_ADDROF(0xA7EE0))(this, szName);
+}
+
+const char *SAMP::CPed::GetLoadedShoppingDataSubsection() {
+	return ((const char *(__thiscall *)(CPed *))SAMP_ADDROF(0xA8B80))(this);
+}
+
+void SAMP::CPed::LoadShoppingDataSubsection(const char *szName) {
+	((void(__thiscall *)(CPed *, const char *))SAMP_ADDROF(0xA8BA0))(this, szName);
+}
+
+void SAMP::CPed::SetWeaponAmmo(unsigned char nWeapon, unsigned short nAmmo) {
+	((void(__thiscall *)(CPed *, unsigned char, unsigned short))SAMP_ADDROF(0xAA950))(this, nWeapon, nAmmo);
+}
+
+void SAMP::CPed::ProcessDancing() {
+	((void(__thiscall *)(CPed *))SAMP_ADDROF(0xAA980))(this);
 }

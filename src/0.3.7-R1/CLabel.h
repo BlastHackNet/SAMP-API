@@ -20,18 +20,14 @@ public:
 	ID3DXSprite		  *m_pSprite;
 
 	CLabel(IDirect3DDevice9 *pDevice);
-	~CLabel() {
-		OnLostDevice();
-	}
+	~CLabel();
 
-	void Begin();
-	void Draw(CVector *pPos, const char *szText, D3DCOLOR dwColor, bool bShadow, bool bIfHasNoObstacles);
-	void End();
-	
 	void OnLostDevice();
 	void OnResetDevice();
-
-	BOOL HasNoObstacles(CVector vPoint);
+	BOOL HasNoObstacles(CVector position);
+	void Begin();
+	void End();
+	void Draw(CVector *pPosition, const char *szText, D3DCOLOR color, BOOL bShadow, bool bNoObstacles);
 };
 
 extern CLabel *&pLabel;

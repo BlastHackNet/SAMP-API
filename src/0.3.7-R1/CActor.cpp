@@ -17,7 +17,7 @@ void SAMP::CActor::Destroy() {
 	((void(__thiscall *)(CActor *))SAMP_ADDROF(0x97DA0))(this);
 }
 
-void SAMP::CActor::ApplyAnim(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime) {
+void SAMP::CActor::PerformAnimation(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime) {
 	((void(__thiscall *)(CActor *, const char *, const char *, float, int, int, int, int, int))SAMP_ADDROF(0x97E00))(this, szAnim, szIFP, fFramedelta, bLockA, bLockX, bLockY, bLockF, nTime);
 }
 

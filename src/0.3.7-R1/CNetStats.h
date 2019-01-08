@@ -23,7 +23,7 @@ public:
 	IDirect3DDevice9 *m_pDevice;
 
 	CNetStats(IDirect3DDevice9 *pDevice);
-
+	
 	void Draw();
 };
 

@@ -13,6 +13,7 @@
 #include "CVector.h"
 
 #define AUDIOSTREAM_MAX_STRING 256
+#define AUDIOSTREAM_USERAGENT "SA-MP/0.3"
 
 SAMP_BEGIN
 
@@ -20,24 +21,24 @@ class SAMP_API CAudioStream {
 public:
 	bool m_bInitialized;
 
-	static unsigned long &hStream; // BASS HSTREAM
-	static bool &bNeedsToDestroy;
-	static CVector &vPosition;
+	static int &hStream;
 	static bool &bIsPlaying;
-	static char *szUrl;
+	static CVector &position;
 	static bool &bIs3d;
-	static char *szInfo; // "<artist> - <title>"
-	static char *szIcyName;
-	static char *szIcyUrl; // unused
+	static char *szIcyUrl;
+	static char *szInfo;
+	static char *szUrl;
+	static bool &bNeedsToDestroy;
 	static float &fRadius;
+	static char *szIcyName;
 
-	static void _ConstructInfo();
-	static void Process(void *arglist); // thread
+	static void ConstructInfo();
+	static void SyncProc(int handle, int channel, int data, void *user);
+	static void Process(void *arglist);
 
-	BOOL Initialize();
+	BOOL Reset();
 	BOOL Stop(bool bWait);
-	void ConstructInfo(); // jmp _ConstructInfo
-	BOOL Play(const char *szUrl, CVector vPosition, float fDistance, bool bIs3d);
+	BOOL Play(const char *szUrl, CVector position, float fRadius, bool bIs3d);
 	void ControlGameRadio();
 	void DrawInfo();
 };

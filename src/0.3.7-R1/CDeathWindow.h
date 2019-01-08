@@ -12,20 +12,24 @@
 #include "common.h"
 #include "CRect.h"
 
+#define MAX_DEATHMESSAGES 5
+
 SAMP_BEGIN
 
 class SAMP_API CDeathWindow {
 public:
 	BOOL					m_bEnabled;
-	struct {
+	
+	struct SAMP_API {
 		char				m_szKiller[25];
 		char				m_szVictim[25];
-		D3DCOLOR			m_dwKillerColor;
-		D3DCOLOR			m_dwVictimColor;
-		unsigned char	m_nType;
-	}						m_aEntry[5];
-	unsigned int 		m_nLongestNickWidth;
-	unsigned long		m_aPosition[2];
+		D3DCOLOR			m_killerColor;
+		D3DCOLOR			m_victimColor;
+		char				m_nWeapon;
+	}						m_entry[MAX_DEATHMESSAGES];
+	
+	int 					m_nLongestNickWidth;
+	int					m_position[2];
 	ID3DXFont		  *m_pFont;
 	ID3DXFont		  *m_pWeaponFont1;
 	ID3DXFont		  *m_pWeaponFont2;
@@ -36,18 +40,18 @@ public:
   	ID3DXFont 		  *m_pAuxFont2;
 
 	CDeathWindow(IDirect3DDevice9 *pDevice);
+	~CDeathWindow();
 
-	void InitAuxFont();
+	void InitializeAuxFonts();
 	void PushBack();
-	void RenderText(const char *pText, CRect rect, D3DCOLOR dwColor);
-	void RenderWeaponSprite(const char *pWeaponChar, CRect rect, D3DCOLOR dwColor);
-	void GetWeaponRectSize(void *pPoint);
+	void DrawText(const char *szText, CRect rect, D3DCOLOR color, int nFormat);
+	void DrawWeaponSprite(const char *szSpriteId, CRect rect, D3DCOLOR color);
+	void GetWeaponSpriteRectSize(void *pPoint);
 	const char *GetWeaponSpriteId(char nWeapon);
-	void CreateFonts();
+	void ResetFonts();
 	void Draw();
-	void AddEntry(const char *pKiller, const char *pVictim, D3DCOLOR dwKiller, D3DCOLOR dwVictim, char nWeapon);
-	// jmp CDeathWindow::AddEntry
-	void AddMessage(const char *pKiller, const char *pVictim, D3DCOLOR dwKiller, D3DCOLOR dwVictim, char nWeapon); 
+	void AddEntry(const char *szKiller, const char *szVictim, D3DCOLOR killerColor, D3DCOLOR victimColor, char nWeapon);
+	void AddMessage(const char *szKiller, const char *szVictim, D3DCOLOR killerColor, D3DCOLOR victimColor, char nWeapon);
 };
 
 extern CDeathWindow *&pDeathWindow;

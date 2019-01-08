@@ -11,9 +11,12 @@
 
 #include "common.h"
 
+#define MAX_CONFIG_ENTRIES 512
+#define MAX_CONFIG_ENTRY_NAME 40
+
 SAMP_BEGIN
 
-enum eValueType {
+enum ValueType {
 	VALUE_TYPE_NONE,
 	VALUE_TYPE_INT,
 	VALUE_TYPE_STRING,
@@ -22,38 +25,37 @@ enum eValueType {
 
 class SAMP_API CConfig {
 public:
-	struct Entry {
-		char			m_szName[41];
-		BOOL			m_bReadOnly; // maybe
-		eValueType  m_nType;
-		int			m_nValue;
-		float			m_fValue;
-		char		  *m_szValue;
-	}	  m_aEntries[512];
-	BOOL m_bNotEmpty[512]; // map
+	struct SAMP_API Entry {
+		char		m_szName[MAX_CONFIG_ENTRY_NAME + 1];
+		BOOL		m_bReadOnly; // maybe
+		int		m_nType;
+		int		m_nValue;
+		float		m_fValue;
+		char	  *m_szValue;
+	}	  m_entry[MAX_CONFIG_ENTRIES];
+	BOOL m_bNotEmpty[MAX_CONFIG_ENTRIES]; // map
 	char m_szFilename[261];
 	int  m_nFirstFree;
 
 	CConfig(const char *szFile);
-	~CConfig() {
-		Save();
-	}
+	~CConfig();
 
 	void FindFirstFree();
-	int GetIndex(const char *szName);
-	BOOL DoesExist(const char *szName);
-	int Create(const char *szName); // returns index of the created entry
-	int GetIntValue(const char *szName);
-	const char *GetStringValue(const char *szName);
-	float GetFloatValue(const char *szName);
-	BOOL Delete(const char *szName);
-	eValueType GetType(const char *szName);
+	int GetIndex(const char *szEntry);
+	bool DoesExist(const char *szEntry);
+	int CreateEntry(const char *szName);
+	int GetIntValue(const char *szEntry);
+	const char *GetStringValue(const char *szEntry);
+	float GetFloatValue(const char *szEntry);
+	BOOL Free(const char *szEntry);
+	int GetValueType(const char *szEntry);
 	Entry *GetEntry(int nIndex);
+	int GetType(const char *szString);
 	BOOL Save();
-	BOOL SetIntValue(const char *szName, int nValue, BOOL bReadOnly = 0);
-	BOOL SetStringValue(const char *szName, const char *nValue, BOOL bReadOnly = 0);
-	BOOL SetFloatValue(const char *szName, float fValue, BOOL bReadOnly = 0);
-	BOOL SetValue(const char *szName, const char *szValue);
+	BOOL WriteIntValue(const char *szEntry, int nValue, BOOL bReadOnly = 0);
+	BOOL WriteStringValue(const char *szEntry, const char *szValue, BOOL bReadOnly = 0);
+	BOOL WriteFloatValue(const char *szEntry, float fValue, BOOL bReadOnly = 0);
+	void Write(const char *szEntry, char *szBuffer);
 	BOOL Load();
 };
 

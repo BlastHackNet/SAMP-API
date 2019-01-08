@@ -13,6 +13,7 @@
 #include "CPed.h"
 #include "Packets.h"
 #include "CVehicle.h"
+#include "Animation.h"
 
 #define PUT_IN_VEHICLE_AFTER 5000
 
@@ -40,9 +41,8 @@ enum eSurfingMode : unsigned int {
 class CLocalPlayer {
 public:
 	CPed						  *m_pPed;
-	unsigned short				m_nCurrentAnim;
-	unsigned short				m_nAnimFlags;
-	unsigned int				field_8;
+	Animation					m_animation;
+	int field_8;
 	BOOL							m_bIsActive;
 	BOOL							m_bIsWasted;
 	ID								m_nCurrentVehicle;
@@ -56,89 +56,96 @@ public:
 	
 	// used by RPC_SetSpawnInfo
 	struct SAMP_API SpawnInfo {
-		unsigned char				m_nTeam;
-		int							m_nSpawnSkin;
-		unsigned char				field_c;
-		CVector						m_vPosition;
-		float							m_fRotation;
-		int							m_aWeapon[3];
-		int							m_aAmmo[3];
+		NUMBER	m_nTeam;
+		int		m_nSkin;
+		char field_c;
+		CVector	m_position;
+		float		m_fRotation;
+		int		m_aWeapon[3];
+		int		m_aAmmo[3];
 	}								m_spawnInfo;
 
 	BOOL							m_bHasSpawnInfo;
 	BOOL							m_bClearedToSpawn;
-	unsigned int				m_dwLastSpawnSelectionTick;
-	unsigned int				m_dwInitialSelectionTick;
+	TICK							m_lastSelectionTick;
+	TICK							m_initialSelectionTick;
 	BOOL							m_bDoesSpectating;
-	unsigned char				m_nTeam;
-	short							field_14b;
-	unsigned long				m_dwLastSendTick;
-	unsigned long				m_dwLastSendSpecTick;
-	unsigned long				m_dwLastAimSendTick;
-	unsigned long				m_dwLastStatsUpdateTick;
-	unsigned long				m_dwLastWeaponsUpdateTick;
+	NUMBER						m_nTeam;
+	short	field_14b;
+	TICK							m_lastUpdate;
+	TICK							m_lastSpecUpdate;
+	TICK							m_lastAimUpdate;
+	TICK							m_lastStatsUpdate;
+	TICK							m_lastWeaponsUpdate;
 
-	struct {
-		ID								m_nAimedPlayer;
-		ID								m_nAimedActor;
-		unsigned char				m_nCurrentWeapon;
-		unsigned char				m_aLastWeapon[13];
-		int							m_aLastWeaponAmmo[13];
+	struct SAMP_API {
+		ID			m_nAimedPlayer;
+		ID			m_nAimedActor;
+		NUMBER	m_nCurrentWeapon;
+		NUMBER	m_aLastWeapon[13];
+		int		m_aLastWeaponAmmo[13];
 	}								m_weaponsData;
 
 	BOOL							m_bPassengerDriveBy;
-	unsigned char				m_nCurrentInterior;
+	char							m_nCurrentInterior;
 	BOOL							m_bInRCMode;
 	
-	struct {
+	struct SAMP_API CameraTarget {
 		ID	m_nObject;
 		ID	m_nVehicle;
 		ID	m_nPlayer;
 		ID	m_nActor;
 	}								m_cameraTarget;
 
-	struct {
-		CVector			m_vDirection;
-		unsigned long	m_dwLastUpdateTick;
-		unsigned long	m_dwLastLookTick;
+	struct SAMP_API {
+		CVector	m_direction;
+		TICK		m_lastUpdate;
+		TICK		m_lastLook;
 	}								m_head;
 	
-	unsigned long				m_dwLastHeadUpdateTick; // wtf
-	unsigned char				pad_1d0[260];
+	TICK							m_lastHeadUpdate;
+	TICK							m_lastAnyUpdate;
+	char							m_szName[256];
 	
-	struct {
+	struct SAMP_API {
 		BOOL				m_bIsActive;
-		CVector			m_vPosition;
-		int				field_10;
-		ID					m_nVehicle;
-		unsigned long	m_dwTick;
-		CVehicle		  *m_pVehicle;
-		int				field_1A;
-		eSurfingMode	m_nMode;
+		CVector			m_position;
+		int field_10;
+		ID					m_nEntityId;
+		TICK				m_lastUpdate;
+		
+		union SAMP_API {
+			CVehicle			*m_pVehicle;
+			class CObject	*m_pObject;
+		};
+		
+		BOOL				m_bStuck;
+		int				m_nMode;
 	}							m_surfing;
 	
-	struct {
-		BOOL						m_bEnableAfterDeath;
-		int						m_nSelected;
-		BOOL						m_bWaitingForSpawnRequestReply;
-		BOOL						m_bIsActive;
-		unsigned long			m_dwDisplayZoneTick; // maybe
+	struct SAMP_API {
+		BOOL	m_bEnableAfterDeath;
+		int	m_nSelected;
+		BOOL	m_bWaitingForSpawnRequestReply;
+		BOOL	m_bIsActive;
 	}							m_classSelection;
 	
-	struct {
-		eSpectatingMode m_nMode;
-		eSpectatingType m_nType;
-		int				 m_nObject; // id
-		BOOL				 m_bProcessed;
+	TICK							m_zoneDisplayingEnd;
+
+	struct SAMP_API {
+		char m_nMode;
+		char m_nType;
+		int m_nObject; // id
+		BOOL m_bProcessed;
 	}							m_spectating;
 	
-	struct {
+	struct SAMP_API {
 		ID		m_nVehicleUpdating;
 		int	m_nBumper;
 		int	m_nDoor;
-		bool	m_bLight;
-		bool	m_bWheel;
-	}							m_vehicleDamage;
+		char	m_bLight;
+		char	m_bWheel;
+	}							m_damage;
 
 	static unsigned long &dwTimeElapsedFromFPressed;
 	static int &nIncarSendrate;  // = NETMODE_INCAR_SENDRATE;
@@ -154,52 +161,58 @@ public:
 	CPed *GetPed();
 	void ResetData();
 	void ProcessHead();
-	void SetSpecialAction(char nAction);
+	void SetSpecialAction(char nId);
 	char GetSpecialAction();
+	void UpdateSurfing();
+	void SetSurfing(CVehicle *pVehicle, BOOL bStuck);
+	void ProcessSurfing();
+	void EndSurfing();
+	BOOL NeedsToUpdate(const void *pOld, const void *pNew, unsigned int nLen);
+	int GetIncarSendRate();
+	int GetOnfootSendRate();
+	int GetUnoccupiedSendRate();
 	void SetSpawnInfo(const SpawnInfo *pInfo);
 	BOOL Spawn();
-	void SetColor(D3DCOLOR dwColor);
-	D3DCOLOR GetColorAsARGB();
+	void SetColor(D3DCOLOR color);
 	D3DCOLOR GetColorAsRGBA();
-	void ProcessWorldBoundsOnfoot();
-	void ProcessWorldBoundsIncar();
+	D3DCOLOR GetColorAsARGB();
+	void ProcessOnfootWorldBounds();
+	void ProcessIncarWorldBounds();
 	void RequestSpawn();
-	void HandleClassSelection(); // close & handle input ("Enter" button)
-	void HandleClassSelectionOutcome(BOOL bOutcome);
-	void ToggleSpectating(BOOL bEnable);
+	void PrepareForClassSelection();
+	void PrepareForClassSelection_Outcome(BOOL bOutcome);
+	void EnableSpectating(BOOL bEnable);
 	void SpectateForVehicle(ID nId);
 	void SpectateForPlayer(ID nId);
-	ID GetAimedPlayer();
-	ID GetAimedActor();
-	void SendUnoccupiedData(ID nVehicle, int arg2);
-	void SendAimData();
-	void SendWastedNotification();
-	void RequestClass(int nClass);
-	void SendInteriorChange(char nInterior);
-	void Say(const char *szText);
-	void SendEnterVehicleNotification(ID nVehicle, BOOL bPassenger);
-	void SendExitVehicleNotification(ID nVehicle);
-	void SendStats();
-	void UpdateVehicleDamage(ID nId);
-	void NextClass(); // the ">>" button in the class selection window
-	void PrevClass(); // "<<"
-	void SendWeapons();
-	void EnterNearestVehicleAsPassenger();
-	void SendIncarData();
-	void Process();
-	void EndSurfing();
-	int GetNumberOfPlayersInLocalRange();
+	BOOL NeedsToSendOnfootData(short controllerState, short sLeftStickX, short sLeftStickY);
+	BOOL NeedsToSendIncarData(short controllerState, short sLeftStickX, short sLeftStickY);
+	bool DefineCameraTarget(CameraTarget *pInfo);
+	void UpdateCameraTarget();
+	void DrawCameraTargetLabel();
+	void SendUnoccupiedData(ID nVehicle, char arg4);
 	void SendOnfootData();
+	void SendAimData();
 	void SendTrailerData(ID nTrailer);
 	void SendPassengerData();
-	int GetUndrivenSendrate();
-	int GetOnfootSendrate();
-	int GetIncarSendrate();
-	void DrawCameraTargetLabel();
+	void WastedNotification();
+	void RequestClass(int nId);
+	void ChangeInterior(char nId);
+	void Chat(const char *szText);
+	void EnterVehicle(int nVehicle, BOOL bPassenger);
+	void ExitVehicle(int nVehicle);
+	void SendStats();
+	void UpdateVehicleDamage(ID nVehicle);
+	void NextClass();
+	void PrevClass();
+	void ProcessClassSelection();
+	void UpdateWeapons();
 	void ProcessSpectating();
-	void SendTakeDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart);
-	void SendGiveDamage(ID nPlayer, float fDamage, int nWeapon, int nBodyPart);
-	void ProcessSurfing();
+	void SendTakeDamage(int nId, float fDamage, int nWeapon, int nBodyPart);
+	void SendGiveDamage(int nId, float fDamage, int nWeapon, int nBodyPart);
+	bool ProcessUnoccupiedSync(ID nVehicle, CVehicle *pVehicle);
+	void EnterVehicleAsPassenger();
+	void SendIncarData();
+	void Process();
 };
 
 SAMP_END

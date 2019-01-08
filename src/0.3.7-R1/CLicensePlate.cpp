@@ -9,7 +9,7 @@
 
 #include "CLicensePlate.h"
 
-SAMP::CLicensePlate *&SAMP::pLicensePlateConstructor = *(SAMP::CLicensePlate **)SAMP_ADDROF(0x21A100);
+SAMP::CLicensePlate *&SAMP::pLicensePlateManager = *(SAMP::CLicensePlate **)SAMP_ADDROF(0x21A100);
 
 SAMP::CLicensePlate::CLicensePlate(IDirect3DDevice9 *pDevice) {
 	((void(__thiscall  *)(CLicensePlate *, IDirect3DDevice9 *))SAMP_ADDROF(0x692D0))(this, pDevice);

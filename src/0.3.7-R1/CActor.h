@@ -20,8 +20,8 @@ class SAMP_API CActor : public CEntity {
 public:
 	// void **lpVtbl = 0xD9EC8;
 	::CPed  *m_pGamePed;
-	GTAREF	m_hMarker;
-	GTAREF 	m_hArrow;
+	GTAREF	m_marker;
+	GTAREF 	m_arrow;
 	bool		m_bNeedsToCreateMarker;
 	bool		m_bInvulnerable;
 
@@ -31,7 +31,7 @@ public:
 	virtual ~CActor() {}
 
 	void Destroy();
-	void ApplyAnim(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime);
+	void PerformAnimation(const char *szAnim, const char *szIFP, float fFramedelta, int bLockA, int bLockX, int bLockY, int bLockF, int nTime);
 	void SetRotation(float fValue);
 	void SetHealth(float fValue);
 	float GetHealth();

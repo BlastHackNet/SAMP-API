@@ -27,16 +27,12 @@ void SAMP::CDialog::Draw() {
 	((void(__thiscall *)(CDialog *))SAMP_ADDROF(0x6B240))(this);
 }
 
-void SAMP::CDialog::Open(unsigned short nId, unsigned int nStyle, const char *pCaption, const char *pText, const char *pLeftButton, const char *pRightButton) {
-	((void(__thiscall *)(CDialog *, unsigned short, unsigned int, const char *, const char *, const char *, const char *))SAMP_ADDROF(0x6B9C0))(this, nId, nStyle, pCaption, pText, pLeftButton, pRightButton);
+void SAMP::CDialog::Show(int nId, int nType, const char *szCaption, const char *szText, const char *szLeftButton, const char *szRightButton, BOOL bServerside) {
+	((void(__thiscall *)(CDialog *, int, int, const char *, const char *, const char *, const char *, BOOL))SAMP_ADDROF(0x6B9C0))(this, nId, nType, szCaption, szText, szLeftButton, szRightButton, bServerside);
 }
 
-void SAMP::CDialog::GetRect(CRect *pRect) {
+void SAMP::CDialog::GetScreenRect(CRect *pRect) {
 	((void(__thiscall *)(CDialog *, CRect *))SAMP_ADDROF(0x6B060))(this, pRect);
-}
-
-int SAMP::CDialog::GetFontHeight() {
-	return ((unsigned long(__thiscall *)(CDialog *))SAMP_ADDROF(0x6B150))(this);
 }
 
 void SAMP::CDialog::UpdateRects() {

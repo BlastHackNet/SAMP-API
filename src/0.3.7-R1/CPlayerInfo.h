@@ -28,7 +28,7 @@ public:
 	int						m_nScore;
 	unsigned int			m_nPing;
 
-	CPlayerInfo(const char *szNickname, bool bIsNPC);
+	CPlayerInfo(const char *szName, BOOL bIsNPC);
 	~CPlayerInfo();
 };
 

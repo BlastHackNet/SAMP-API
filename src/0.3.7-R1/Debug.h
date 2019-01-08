@@ -11,6 +11,8 @@
 
 #include "common.h"
 
+#define DEBUG_MODE_VEHICLE_SELECTION 10
+
 SAMP_BEGIN
 
 namespace Debug {

@@ -27,22 +27,26 @@ void SAMP::CFonts::OnResetDevice() {
 	((void(__thiscall *)(CFonts *))SAMP_ADDROF(0x66AE0))(this);
 }
 
-void SAMP::CFonts::GetTextScreenSize(void *pPoint, const char *pText, unsigned long dwFormat) {
-	((void(__thiscall *)(CFonts *, void *, const char *, unsigned long))SAMP_ADDROF(0x66B20))(this, pPoint, pText, dwFormat);
+void SAMP::CFonts::GetTextScreenSize(void *pPoint, const char *pText, int nFormat) {
+	((void(__thiscall *)(CFonts *, void *, const char *, unsigned long))SAMP_ADDROF(0x66B20))(this, pPoint, pText, nFormat);
 }
 
-void SAMP::CFonts::GetLittleTextScreenSize(void *pPoint, const char *pText, unsigned long dwFormat) {
-	((void(__thiscall *)(CFonts *, void *, const char *, unsigned long))SAMP_ADDROF(0x66BD0))(this, pPoint, pText, dwFormat);
+void SAMP::CFonts::GetLittleTextScreenSize(void *pPoint, const char *pText, int nFormat) {
+	((void(__thiscall *)(CFonts *, void *, const char *, unsigned long))SAMP_ADDROF(0x66BD0))(this, pPoint, pText, nFormat);
 }
 
-void SAMP::CFonts::RenderText(ID3DXSprite *pSprite, const char *pText, CRect rect, D3DCOLOR dwColor, bool bShadow) {
-	((void(__thiscall *)(CFonts *, ID3DXSprite *, const char *, CRect, D3DCOLOR, bool))SAMP_ADDROF(0x66C80))(this, pSprite, pText, rect, dwColor, bShadow);
+void SAMP::CFonts::DrawText(ID3DXSprite *pSprite, const char *szText, CRect rect, D3DCOLOR color, BOOL bShadow) {
+	((void(__thiscall *)(CFonts *, ID3DXSprite *, const char *, CRect, D3DCOLOR, BOOL))SAMP_ADDROF(0x66C80))(this, pSprite, szText, rect, color, bShadow);
 }
 
-void SAMP::CFonts::RenderLittleText(ID3DXSprite *pSprite, const char *pText, CRect rect, D3DCOLOR dwColor, bool bShadow) {
-	((void(__thiscall *)(CFonts *, ID3DXSprite *, const char *, CRect, D3DCOLOR, bool))SAMP_ADDROF(0x66E00))(this, pSprite, pText, rect, dwColor, bShadow);
+void SAMP::CFonts::DrawLittleText(ID3DXSprite *pSprite, const char *szText, CRect rect, int nFormat, D3DCOLOR color, BOOL bShadow) {
+	((void(__thiscall *)(CFonts *, ID3DXSprite *, const char *, CRect, int, D3DCOLOR, BOOL))SAMP_ADDROF(0x66E00))(this, pSprite, szText, rect, nFormat, color, bShadow);
 }
 
-void SAMP::CFonts::CreateFonts() {
+void SAMP::CFonts::Reset() {
 	((void(__thiscall *)(CFonts *))SAMP_ADDROF(0x67200))(this);
+}
+
+void SAMP::CFonts::DrawLicensePlateText(const char *szText, CRect rect, D3DCOLOR color) {
+	((void(__thiscall *)(CFonts *, const char *, CRect, D3DCOLOR))SAMP_ADDROF(0x66F70))(this, szText, rect, color);
 }

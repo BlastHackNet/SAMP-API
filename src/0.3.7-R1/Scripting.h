@@ -16,22 +16,22 @@ class CRunningScript;
 SAMP_BEGIN_NP
 
 namespace Scripting {
-	struct OpcodeInfo {
+	struct SAMP_API OpcodeInfo {
 		unsigned short m_wOpCode;
-		char m_szParams[16]; // i - int, f - float, v - var, s - string
+		char m_szParams[16]; // i - int, f - float, v - var, s - string, z - zero terminating
 	};
 
 	typedef int(__thiscall *PROCESSOR)(CRunningScript *);
 
 	extern CRunningScript *&pThread;
-	extern unsigned char *aScriptBuffer; // [256]
-	extern unsigned long &dwLastUsedOpCode;
+	extern unsigned char *aBuffer; // [256]
+	extern unsigned long &nLastUsedOpcode;
 	extern unsigned long *&apThreadLocals; // [18]
-	extern unsigned int &bLocalScmDebug;
+	extern unsigned int &bLocalDebug;
 	extern PROCESSOR &ProcessOneCommand;
 
-	void Init();
-	int ExecScriptBuffer();
+	void Initialize();
+	int ExecBuffer();
 	template<typename... Args> 
 	int ProcessCommand(const OpcodeInfo *pOpcodeInfo, Args... args) {
 		return ((int(__cdecl *)(const OpcodeInfo *, Args...))SAMP_ADDROF(0xABCD0))(pOpcodeInfo, args...);

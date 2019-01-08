@@ -12,14 +12,24 @@
 #include "common.h"
 #include "CVector.h"
 
+#define SOUND_OFF 0
+
 SAMP_BEGIN
 
 class SAMP_API CAudio {
 public:
 	BOOL m_bSoundLoaded;
 
-	void PlaySound(int nSound, CVector vPosition);
-	void PlayRadio(unsigned char nStation);
+	CAudio() {
+		m_bSoundLoaded = 0;
+	}
+
+	~CAudio() {
+		Play(SOUND_OFF);
+	}
+
+	void Play(int nSound, CVector location = {});
+	void StartRadio(unsigned char nStation);
 	float GetRadioVolume();
 };
 

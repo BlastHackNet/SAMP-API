@@ -17,20 +17,20 @@ SAMP::CMenuPool::~CMenuPool() {
 	((void(__thiscall *)(CMenuPool *))SAMP_ADDROF(0x7E20))(this);
 }
 
-SAMP::CMenu *SAMP::CMenuPool::New(unsigned char nId, const char *szTitle, float fX, float fY, unsigned char nColumns, float fCol1Width, float fCol2Width, void *pInteraction) {
-	((void(__thiscall *)(CMenuPool *, unsigned char, const char *, float, float, unsigned char, float, float, void *))SAMP_ADDROF(0x7B00))(this, nId, szTitle, fX, fY, nColumns, fCol1Width, fCol2Width, pInteraction);
+SAMP::CMenu *SAMP::CMenuPool::Create(NUMBER nId, const char *szTitle, float fX, float fY, char nColumns, float fFirstColumnWidth, float fSecondColumnWidth, const CMenu::Interaction *pInteraction) {
+	((void(__thiscall *)(CMenuPool *, NUMBER, const char *, float, float, char, float, float, const CMenu::Interaction *))SAMP_ADDROF(0x7B00))(this, nId, szTitle, fX, fY, nColumns, fFirstColumnWidth, fSecondColumnWidth, pInteraction);
 }
 
-BOOL SAMP::CMenuPool::Delete(unsigned char nId) {
-	return ((BOOL(__thiscall *)(CMenuPool *, unsigned char))SAMP_ADDROF(0x7BD0))(this, nId);
+BOOL SAMP::CMenuPool::Delete(NUMBER nId) {
+	return ((BOOL(__thiscall *)(CMenuPool *, NUMBER))SAMP_ADDROF(0x7BD0))(this, nId);
 }
 
-void SAMP::CMenuPool::Show(unsigned char nId) {
-	((void(__thiscall *)(CMenuPool *, unsigned char))SAMP_ADDROF(0x7C20))(this, nId);
+void SAMP::CMenuPool::Show(NUMBER nId) {
+	((void(__thiscall *)(CMenuPool *, NUMBER))SAMP_ADDROF(0x7C20))(this, nId);
 }
 
-void SAMP::CMenuPool::Hide(unsigned char nId) {
-	((void(__thiscall *)(CMenuPool *, unsigned char))SAMP_ADDROF(0x7C80))(this, nId);
+void SAMP::CMenuPool::Hide(NUMBER nId) {
+	((void(__thiscall *)(CMenuPool *, NUMBER))SAMP_ADDROF(0x7C80))(this, nId);
 }
 
 char *SAMP::CMenuPool::GetTextPointer(const char *szName) {

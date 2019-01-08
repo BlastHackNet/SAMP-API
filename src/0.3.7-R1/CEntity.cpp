@@ -21,12 +21,12 @@ void SAMP::CEntity::UpdateRwFrame() {
 	((void(__thiscall *)(CEntity *))SAMP_ADDROF(0x9A2C0))(this);
 }
 
-void SAMP::CEntity::GetMoveSpeed(CVector *pSpeed) {
-	((void(__thiscall *)(CEntity *, CVector *))SAMP_ADDROF(0x9A320))(this, pSpeed);
+void SAMP::CEntity::GetSpeed(CVector *pVec) {
+	((void(__thiscall *)(CEntity *, CVector *))SAMP_ADDROF(0x9A320))(this, pVec);
 }
 
-void SAMP::CEntity::SetMoveSpeed(CVector speed) {
-	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A350))(this, speed);
+void SAMP::CEntity::SetSpeed(CVector vec) {
+	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A350))(this, vec);
 }
 
 void SAMP::CEntity::GetTurnSpeed(CVector *pSpeed) {
@@ -53,31 +53,31 @@ void SAMP::CEntity::SetModelIndex(int nModel) {
 	((void(__thiscall *)(CEntity *, int))SAMP_ADDROF(0x9A590))(this, nModel);
 }
 
-int SAMP::CEntity::GetModelId() {
+int SAMP::CEntity::GetModelIndex() {
 	return ((int(__thiscall *)(CEntity *))SAMP_ADDROF(0x9A670))(this);
 }
 
-void SAMP::CEntity::TeleportTo(CVector vPosition) {
-	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A680))(this, vPosition);
+void SAMP::CEntity::Teleport(CVector position) {
+	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A680))(this, position);
 }
 
-float SAMP::CEntity::GetDistToLocalPlayerPed() {
+float SAMP::CEntity::GetDistanceToLocalPlayer() {
 	return ((float(__thiscall *)(CEntity *))SAMP_ADDROF(0x9A700))(this);
 }
 
-float SAMP::CEntity::GetDistToCamera() {
+float SAMP::CEntity::GetDistanceToCamera() {
 	return ((float(__thiscall *)(CEntity *))SAMP_ADDROF(0x9A7D0))(this);
 }
 
-float SAMP::CEntity::GetDistToLocalPlayerPedNoHeight() {
+float SAMP::CEntity::GetDistanceToLocalPlayerNoHeight() {
 	return ((float(__thiscall *)(CEntity *))SAMP_ADDROF(0x9A830))(this);
 }
 
-float SAMP::CEntity::GetDistToPoint(CVector vPoint) {
-	return ((float(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A8F0))(this, vPoint);
+float SAMP::CEntity::GetDistanceToPoint(CVector position) {
+	return ((float(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9A8F0))(this, position);
 }
 
-int SAMP::CEntity::IsAdded() {
+BOOL SAMP::CEntity::DoesExist() {
 	return ((int(__thiscall *)(CEntity *))SAMP_ADDROF(0x9AA10))(this);
 }
 
@@ -89,20 +89,20 @@ int SAMP::CEntity::HasExceededWorldBoundries(float fPX, float fZX, float fPY, fl
 	return ((int(__thiscall *)(CEntity *, float, float, float, float))SAMP_ADDROF(0x9AC00))(this, fPX, fZX, fPY, fNY);
 }
 
-void SAMP::CEntity::SetClumpAlpha(unsigned char nValue) {
-	((void(__thiscall *)(CEntity *, unsigned char))SAMP_ADDROF(0x9ADD0))(this, nValue);
+void SAMP::CEntity::SetClumpAlpha(int nValue) {
+	((void(__thiscall *)(CEntity *, int))SAMP_ADDROF(0x9ADD0))(this, nValue);
 }
 
-void SAMP::CEntity::SetFromEuler(CVector vAngles) {
-	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9AE30))(this, vAngles);
+void SAMP::CEntity::SetFromEuler(CVector angles) {
+	((void(__thiscall *)(CEntity *, CVector))SAMP_ADDROF(0x9AE30))(this, angles);
 }
 
 void SAMP::CEntity::GetEulerInverted(float *pX, float *pY, float *pZ) {
 	((void(__thiscall *)(CEntity *, float *, float *, float *))SAMP_ADDROF(0x9AF30))(this, pX, pY, pZ);
 }
 
-void SAMP::CEntity::ApplyTurnForce(CVector vDirection, CVector vVelocity) {
-	((void(__thiscall *)(CEntity *, CVector, CVector))SAMP_ADDROF(0x9B010))(this, vDirection, vVelocity);
+void SAMP::CEntity::ApplyTurnForce(CVector direction, CVector velocity) {
+	((void(__thiscall *)(CEntity *, CVector, CVector))SAMP_ADDROF(0x9B010))(this, direction, velocity);
 }
 
 SAMP::CEntity::CEntity() {
@@ -113,10 +113,26 @@ BOOL SAMP::CEntity::IsStationary() {
 	return ((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B420))(this);
 }
 
-void *SAMP::CEntity::GetRwObject() {
-	return ((void *(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B0A0))(this);
+RwObject *SAMP::CEntity::GetRwObject() {
+	return ((RwObject *(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B0A0))(this);
 }
 
-bool SAMP::CEntity::IsIgnored() {
-	return ((bool(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B320))(this);
+BOOL SAMP::CEntity::IsIgnored() {
+	return ((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B320))(this);
+}
+
+BOOL SAMP::CEntity::GetCollisionFlag() {
+	return ((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9ACA0))(this);
+}
+
+void SAMP::CEntity::SetCollisionFlag(BOOL bEnable) {
+	((void(__thiscall *)(CEntity *, BOOL))SAMP_ADDROF(0x9AC70))(this, bEnable);
+}
+
+void SAMP::CEntity::SetCollisionProcessed(BOOL bProcessed) {
+	((void(__thiscall *)(CEntity *, BOOL))SAMP_ADDROF(0x9ACC0))(this, bProcessed);
+}
+
+void SAMP::CEntity::DeleteRwObject() {
+	((void(__thiscall *)(CEntity *))SAMP_ADDROF(0x9B1F0))(this);
 }

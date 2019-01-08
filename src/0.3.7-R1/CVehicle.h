@@ -21,65 +21,94 @@ SAMP_BEGIN
 
 class SAMP_API CVehicle : public CEntity {
 public:
-	// void **lpVtbl = samp.dll+0xDB1AC;
+	// void **m_lpVtbl = 0xDB1AC;
 	CVehicle				  *m_pTrailer;
 	::CVehicle			  *m_pGameVehicle;
-	unsigned char			pad_50[8];
+	char pad_50[8];
 	BOOL						m_bIsInvulnerable;
 	BOOL						m_bIsLightsOn;
 	BOOL						m_bIsLocked;
 	bool						m_bIsObjective;
 	BOOL						m_bObjectiveBlipCreated;
-	unsigned long			m_dwTimeSinceLastDriven;
+	TICK						m_timeSinceLastDriven;
 	BOOL						m_bHasBeenDriven;
-	unsigned char			pad_71[8];
-	unsigned char			m_nPrimaryColor;
-	unsigned char			m_nSecondaryColor;
+	char pad_71[4];
+	BOOL						m_bEngineState;
+	NUMBER					m_nPrimaryColor;
+	NUMBER					m_nSecondaryColor;
 	BOOL						m_bNeedsToUpdateColor;
 	BOOL						m_bUnoccupiedSync;
 	BOOL						m_bRemoteUnocSync;	
 	BOOL						m_bKeepModelLoaded;
 	int						m_bHasSiren;
 	IDirect3DTexture9	  *m_pLicensePlate;
-	unsigned char			m_szLicensePlateText[LICENSE_PLATE_TEXT_LEN + 1];
-	GTAREF					m_hMarker;
+	char						m_szLicensePlateText[LICENSE_PLATE_TEXT_LEN + 1];
+	GTAREF					m_marker;
 
 	CVehicle() { *(void **)this = (void *)SAMP_ADDROF(0xDB1AC); }
-	CVehicle(int nModel, CVector vPos, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren);
+	CVehicle(int nModel, CVector position, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren);
 
-	virtual ~CVehicle() {}
-	virtual void Add() {}
-	virtual void Remove() {}
+	virtual ~CVehicle() SAMP_VIRTUAL
+	virtual void Add() SAMP_VIRTUAL
+	virtual void Remove() SAMP_VIRTUAL
 
+	void ChangeInterior(int nId);
 	void ResetPointers();
-	void LinkToInterior(int nInterior);
+	BOOL HasDriver();
 	BOOL IsOccupied();
 	void SetInvulnerable(BOOL bInv);
-	void SetLocked(BOOL bLocked);
+	void SetLocked(BOOL block);
 	float GetHealth();
 	void SetHealth(float fValue);
-	void SetColors(unsigned char nPrimary, unsigned char nSecondary);
+	void SetColor(NUMBER nPrimary, NUMBER nSecondary);
+	void UpdateColor();
 	int GetSubtype();
-	BOOL HasSunk();
+	BOOL IsSunk();
 	BOOL IsWrecked();
 	BOOL DriverIsPlayerPed();
+	BOOL HasPlayerPed();
 	BOOL IsTrainPart();
+	BOOL HasTurret();
+	void EnableSiren(bool bEnable);
+	BOOL SirenEnabled();
+	void SetLandingGearState(BOOL bHide);
+	BOOL GetLandingGearState();
+	void SetHydraThrusters(int nDirection);
+	int GetHydraThrusters();
 	void ProcessMarkers();
-	void SetDoorState(BOOL bLocked);
+	void Lock(BOOL bLock);
 	BOOL UpdateLastDrivenTime();
-	char GetWheelDamageStatus();
-	void UpdateDamageStatus(int nPanelDamage, int nDoorDamage, char nLightDamage);
-	int GetBumperDamageStatus();
-	int GetDoorDamageStatus();
-	char GetLightDamageStatus();
+	float GetTrainSpeed();
+	void SetTrainSpeed(float fValue);
+	void SetTires(char nState);
+	char GetTires();
+	void UpdateDamage(int nPanels, int nDoors, char nLights);
+	int GetPanelsDamage();
+	int GetDoorsDamage();
+	char GetLightsDamage();
 	void AttachTrailer();
 	void DetachTrailer();
-	void SetTrailer(CVehicle *pTrailer);
+	void SetTrailer(CVehicle *pVehicle);
 	CVehicle *GetTrailer();
+	CVehicle *GetTractor();
+	BOOL IsTrailer();
+	BOOL IsTowtruck();
+	BOOL IsRC();
+	void EnableLights(bool bEnable);
+	void RemovePassengers();
+	BOOL AddComponent(unsigned short nId);
+	BOOL RemoveComponent(unsigned short nId);
+	void SetPaintjob(NUMBER nId);
+	BOOL DoesExist();
 	void SetLicensePlateText(const char *szText);
-	void SetZAngle(float fValue);
+	void SetRotation(float fValue);
 	void ConstructLicensePlate();
-	void DestructLicensePlate();
+	void ShutdownLicensePlate();
+	BOOL HasSiren();
+	char GetMaxPassengers();
+	void SetWindowOpenFlag(NUMBER nDoorId);
+	void ClearWindowOpenFlag(NUMBER nDoorId);
+	void EnableEngine(BOOL bEnable);
 };
 
 SAMP_END

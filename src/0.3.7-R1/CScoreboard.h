@@ -17,27 +17,27 @@ SAMP_BEGIN
 class SAMP_API CScoreboard {
 public:
 	BOOL					m_bIsEnabled;
-	unsigned int		m_nPlayerCount;
-	float					m_fPosition[2];
+	int					m_nPlayerCount;
+	float					m_position[2];
 	float					m_fScalar;
-	float					m_fSize[2];
-	float					pad_[5];
-	IDirect3DDevice9 *m_pD3DDevice;
+	float					m_size[2];
+	float	pad[5];
+	IDirect3DDevice9 *m_pDevice;
 	CDXUTDialog		  *m_pDialog;
-	CDXUTListBox	  *m_pListbox;
-	unsigned int		m_nOffset;
+	CDXUTListBox	  *m_pListBox;
+	int					m_nCurrentOffset;
 	BOOL					m_bIsSorted; 
 
 	CScoreboard(IDirect3DDevice9 *pDevice);
 	
-	void Show();
-	void Draw();
-	void Hide(bool bHideCursor);
-	void UpdateList();
-	void ResetDialogControls(CDXUTDialog *pDialog);
+	void Recalc();
 	void GetRect(CRect *pRect);
-	void ResetScale();
-	void ClickSelectedPlayer();
+	void Close(bool bHideCursor);
+	void ResetDialogControls(CDXUTDialog *pDialog);
+	void SendNotification();
+	void UpdateList();
+	void Draw();
+	void Enable();
 };
 
 extern CScoreboard *&pScoreboard;

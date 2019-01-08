@@ -23,17 +23,14 @@ public:
 	CPlayerTags(IDirect3DDevice9 *pDevice);
 	~CPlayerTags();
 
+	void EndHealthBar();
+	void BeginLabel();
+	void EndLabel();
+	void DrawLabel(CVector *pPosition, const char *szText, D3DCOLOR color, float fDistanceToCamera, bool bDrawStatus, int nStatus);
+	void DrawHealthBar(CVector *pPosition, float fHealth, float fArmour, float fDistanceToCamera);
 	void OnLostDevice();
 	void OnResetDevice();
-
-	void BeginLabel();
-	void DrawLabel(CVector *pPosition, const char *szLabel, D3DCOLOR dwColor, float fDistanceToCamera, bool bDrawStatus, int nStatus);
-	void EndLabel();
-
-	// health & armour bar
 	void BeginHealthBar();
-	void DrawHealthBar(CVector *pPos, float fHealth, float fArmour, float fDistanceToCamera);
-	void EndHealthBar();
 };
 
 extern CPlayerTags *&pPlayerTags;

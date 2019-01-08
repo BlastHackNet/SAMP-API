@@ -16,6 +16,8 @@
 
 #define MAX_PLAYERS 1004
 
+class CObject;
+
 SAMP_BEGIN
 
 class SAMP_API CPlayerPool {
@@ -25,40 +27,47 @@ public:
 		ID						m_nId;
 #ifndef _DEBUG
 	private:
-		unsigned int		__align;
+		int __align;
 	public:
 #endif
 		std::string			m_szName;
-		CLocalPlayer	  *m_pPlayer;
-		unsigned int		m_nPing;
+		CLocalPlayer	  *m_pObject;
+		int					m_nPing;
 		int					m_nScore;
 	}							m_localInfo;
-	CPlayerInfo			  *m_pInfo[MAX_PLAYERS];
+	CPlayerInfo			  *m_pObject[MAX_PLAYERS];
 	BOOL						m_bNotEmpty[MAX_PLAYERS];
 	BOOL						m_bPrevCollisionFlag[MAX_PLAYERS];
 
 	CPlayerPool();
 	~CPlayerPool();
 
-	BOOL New(ID nId, const char *szNickname, BOOL bIsNPC);
-	BOOL Delete(ID nId, unsigned char nReason); // 2nd param is unused
+	void UpdateLargestId();
 	void Process();
-	void DeleteAll();
-	void SetAt(ID nId, CPlayerInfo *pPlayer); // m_pRemotePlayer[nIdx] = pPlayer (unused)
-	const char *GetNickname(ID nId);
-	ID GetId(::CPed *pPed); // from game ped
-	void ForceCollision(); // enable collision for all players
-	void RestoreCollision(); // restore the old collision state
-	const char *GetLocalPlayerNickname(); // returns m_localInfo.m_szName.c_str()
-	CRemotePlayer *GetPlayer(ID nId); // returns nullptr when a player doesnt exist
-	CPlayerInfo *GetPlayerInfo(ID nId);
-	BOOL IsPlayerConnected(ID nId);
-	BOOL IsNPC(ID nId);
-	void SetPing(ID nId, int nPing);
-	void SetScore(ID nId, int nScore);
+	ID Find(::CPed *pGamePed);
+	void Deactivate();
+	void ForceCollision();
+	void RestoreCollision();
+	BOOL Delete(ID nId, int nReason = SAMP_UNUSED);
+	BOOL Create(ID nId, const char *szName, BOOL bIsNPC);
+	CRemotePlayer *GetPlayer(ID nId);
+	const char *GetLocalPlayerName();
+	BOOL IsDisconnected(ID nId);
+	BOOL IsConnected(ID nId);
+	void SetLocalPlayerName(const char *szName);
+	void SetAt(ID nId, CPlayerInfo *pObject);
+	int GetScore(ID nId);
+	int GetPing(ID nId);
+	const char *GetName(ID nId);
+	int GetLocalPlayerPing() { return m_localInfo.m_nPing; }
+	int GetLocalPlayerScore() { return m_localInfo.m_nScore; }
+	int GetCount(BOOL bIncludeNPC = 0);
 	CLocalPlayer *GetLocalPlayer();
-	int GetScore(ID nPlayer);
-	unsigned int GetPing(ID nPlayer);
+   CObject *FindAccessory(::CObject *pGameObject);
+	CPlayerInfo *GetAt(ID nId);
+	BOOL IsNPC(ID nId);
+	void SetPing(ID nId, int nValue);
+	void SetScore(ID nId, int nValue);
 };
 
 SAMP_END

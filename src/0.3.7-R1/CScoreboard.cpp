@@ -23,19 +23,19 @@ void SAMP::CScoreboard::ResetDialogControls(CDXUTDialog *pDialog) {
 	((void(__thiscall *)(CScoreboard *, CDXUTDialog *))SAMP_ADDROF(0x6A3F0))(this, pDialog);
 }
 
-void SAMP::CScoreboard::Show() {
+void SAMP::CScoreboard::Enable() {
 	((void(__thiscall *)(CScoreboard *))SAMP_ADDROF(0x6A3D0))(this);
 }
 
-void SAMP::CScoreboard::Hide(bool bHideCursor) {
+void SAMP::CScoreboard::Close(bool bHideCursor) {
 	((void(__thiscall *)(CScoreboard *, bool))SAMP_ADDROF(0x6A320))(this, bHideCursor);
 }
 
-void SAMP::CScoreboard::ClickSelectedPlayer() {
+void SAMP::CScoreboard::SendNotification() {
 	((void(__thiscall *)(CScoreboard *))SAMP_ADDROF(0x6A550))(this);
 }
 
-void SAMP::CScoreboard::ResetScale() {
+void SAMP::CScoreboard::Recalc() {
 	((void(__thiscall *)(CScoreboard *))SAMP_ADDROF(0x6A270))(this);
 }
 

@@ -11,38 +11,38 @@
 
 SAMP_BEGIN_NP
 
+typedef void(__cdecl *CMDPROC)(const char *);
+
 namespace Commands {
-	void Setup();
+	extern CMDPROC Default;
+	extern CMDPROC TestDeathWindow;
+	extern CMDPROC ToggleCameraTargetLabels;
+	extern CMDPROC SetChatPageSize;
+	extern CMDPROC SetChatFontSize;
+	extern CMDPROC DrawNameTagStatus;
+	extern CMDPROC DrawChatTimestamps;
+	extern CMDPROC ToggleAudioStreamMessages;
+	extern CMDPROC PrintMemory;
+	extern CMDPROC SetFrameLimiter;
+	extern CMDPROC ToggleHeadMoves;
+	extern CMDPROC Quit;
+	extern CMDPROC CmpStat;//dummy
+	extern CMDPROC SavePosition;
+	extern CMDPROC SavePositionOnly;
+	extern CMDPROC PrintCurrentInterior;
+	extern CMDPROC ToggleObjectsLight;
+	extern CMDPROC ToggleDebugLabels;
+	extern CMDPROC SendRconCommand;
 
-	void DefaultHandler(char *pParam);
-	void Discon(char *pParam); // unused
-	void SetChatPageSize(char *pParam);
-	void SetChatFontSize(char *pParam);
-	void SetNametagStatus(char *pParam);
-	void ToggleEnabledTimestamps(char *pParam);
-	void AudioMessage(char *pParam);
-	void Memory(char *pParam);
-	void SetFPSLimit(char *pParam);
-	void TogglePlayersHeadMoves(char *pParam);
-	void Quit(char *pParam);
-	void CmpStat(char *pParam); // dummy
-	void SavePosition(char *pParam);
-	void SaveRawPosition(char *pParam);
-	
-	// will be registered if debug mode was enabled
 	namespace Debug {
-		void SetPlayerSkin(char *pParam);
-		void CreateVehicle(char *pParam);
-		void SelectVehicle(char *pParam);
-		void SetWorldWeather(char *pParam);
-		void SetWorldTime(char *pParam);
+		extern CMDPROC SetPlayerSkin;
+		extern CMDPROC CreateVehicle;
+		extern CMDPROC EnableVehicleSelection;
+		extern CMDPROC SetWorldWeather;
+		extern CMDPROC SetWorldTime;
 	}
-
-	void ShowInterior(char *pParam);
-	void ToggleObjectsLight(char *pParam);
-	void DebugLabels(char *pParam);
-	void Rcon(char *pParam);
-	void ToggleTargetLabel(char *pParam);
+	
+	void Setup();
 }
 
 SAMP_END_NP

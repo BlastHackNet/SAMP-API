@@ -15,10 +15,12 @@
 #include "CCamera.h"
 #include "CObject.h"
 
+class CWeaponInfo;
+
 SAMP_BEGIN
 
-enum eCursorMode : unsigned int {
-	CMODE_DISABLED,  
+enum CursorMode {
+	CMODE_NONE,  
 	CMODE_LOCKKEYS_NOCURSOR, 
 	CMODE_LOCKCAMANDCONTROL, 
 	CMODE_LOCKCAM,
@@ -31,30 +33,30 @@ public:
 	CCamera		  *m_pCamera;
 	CPed			  *m_pPlayerPed;
 
-	struct {
-		CVector	m_vPos;
-		CVector	m_vSize;
+	struct SAMP_API {
+		CVector	m_position;
+		CVector	m_size;
 		BOOL		m_bEnabled;
 		GTAREF	m_handle;
 	}					m_checkpoint;
 
-	struct {
-		CVector			m_vCurrentPos;
-		CVector			m_vNextPos;
-		float				m_fSize;
-		unsigned char	m_nType;
-		BOOL				m_bEnabled;
-		GTAREF			m_hMarker;
-		GTAREF			m_handle;
-	}					m_raceCheckpoint;
+	struct SAMP_API {
+		CVector	m_currentPosition;
+		CVector	m_nextPosition;
+		float		m_fSize;
+		char		m_nType;
+		BOOL		m_bEnabled;
+		GTAREF	m_marker;
+		GTAREF	m_handle;
+	}					m_racingCheckpoint;
 
-	eCursorMode		m_nCursorMode;
+	int				m_nCursorMode;
 	unsigned int	m_nInputEnableWaitFrames;
 	BOOL				m_bClockEnabled;
-	unsigned int	field_61;
+	int field_61;
 	BOOL				m_bHeadMove;
-	unsigned int	m_nFPSLimit;
-	unsigned char	field_6d;
+	int				m_nFrameLimiter;
+	char field_6d;
 	bool				m_aKeepLoadedVehicleModels[212];
 	
 	static char *&szGameTextMessage; // [256], temp buffer
@@ -65,66 +67,79 @@ public:
 		delete m_pAudio;
 		delete m_pCamera;
 		delete m_pPlayerPed;
-		delete szGameTextMessage;
 	}
 
-	CPed *NewPlayer(int nSkin, CVector vPos, float fRotation, int arg4, int arg5);
-	CVehicle *NewVehicle(int nType, CVector vPos, float fRotation, BOOL bHasSiren);
-	CObject *NewObject(int nModel, CVector vPos, CVector vRot, float fDrawDistance);
-
-	BOOL GetDoesHeadMoves();
+	CPed *GetPlayerPed();
+	float FindGroundZ(CVector point);
+	void SetCursorMode(int nMode, BOOL bImmediatelyHideCursor);
+	void InitGame();
+	void StartGame();
+	BOOL IsMenuVisible();
+	BOOL IsStarted();
+	void RequestModel(int nModel, int nLoadingStream = SAMP_UNUSED);
+	void LoadRequestedModels();
+	BOOL IsModelAvailable(int nModel);
+	void ReleaseModel(int nModel, bool bGameFunc = true);
+	void SetWorldTime(char nHour, char nMinute);
+	void GetWorldTime(char *nHour, char *nMinute);
+	void LetTimeGo(bool blet);
+	void SetWorldWeather(char nWeather);
+	void SetFrameLimiter(int nValue);
+	void SetMaxStats();
+	void DisableTrainTraffic();
+	void RefreshRenderer(float fX, float fY);
+	void RequestAnimation(const char *szFile);
+	BOOL IsAnimationLoaded(const char *szFile);
+	void ReleaseAnimation(const char *szFile);
+	void DisplayGameText(const char *szText, int nType, int nSize);
+	void DeleteRacingCheckpoint();
+	GTAREF CreateMarker(int nIcon, CVector position, int nColor, int nType);
+	void DeleteMarker(GTAREF handle);
+	char GetCurrentInterior();
+	void UpdateFarClippingPlane();
+	void IncreasePlayerMoney(int nInc);
+	int GetPlayerMoney();
+	const char *GetWeaponName(int nWeapon);
+	void CreatePickup(int nModel, int nType, CVector position, GTAREF *handle);
+	GTAREF CreateWeaponPickup(int nModel, int nAmmo, CVector position);
+	IDirect3DDevice9 *GetDevice();
+	void Restart();
+	CWeaponInfo *GetWeaponInfo(int nWeapon, int nSkill);
+	void SetWorldGravity(float fValue);
+	void SetWantedLevel(char nLevel);
+	void SetNumberOfIntroTextLinesThisFrame(unsigned short nValue);
+	void DrawGangZone(float *pPos, char nColor);
+	void EnableZoneDisplaying(bool bEnable);
+	void EnableStuntBonus(bool bEnable);
+	void LoadScene(const char *szFile);
+	int GetUsedMemory();
+	int GetStreamingMemory();
+	void SetRequiredVehicleModels(unsigned char *pModelCount);
+	int GetTimer();
+	void LoadAnimationsAndModels();
+	void LoadCollisionFile(const char *szFile);
+	void LoadCullZone(const char *szLine);
+	BOOL UsingGamepad();
+	void DisableAutoAiming();
+	void EnableHUD(BOOL bEnable);
+	void SetCheckpoint(CVector *pPos, CVector *pSize);
+	void CreateRacingCheckpoint();
+	void ProcessCheckpoints();
+	void ResetMoney();
+	void SetRacingCheckpoint(int nType, CVector *pCurrentPos, CVector *pNextPos, float fSize);
+	void EnableRadar(BOOL bEnable);
 	void *GetWindowHandle();
 	CAudio *GetAudio();
 	CCamera *GetCamera();
-	CPed *FindPlayerPed();
-	void SetCursorMode(eCursorMode nMode, bool bImmediatelyHideCursor = true);
+	BOOL DoesHeadMoves();
+	void EnableClock(bool bEnable);
+	void Sleep(int elapsed, int fpsLimit);
+	CPed *CreatePed(int nModel, CVector position, float fRotation, int a6, int a7);
+	BOOL RemovePed(CPed *pPed);
+	CVehicle *CreateVehicle(int nModel, CVector position, float fRotation, BOOL bHasSiren);
+	CObject *CreateObject(int nModel, CVector position, CVector rotation, float fDrawDistance);
 	void ProcessInputEnabling();
-	void LetTimeGo(bool bLet);
-	void SetWorldWeather(unsigned char nWeather);
-	void SetFPSLimit(unsigned int nValue);
-	char GetActiveInterior();
-	void ToggleClock(bool bEnable);
-	void SetRequiredVehicleModels(unsigned char *pModelsCount);
-	void MakeRaceCheckpoint();
-	void UpdateCheckpoints();
-	int IsUsingGamepad();
-	int IsMenuActive();
-	float FindGroundZ(CVector vPosition);
-	int IsGameLoaded();
-	void RequestModel(unsigned int nModelId, int nLoadingStream);
-	void LoadRequestedModels();
-	int IsModelLoaded(unsigned int nModelId);
-	void ReleaseModel(unsigned int nModelId, bool bGameFunc);
-	void SetWorldTime(int nHour, int nMinute);
-	void GetWorldTime(int *pHour, int *pMinute);
-	void SetMaxStats();
-	void RefreshStreamingAt(float fX, float fY);
-	void RequestAnimation(const char *szFilename);
-	int IsAnimationLoaded(const char *szFilename);
-	void DisplayGameText(const char *szText, int nTime, int nSize);
-	GTAREF CreateRadarMarkerIcon(int nMarkerType, CVector vPosition, D3DCOLOR dwColor, int nType);
-	void IncreasePlayerMoney(int nInc);
-	int GetLocalMoney();
-	const char *GetWeaponName(int nWeapon);
-	GTAREF CreateWeaponPickup(unsigned int nModel, unsigned int nAmmo, CVector vPosition);
-	void *GetD3DDevice();
-	void *GetWeaponInfo(int nWeapon, int nSkill);
-	void SetGravity(float fGravity);
-	void SetWantedLevel(char nLevel);
-	void EnableZoneNames(bool bEnable);
-	void EnableStuntBonus(bool bEnable);
-	void EnableHud(bool bEnable);
-	void ResetPlayerMoney();
-	void DisableMarker(unsigned long dwMarker);
-	void DrawGangZone(float *pPos, D3DCOLOR dwColor);
-	void LoadAnimsAndModels();
-	void SetCheckpointInformation(CVector *pPosition, CVector *pSize);
-	void SetRaceCheckpointInformation(int nType, CVector *pPos, CVector *pNextPos, float fSize);
-	void InitGame();
-	void StartGame();
-	void DeleteRaceCheckpoint();
-	void SetRaceCheckpointInformation(char nType, CVector *pCurrentPos, CVector *pNextPos, float fSize);
-	void SetCheckpointInfomation(CVector *pPos, CVector *pSize);
+	void ProcessFrameLimiter();
 };
 
 extern CGame *&pGame;

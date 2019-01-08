@@ -21,7 +21,7 @@ namespace InputHandler {
 	int WindowProc(unsigned int uMsg, unsigned int wParam, long lParam);
 	BOOL KeyPressHandler(unsigned int nKey);
 	BOOL CharInputHandler(unsigned int nChar);
-	BOOL Init();
+	BOOL Initialize();
 }
 
 SAMP_END_NP

@@ -17,7 +17,7 @@ SAMP::CActorPool::~CActorPool() {
 	((void(__thiscall *)(CActorPool *))SAMP_ADDROF(0x18D0))(this);
 }
 
-SAMP::CActor *SAMP::CActorPool::GetActor(ID nId) {
+SAMP::CActor *SAMP::CActorPool::GetObject(ID nId) {
 	return ((CActor *(__thiscall *)(CActorPool *, ID))SAMP_ADDROF(0x1600))(this, nId);
 }
 
@@ -33,10 +33,10 @@ BOOL SAMP::CActorPool::Delete(ID nId) {
 	return ((BOOL(__thiscall *)(CActorPool *, ID))SAMP_ADDROF(0x16E0))(this, nId);
 }
 
-BOOL SAMP::CActorPool::New(const ActorInfo *pInfo) {
+BOOL SAMP::CActorPool::Create(const ActorInfo *pInfo) {
 	return ((BOOL(__thiscall *)(CActorPool *, const ActorInfo *))SAMP_ADDROF(0x18F0))(this, pInfo);
 }
 
-SAMP::ID SAMP::CActorPool::GetId(::CPed *pPed) {
+SAMP::ID SAMP::CActorPool::Find(::CPed *pPed) {
 	return ((ID(__thiscall *)(CActorPool *, ::CPed *))SAMP_ADDROF(0x18A0))(this, pPed);
 }

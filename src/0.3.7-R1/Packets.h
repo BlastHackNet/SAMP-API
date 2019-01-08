@@ -11,6 +11,8 @@
 
 #include "common.h"
 #include "CVector.h"
+#include "Animation.h"
+#include "ControllerState.h"
 //#include "CNetGame.h"
 
 #define SAMP_COMPRESS_ASPECT_RATIO(_VALUE) (_VALUE * 255)
@@ -24,56 +26,19 @@
 
 SAMP_BEGIN
 
-enum eWeaponState : unsigned char {
-	WS_NONE,
-	WS_LAST_BULLET,
-	WS_MORE_BULLETS,
-	WS_RELOADING
-};
-
-struct SAMP_API ControllerState {
-	short m_sLeftStickX; // move/steer left = -128, right = 128
-	short m_sLeftStickY; // move back = 128, forwards = -128
-	union {
-		struct {
-			unsigned char m_bLeftShoulder1 : 1; // fire weapon alt
-			unsigned char m_bShockButtonL : 1; // crouch
-			unsigned char m_bButtonCircle : 1; // fire weapon
-			unsigned char m_bButtonCross : 1; // sprint, accelerate
-			unsigned char m_bButtonTriangle : 1; // enter/exit vehicle
-			unsigned char m_bButtonSquare : 1; // jump, reverse
-			unsigned char m_bRightShoulder2 : 1; // look right (incar)
-			unsigned char m_bRightShoulder1 : 1; // hand brake, target
-				
-			unsigned char m_bLeftShoulder2 : 1; // look left
-			unsigned char m_bShockButtonR : 1; // look behind
-			unsigned char m_bPedWalk : 1; // walking
-			unsigned char m_bRightStickDown : 1; 
-			unsigned char m_bRightStickUp : 1;
-			unsigned char m_bRightStickRight : 1; // num 4
-			unsigned char m_bRightStickLeft : 1; // num 6
-			// 16th bit is unused
-		};
-		unsigned short m_value;
-	};
-
-	SAMP_DEFAULT_PACKET_CTOR(ControllerState)
-};
-
 namespace PACKET {
 	struct SAMP_API OnfootData {
 		ControllerState	m_controllerState;
-		CVector				m_vPosition;
+		CVector				m_position;
 		float					m_fQuaternion[4];
 		unsigned char		m_nHealth;
 		unsigned char		m_nArmor;
 		unsigned char		m_nCurrentWeapon;
 		unsigned char		m_nSpecialAction;
-		CVector				m_vMoveSpeed;
-		CVector				m_vSurfingOffset;
+		CVector				m_speed;
+		CVector				m_surfingOffset;
 		ID						m_nSurfingVehicleId;
-		short					m_nCurrentAnimationID;
-		short					m_nAnimFlags;
+		Animation			m_animation;
 		
 		SAMP_PACKET_ID(207)
 
@@ -84,15 +49,15 @@ namespace PACKET {
 		ID						m_nVehicle;
 		ControllerState	m_controllerState;
 		float					m_fQuaternion[4];
-		CVector				m_vPosition;
-		CVector				m_vMoveSpeed;
+		CVector				m_position;
+		CVector				m_speed;
 		float					m_fHealth;
 		unsigned char		m_nDriverHealth;
 		unsigned char		m_nDriverArmor;
 		unsigned char		m_nCurrentWeapon;
-		bool					m_bSiren;
+		bool					m_bSirenEnabled;
 		bool					m_bLandingGear;
-		ID						m_nTrailer;
+		ID						m_nTrailerId;
 		union {
 			unsigned short	m_aHydraThrustAngle[2];
 			float				m_fTrainSpeed;
@@ -105,24 +70,26 @@ namespace PACKET {
 
 	struct SAMP_API AimData {
 		unsigned char	m_nCameraMode;
-		CVector			m_vAimf1;
-		CVector			m_vAimPos;
+		CVector			m_aimf1;
+		CVector			m_aimPos;
 		float				m_fAimZ;
 		unsigned char	m_nCameraExtZoom : 6;
-		eWeaponState	m_nWeaponState : 2;
+		unsigned char	m_nWeaponState : 2;
 		char				m_nAspectRatio;
-	
+		
+		enum WeaponState { None, LastBullet, MoreBullets, Reloading };
+
 		SAMP_PACKET_ID(203)
 
 		SAMP_DEFAULT_PACKET_CTOR(AimData)
 	};
 
 	struct SAMP_API TrailerData {
-		ID			m_nTrailer;
-		CVector	m_vPosition;
+		ID			m_nId;
+		CVector	m_position;
 		float		m_fQuaternion[4];
-		CVector	m_vSpeed;
-		CVector	m_vSpin;
+		CVector	m_speed;
+		CVector	m_turnSpeed;
 
 		SAMP_PACKET_ID(210)
 
@@ -130,13 +97,13 @@ namespace PACKET {
 	};
 
 	struct SAMP_API PassengerData {
-		ID						m_nVehicle;
-		unsigned char		m_nSeatId;
+		ID						m_nVehicleId;
+		unsigned char		m_nSeatId; // flags
 		unsigned char		m_nCurrentWeapon;
 		unsigned char		m_nHealth;
 		unsigned char		m_nArmor;
 		ControllerState	m_controllerState;
-		CVector				m_vPosition;
+		CVector				m_position;
 
 		SAMP_PACKET_ID(211)
 
@@ -144,13 +111,13 @@ namespace PACKET {
 	};
 
 	struct SAMP_API UnoccupiedData {
-		ID					m_nVehicle;
-		unsigned char	m_nSeatID;
-		CVector			m_vRoll;
-		CVector			m_vDirection;
-		CVector			m_vPosition;
-		CVector			m_vMoveSpeed;
-		CVector			m_vTurnSpeed;
+		ID					m_nVehicleId;
+		unsigned char	m_nSeatId;
+		CVector			m_roll;
+		CVector			m_direction;
+		CVector			m_position;
+		CVector			m_speed;
+		CVector			m_turnSpeed;
 		float				m_fHealth;
 		
 		SAMP_PACKET_ID(209)
@@ -160,10 +127,10 @@ namespace PACKET {
 
 	struct SAMP_API BulletData {
 		unsigned char	m_nTargetType;
-		ID					m_nTarget;
-		CVector			m_vOrigin;
-		CVector			m_vTarget;
-		CVector			m_vCenter;
+		ID					m_nTargetId;
+		CVector			m_origin;
+		CVector			m_target;
+		CVector			m_center;
 		unsigned char	m_nWeapon;
 
 		SAMP_PACKET_ID(206)
@@ -173,7 +140,7 @@ namespace PACKET {
 
 	struct SAMP_API SpectatorData {
 		ControllerState m_controllerState;
-		CVector			 m_vPosition;
+		CVector			 m_position;
 
 		SAMP_PACKET_ID(212)
 
@@ -195,34 +162,27 @@ namespace PACKET {
 		struct SAMP_API WeaponsData {
 			ID m_nAimedPlayer;
 			ID m_nAimedActor;
-
 			struct {
 				char m_nSlot;
 				char m_nWeapon;
 				unsigned short m_nAmmo;
 			} m_aWeapons[n]; // 0 < n < 14
-
 			SAMP_PACKET_ID(204)
 			SAMP_DEFAULT_PACKET_CTOR(WeaponsData)
 		};
-
 		struct SAMP_API RconCommand {
 			unsigned long m_nTextLen;
 			char m_szText[m_nTextLen];
-
 			SAMP_PACKET_ID(201)
 			SAMP_DEFAULT_PACKET_CTOR(RconCommand)
 		};
-
 		struct SAMP_API MarkersData {
 			bool m_bCreate; // create(1)/remove(0)
 			int m_nCount;
-
 			struct {
 				ID m_nPlayer;
 				VectorCompressed m_vPos;
 			} m_aMarkers[m_nCount];
-
 			SAMP_PACKET_ID(208)
 			SAMP_DEFAULT_PACKET_CTOR(MarkersData)
 		};

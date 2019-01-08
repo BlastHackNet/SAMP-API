@@ -20,7 +20,7 @@ SAMP_BEGIN
 struct SAMP_API ActorInfo {
 	ID			m_nId;
 	int		m_nModel;
-	CVector	m_vPos;
+	CVector	m_position;
 	float		m_fRotation;
 	float		m_fHealth;
 	bool		m_bInvulnerable;
@@ -29,21 +29,21 @@ struct SAMP_API ActorInfo {
 class SAMP_API CActorPool {
 public:
 	int			m_nLargestId;
-	CActor	  *m_pActor[MAX_ACTORS];
+	CActor	  *m_pObject[MAX_ACTORS];
 	BOOL			m_bNotEmpty[MAX_ACTORS];
-	void	     *m_pGamePed[MAX_ACTORS];
+	::CPed	  *m_pGameObject[MAX_ACTORS];
 	int			pad_2ee4[MAX_ACTORS];
 	int			pad_3e84[MAX_ACTORS];
 
 	CActorPool();
 	~CActorPool();
 
-	CActor *GetActor(ID nId);
+	CActor *GetObject(ID nId);
 	BOOL DoesExist(ID nId);
 	void UpdateLargestId();
 	BOOL Delete(ID nId);
-	BOOL New(const ActorInfo *pInfo);
-	ID GetId(::CPed *pPed);
+	BOOL Create(const ActorInfo *pInfo);
+	ID Find(::CPed *pPed);
 };
 
 SAMP_END

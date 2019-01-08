@@ -9,11 +9,11 @@
 
 #include "CAudio.h"
 
-void SAMP::CAudio::PlaySound(int nSound, CVector vPosition) {
-	((void(__thiscall *)(CAudio *, int, CVector))SAMP_ADDROF(0x9D730))(this, nSound, vPosition);
+void SAMP::CAudio::Play(int nSound, CVector location) {
+	((void(__thiscall *)(CAudio *, int, CVector))SAMP_ADDROF(0x9D730))(this, nSound, location);
 }
 
-void SAMP::CAudio::PlayRadio(unsigned char nStation) {
+void SAMP::CAudio::StartRadio(unsigned char nStation) {
 	((void(__thiscall *)(CAudio *, unsigned char))SAMP_ADDROF(0x9D860))(this, nStation);
 }
 

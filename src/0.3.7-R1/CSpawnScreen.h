@@ -28,9 +28,9 @@ public:
 	CSpawnScreen(IDirect3DDevice9 *pDevice);
 	~CSpawnScreen();
 
-	void OnLostDevice();
+	void SetText(const char *szString);
 	void OnResetDevice();
-	void SetText(const char *szText);
+	void OnLostDevice();
 	void Draw();
 };
 

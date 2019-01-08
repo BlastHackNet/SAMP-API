@@ -9,7 +9,7 @@
 
 #include "CObjectPool.h"
 
-unsigned long &SAMP::CObjectPool::dwLastProcessTick = *(unsigned long *)SAMP_ADDROF(0x1049B0);
+TICK &SAMP::CObjectPool::lastProcess = *(TICK *)SAMP_ADDROF(0x1049B0);
 
 SAMP::CObjectPool::CObjectPool() {
 	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF3A0))(this);
@@ -23,7 +23,7 @@ void SAMP::CObjectPool::UpdateLargestId() {
 	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF340))(this);
 }
 
-int SAMP::CObjectPool::GetFirstFree() {
+int SAMP::CObjectPool::GetCount() {
 	return ((int(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF3D0))(this);
 }
 
@@ -31,12 +31,12 @@ BOOL SAMP::CObjectPool::Delete(ID nId) {
 	return ((BOOL(__thiscall *)(CObjectPool *, ID))SAMP_ADDROF(0xF3F0))(this, nId);
 }
 
-BOOL SAMP::CObjectPool::New(ID nId, int nModel, CVector vPosition, CVector vRotation, float fDrawDistance) {
-	((void(__thiscall *)(CObjectPool *, ID, int, CVector, CVector, float))SAMP_ADDROF(0xF470))(this, nId, nModel, vPosition, vRotation, fDrawDistance);
+BOOL SAMP::CObjectPool::Create(ID nId, int nModel, CVector position, CVector rotation, float fDrawDistance) {
+	((void(__thiscall *)(CObjectPool *, ID, int, CVector, CVector, float))SAMP_ADDROF(0xF470))(this, nId, nModel, position, rotation, fDrawDistance);
 }
 
-SAMP::CObject *SAMP::CObjectPool::GetObject(::CObject *pObject) {
-	return ((CObject *(__thiscall *)(CObjectPool *, ::CObject *))SAMP_ADDROF(0xF520))(this, pObject);
+SAMP::CObject *SAMP::CObjectPool::Find(::CObject *pGameObject) {
+	return ((CObject *(__thiscall *)(CObjectPool *, ::CObject *))SAMP_ADDROF(0xF520))(this, pGameObject);
 }
 
 int SAMP::CObjectPool::GetId(::CObject *pObject) {
@@ -45,4 +45,20 @@ int SAMP::CObjectPool::GetId(::CObject *pObject) {
 
 void SAMP::CObjectPool::Process() {
 	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF5A0))(this);
+}
+
+void SAMP::CObjectPool::ConstructMaterials() {
+	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF660))(this);
+}
+
+void SAMP::CObjectPool::ShutdownMaterials() {
+	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF6A0))(this);
+}
+
+void SAMP::CObjectPool::Draw() {
+	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF6E0))(this);
+}
+
+void SAMP::CObjectPool::DrawLast() {
+	((void(__thiscall *)(CObjectPool *))SAMP_ADDROF(0xF720))(this);
 }

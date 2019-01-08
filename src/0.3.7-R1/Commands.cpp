@@ -9,102 +9,31 @@
 
 #include "Commands.h"
 
+SAMP::CMDPROC SAMP::Commands::Default = SAMP::CMDPROC(SAMP_ADDROF(0x64910));
+SAMP::CMDPROC SAMP::Commands::TestDeathWindow = SAMP::CMDPROC(SAMP_ADDROF(0x64930));
+SAMP::CMDPROC SAMP::Commands::ToggleCameraTargetLabels = SAMP::CMDPROC(SAMP_ADDROF(0x64A10));
+SAMP::CMDPROC SAMP::Commands::SetChatPageSize = SAMP::CMDPROC(SAMP_ADDROF(0x64A20));
+SAMP::CMDPROC SAMP::Commands::SetChatFontSize = SAMP::CMDPROC(SAMP_ADDROF(0x64AA0));
+SAMP::CMDPROC SAMP::Commands::DrawNameTagStatus = SAMP::CMDPROC(SAMP_ADDROF(0x65B50));
+SAMP::CMDPROC SAMP::Commands::DrawChatTimestamps = SAMP::CMDPROC(SAMP_ADDROF(0x64B60));
+SAMP::CMDPROC SAMP::Commands::ToggleAudioStreamMessages = SAMP::CMDPROC(SAMP_ADDROF(0x64BC0));
+SAMP::CMDPROC SAMP::Commands::PrintMemory = SAMP::CMDPROC(SAMP_ADDROF(0x64C40));
+SAMP::CMDPROC SAMP::Commands::SetFrameLimiter = SAMP::CMDPROC(SAMP_ADDROF(0x64C60));
+SAMP::CMDPROC SAMP::Commands::ToggleHeadMoves = SAMP::CMDPROC(SAMP_ADDROF(0x64CF0));
+SAMP::CMDPROC SAMP::Commands::Quit = SAMP::CMDPROC(SAMP_ADDROF(0x64D70));
+SAMP::CMDPROC SAMP::Commands::CmpStat = SAMP::CMDPROC(SAMP_ADDROF(0x64D80));
+SAMP::CMDPROC SAMP::Commands::SavePosition = SAMP::CMDPROC(SAMP_ADDROF(0x64D90));
+SAMP::CMDPROC SAMP::Commands::SavePositionOnly = SAMP::CMDPROC(SAMP_ADDROF(0x64F10));
+SAMP::CMDPROC SAMP::Commands::PrintCurrentInterior = SAMP::CMDPROC(SAMP_ADDROF(0x65360));
+SAMP::CMDPROC SAMP::Commands::ToggleObjectsLight = SAMP::CMDPROC(SAMP_ADDROF(0x65390));
+SAMP::CMDPROC SAMP::Commands::ToggleDebugLabels = SAMP::CMDPROC(SAMP_ADDROF(0x653B0));
+SAMP::CMDPROC SAMP::Commands::SendRconCommand = SAMP::CMDPROC(SAMP_ADDROF(0x653C0));
+SAMP::CMDPROC SAMP::Commands::Debug::SetPlayerSkin = SAMP::CMDPROC(SAMP_ADDROF(0x65090));
+SAMP::CMDPROC SAMP::Commands::Debug::CreateVehicle = SAMP::CMDPROC(SAMP_ADDROF(0x65100));
+SAMP::CMDPROC SAMP::Commands::Debug::EnableVehicleSelection = SAMP::CMDPROC(SAMP_ADDROF(0x65240));
+SAMP::CMDPROC SAMP::Commands::Debug::SetWorldWeather = SAMP::CMDPROC(SAMP_ADDROF(0x65260));
+SAMP::CMDPROC SAMP::Commands::Debug::SetWorldTime = SAMP::CMDPROC(SAMP_ADDROF(0x652B0));
+
 void SAMP::Commands::Setup() {
 	((void(__cdecl *)())SAMP_ADDROF(0x654A0))();
-}
-
-void SAMP::Commands::DefaultHandler(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64910))(pParam);
-}
-
-void SAMP::Commands::Discon(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64930))(pParam);
-}
-
-void SAMP::Commands::SetChatPageSize(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64A20))(pParam);
-}
-
-void SAMP::Commands::SetChatFontSize(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64AA0))(pParam);
-}
-
-void SAMP::Commands::SetNametagStatus(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65B50))(pParam);
-}
-
-void SAMP::Commands::ToggleEnabledTimestamps(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64B60))(pParam);
-}
-
-void SAMP::Commands::AudioMessage(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64BC0))(pParam);
-}
-
-void SAMP::Commands::Memory(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64C40))(pParam);
-}
-
-void SAMP::Commands::SetFPSLimit(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64C60))(pParam);
-}
-
-void SAMP::Commands::TogglePlayersHeadMoves(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64CF0))(pParam);
-}
-
-void SAMP::Commands::Quit(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64D70))(pParam);
-}
-
-void SAMP::Commands::CmpStat(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64D80))(pParam);
-}
-
-void SAMP::Commands::SavePosition(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64D90))(pParam);
-}
-
-void SAMP::Commands::SaveRawPosition(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64F10))(pParam);
-}
-
-void SAMP::Commands::ShowInterior(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65360))(pParam);
-}
-
-void SAMP::Commands::ToggleObjectsLight(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65390))(pParam);
-}
-
-void SAMP::Commands::DebugLabels(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x653B0))(pParam);
-}
-
-void SAMP::Commands::Rcon(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x653C0))(pParam);
-}
-
-void SAMP::Commands::Debug::SetPlayerSkin(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65090))(pParam);
-}
-
-void SAMP::Commands::Debug::CreateVehicle(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65100))(pParam);
-}
-
-void SAMP::Commands::Debug::SelectVehicle(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65240))(pParam);
-}
-
-void SAMP::Commands::Debug::SetWorldWeather(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x65260))(pParam);
-}
-
-void SAMP::Commands::Debug::SetWorldTime(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x652B0))(pParam);
-}
-
-void SAMP::Commands::ToggleTargetLabel(char *pParam) {
-	((void(__cdecl *)(char *))SAMP_ADDROF(0x64A10))(pParam);
 }

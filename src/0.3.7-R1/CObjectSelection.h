@@ -22,12 +22,12 @@ public:
 
 	ID DefineObject();
 	void DrawLabels();
-	void ToggleEnabled(BOOL bEnable);
+	void Enable(BOOL bEnable);
 	void Draw();
-	void SendEnterNotification();
+	void SendNotification();
 	BOOL MsgProc(int uMsg, int wParam, int lParam);
 };
 
-extern CObjectSelection *&pObjectEditor;
+extern CObjectSelection *&pObjectSelection;
 
 SAMP_END

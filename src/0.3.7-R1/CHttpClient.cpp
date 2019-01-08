@@ -21,7 +21,7 @@ bool SAMP::CHttpClient::GetHeaderValue(const char *szHeaderName, char *szBuffer,
 	return ((bool(__thiscall *)(CHttpClient *, const char *, char *, int))SAMP_ADDROF(0x23A0))(this, szHeaderName, szBuffer, nBufferLen);
 }
 
-void SAMP::CHttpClient::InitRequest(int nType, const char *szUrl, const char *szPostData, const char *szReferer) {
+void SAMP::CHttpClient::InitializeRequest(int nType, const char *szUrl, const char *szPostData, const char *szReferer) {
 	((void(__thiscall *)(CHttpClient *, int, const char *, const char *, const char *))SAMP_ADDROF(0x24A0))(this, nType, szUrl, szPostData, szReferer);
 }
 
@@ -37,7 +37,7 @@ void SAMP::CHttpClient::Process() {
 	((void(__thiscall *)(CHttpClient *))SAMP_ADDROF(0x2A50))(this);
 }
 
-void SAMP::CHttpClient::CloseConnection() {
+void SAMP::CHttpClient::Disconnect() {
 	((void(__thiscall *)(CHttpClient *))SAMP_ADDROF(0x2430))(this);
 }
 
@@ -49,6 +49,6 @@ bool SAMP::CHttpClient::Send(const char *szBuffer) {
 	return ((bool(__thiscall *)(CHttpClient *, const char *))SAMP_ADDROF(0x2440))(this, szBuffer);
 }
 
-int SAMP::CHttpClient::Recv(char *szBuffer, int nBufferLen) {
+int SAMP::CHttpClient::Receive(char *szBuffer, int nBufferLen) {
 	return ((int(__thiscall *)(CHttpClient *, char *, int))SAMP_ADDROF(0x2480))(this, szBuffer, nBufferLen);
 }

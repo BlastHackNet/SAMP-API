@@ -9,8 +9,8 @@
 
 #include "CPlayerInfo.h"
 
-SAMP::CPlayerInfo::CPlayerInfo(const char *szNickname, bool bIsNPC) {
-	((void(__thiscall *)(CPlayerInfo *, const char *, bool))SAMP_ADDROF(0x10CB0))(this, szNickname, bIsNPC);
+SAMP::CPlayerInfo::CPlayerInfo(const char *szName, BOOL bIsNPC) {
+	((void(__thiscall *)(CPlayerInfo *, const char *, BOOL))SAMP_ADDROF(0x10CB0))(this, szName, bIsNPC);
 }
 
 SAMP::CPlayerInfo::~CPlayerInfo() {

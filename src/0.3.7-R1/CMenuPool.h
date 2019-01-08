@@ -18,18 +18,18 @@ SAMP_BEGIN
 
 class SAMP_API CMenuPool {
 public:
-	CMenu			  *m_pMenu[MAX_MENUS];
+	CMenu			  *m_pObject[MAX_MENUS];
 	BOOL				m_bNotEmpty[MAX_MENUS];
-	unsigned char	m_nCurrentMenu;
+	unsigned char	m_nCurrent;
 	bool				m_bCanceled;
 
 	CMenuPool();
 	~CMenuPool();
 
-	CMenu *New(unsigned char nId, const char *szTitle, float fX, float fY, unsigned char nColumns, float fCol1Width, float fCol2Width, void *pInteraction);
-	BOOL Delete(unsigned char nId);
-	void Show(unsigned char nId);
-	void Hide(unsigned char nId);
+	CMenu *Create(NUMBER nId, const char *szTitle, float fX, float fY, char nColumns, float fFirstColumnWidth, float fSecondColumnWidth, const CMenu::Interaction *pInteraction);
+	BOOL Delete(NUMBER nId);
+	void Show(NUMBER nId);
+	void Hide(NUMBER nId);
 	char *GetTextPointer(const char *szName);
 	void Process();
 };

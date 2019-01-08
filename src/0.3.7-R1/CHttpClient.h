@@ -57,14 +57,14 @@ public:
 	~CHttpClient();
 
 	bool GetHeaderValue(const char *szHeaderName, char *szBuffer, int nBufferLen);
-	void InitRequest(int nType, const char *szUrl, const char *szPostData, const char *szReferer);
+	void InitializeRequest(int nType, const char *szUrl, const char *szPostData, const char *szReferer);
 	void HandleEntity();
 	bool Connect(const char *szHost, int nPort);
 	void Process();
-	void CloseConnection();
+	void Disconnect();
 	Error ProcessUrl(int nType, const char *szUrl, const char *szPostData, const char *szReferer);
 	bool Send(const char *szBuffer);
-	int Recv(char *szBuffer, int nBufferLen);
+	int Receive(char *szBuffer, int nBufferLen);
 };
 
 SAMP_END

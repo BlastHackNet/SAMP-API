@@ -7,24 +7,24 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CTextdrawPool.h"
+#include "CTextDrawPool.h"
 
-SAMP::CTextdrawPool::CTextdrawPool() {
-	((void(__thiscall *)(CTextdrawPool *))SAMP_ADDROF(0x1ACB0))(this);
+SAMP::CTextDrawPool::CTextDrawPool() {
+	((void(__thiscall *)(CTextDrawPool *))SAMP_ADDROF(0x1ACB0))(this);
 }
 
-SAMP::CTextdrawPool::~CTextdrawPool() {
-	((void(__thiscall *)(CTextdrawPool *))SAMP_ADDROF(0x1ADE0))(this);
+SAMP::CTextDrawPool::~CTextDrawPool() {
+	((void(__thiscall *)(CTextDrawPool *))SAMP_ADDROF(0x1ADE0))(this);
 }
 
-SAMP::CTextdraw *SAMP::CTextdrawPool::New(ID nId, void *pTransmit, const char *szText) {
-	((void(__thiscall *)(CTextdrawPool *, ID, void *, const char *))SAMP_ADDROF(0x1AE20))(this, nId, pTransmit, szText);
+SAMP::CTextDraw *SAMP::CTextDrawPool::Create(int nId, CTextDraw::Transmit *pTransmit, const char *szText) {
+	return ((CTextDraw *(__thiscall *)(CTextDrawPool *, int, CTextDraw::Transmit *, const char *))SAMP_ADDROF(0x1AE20))(this, nId, pTransmit, szText);
 }
 
-void SAMP::CTextdrawPool::Delete(ID nId) {
-	((void(__thiscall *)(CTextdrawPool *, ID))SAMP_ADDROF(0x1AD00))(this, nId);
+void SAMP::CTextDrawPool::Delete(ID nId) {
+	((void(__thiscall *)(CTextDrawPool *, ID))SAMP_ADDROF(0x1AD00))(this, nId);
 }
 
-void SAMP::CTextdrawPool::Draw() {
-	((void(__thiscall *)(CTextdrawPool *))SAMP_ADDROF(0x1AD40))(this);
+void SAMP::CTextDrawPool::Draw() {
+	((void(__thiscall *)(CTextDrawPool *))SAMP_ADDROF(0x1AD40))(this);
 }

@@ -17,17 +17,17 @@
 
 SAMP_BEGIN
 
-class SAMP_API CTextdrawPool {
+class SAMP_API CTextDrawPool {
 public:
 	BOOL				m_bNotEmpty[MAX_TEXTDRAWS + MAX_LOCAL_TEXTDRAWS];
-	CTextdraw	  *m_pTextdraw[MAX_TEXTDRAWS + MAX_LOCAL_TEXTDRAWS];
+	CTextDraw	  *m_pObject[MAX_TEXTDRAWS + MAX_LOCAL_TEXTDRAWS];
 	
-	CTextdrawPool();
-	~CTextdrawPool();
+	CTextDrawPool();
+	~CTextDrawPool();
 
-	CTextdraw *New(ID nId, void *pTransmit, const char *szText);
 	void Delete(ID nId);
 	void Draw();
+	CTextDraw *Create(int nId, CTextDraw::Transmit *pData, const char *szText);
 };
 
 SAMP_END

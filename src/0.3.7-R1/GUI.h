@@ -19,14 +19,18 @@ SAMP_BEGIN
 namespace GUI {
 	extern CDXUTDialogResourceManager *&pResourceMgr;
 
-	extern CDXUTDialog *&pGameUI;
+	extern CDXUTDialog *&pGameUi;
 	extern CDXUTDialog *&pScoreboard;
 	extern CDXUTDialog *&pDialog;
 	extern CDXUTDialog *&pClassSelection;
 
 	extern IDirect3DSurface9 *&pCursor;
+	extern IDirect3DDevice9 *&pDevice;
 
 	void Initialize();
+
+	void OnLostDevice();
+	void OnResetDevice();
 
 	void GameUIEventHandler(unsigned int nEvent, int nControlId, CDXUTControl *pControl, void *pUserContext);
 	void ScoreboardEventHandler(unsigned int nEvent, int nControlId, CDXUTControl *pControl, void *pUserContext);

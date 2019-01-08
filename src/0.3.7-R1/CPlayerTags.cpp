@@ -23,8 +23,8 @@ void SAMP::CPlayerTags::BeginLabel() {
 	((void(__thiscall *)(CPlayerTags *))SAMP_ADDROF(0x686A0))(this);
 }
 
-void SAMP::CPlayerTags::DrawLabel(CVector *pPosition, const char *szLabel, D3DCOLOR dwColor, float fDistanceToCamera, bool bDrawStatus, int nStatus) {
-	((void(__thiscall *)(CPlayerTags *, CVector *, const char *, D3DCOLOR, float, bool, int))SAMP_ADDROF(0x686C0))(this, pPosition, szLabel, dwColor, fDistanceToCamera, bDrawStatus, nStatus);
+void SAMP::CPlayerTags::DrawLabel(CVector *pPosition, const char *szText, D3DCOLOR color, float fDistanceToCamera, bool bDrawStatus, int nStatus) {
+	((void(__thiscall *)(CPlayerTags *, CVector *, const char *, D3DCOLOR, float, bool, int))SAMP_ADDROF(0x686C0))(this, pPosition, szText, color, fDistanceToCamera, bDrawStatus, nStatus);
 }
 
 void SAMP::CPlayerTags::EndLabel() {

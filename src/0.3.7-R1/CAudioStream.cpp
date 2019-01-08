@@ -9,9 +9,9 @@
 
 #include "CAudioStream.h"
 
-unsigned long &SAMP::CAudioStream::hStream = *(unsigned long *)SAMP_ADDROF(0x11A60C);
+int &SAMP::CAudioStream::hStream = *(int *)SAMP_ADDROF(0x11A60C);
 bool &SAMP::CAudioStream::bNeedsToDestroy = *(bool *)SAMP_ADDROF(0xF03AA);
-SAMP::CVector &SAMP::CAudioStream::vPosition = *(CVector *)SAMP_ADDROF(0x11A614);
+SAMP::CVector &SAMP::CAudioStream::position = *(CVector *)SAMP_ADDROF(0x11A614);
 bool &SAMP::CAudioStream::bIsPlaying = *(bool *)SAMP_ADDROF(0x11A610);
 char *SAMP::CAudioStream::szUrl = (char *)SAMP_ADDROF(0x11A2F8);
 bool &SAMP::CAudioStream::bIs3d = *(bool *)SAMP_ADDROF(0x11A620);
@@ -21,7 +21,7 @@ char *SAMP::CAudioStream::szIcyName = (char *)SAMP_ADDROF(0x11A1F0);
 char *SAMP::CAudioStream::szIcyUrl = (char *)SAMP_ADDROF(0x11A508);
 float &SAMP::CAudioStream::fRadius = *(float *)SAMP_ADDROF(0xF03AC);
 
-BOOL SAMP::CAudioStream::Initialize() {
+BOOL SAMP::CAudioStream::Reset() {
 	return ((BOOL(__thiscall *)(CAudioStream *))SAMP_ADDROF(0x628C0))(this);
 }
 
@@ -29,20 +29,20 @@ BOOL SAMP::CAudioStream::Stop(bool bWait) {
 	return ((BOOL(__thiscall *)(CAudioStream *, bool))SAMP_ADDROF(0x629A0))(this, bWait);
 }
 
-void SAMP::CAudioStream::_ConstructInfo() {
+void SAMP::CAudioStream::ConstructInfo() {
 	((void(__cdecl *)())SAMP_ADDROF(0x62A00))();
 }
 
-void SAMP::CAudioStream::ConstructInfo() {
-	((void(__thiscall *)(CAudioStream *))SAMP_ADDROF(0x62B30))(this);
+void SAMP::CAudioStream::SyncProc(int handle, int channel, int data, void *user) {
+	((void(__stdcall *)(int, int, int, void *))SAMP_ADDROF(0x62B30))(handle, channel, data, user);
 }
 
 void SAMP::CAudioStream::Process(void *arglist) {
 	((void(__cdecl *)(void *))SAMP_ADDROF(0x62B40))(arglist);
 }
 
-BOOL SAMP::CAudioStream::Play(const char *szUrl, CVector vPosition, float fDistance, bool bIs3d) {
-	return ((BOOL(__thiscall *)(CAudioStream *, const char *, CVector, float, bool))SAMP_ADDROF(0x62DA0))(this, szUrl, vPosition, fDistance, bIs3d);
+BOOL SAMP::CAudioStream::Play(const char *szUrl, CVector position, float fRadius, bool bIs3d) {
+	return ((BOOL(__thiscall *)(CAudioStream *, const char *, CVector, float, bool))SAMP_ADDROF(0x62DA0))(this, szUrl, position, fRadius, bIs3d);
 }
 
 void SAMP::CAudioStream::ControlGameRadio() {

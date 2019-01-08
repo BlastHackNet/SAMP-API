@@ -11,6 +11,11 @@
 
 #include "common.h"
 
+#define DEFAULT_PLATE_FONT "Arial"
+#define DEFAULT_PLATE_TEXT "XYZSR998"
+#define DEFAULT_PLATE_TEXT_COLOR 0xEE444470 
+#define DEFAULT_PLATE_BG_COLOR 0xFFBEB6A8
+
 SAMP_BEGIN
 
 class SAMP_API CLicensePlate {
@@ -31,10 +36,9 @@ public:
 
 	void OnLostDevice();
 	void OnResetDevice();
-
-	IDirect3DTexture9 *Create(const char *pText);
+	IDirect3DTexture9 *Create(const char *szText);
 };
 
-extern CLicensePlate *&pLicensePlateConstructor;
+extern CLicensePlate *&pLicensePlateManager;
 
 SAMP_END
