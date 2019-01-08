@@ -194,7 +194,7 @@ BOOL SAMP::CVehicle::AddComponent(unsigned short nId) {
 }
 
 BOOL SAMP::CVehicle::RemoveComponent(unsigned short nId) {
-	((BOOL(__thiscall *)(CVehicle *, unsigned short))SAMP_ADDROF(0xB7810))(this, nId);
+	return ((BOOL(__thiscall *)(CVehicle *, unsigned short))SAMP_ADDROF(0xB7810))(this, nId);
 }
 
 void SAMP::CVehicle::SetPaintjob(NUMBER nId) {
@@ -226,7 +226,7 @@ BOOL SAMP::CVehicle::HasSiren() {
 }
 
 char SAMP::CVehicle::GetMaxPassengers() {
-	((char(__thiscall *)(CVehicle *))SAMP_ADDROF(0xB7AA0))(this);
+	return ((char(__thiscall *)(CVehicle *))SAMP_ADDROF(0xB7AA0))(this);
 }
 
 void SAMP::CVehicle::SetWindowOpenFlag(NUMBER nDoorId) {

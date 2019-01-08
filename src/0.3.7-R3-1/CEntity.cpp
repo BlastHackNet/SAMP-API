@@ -98,7 +98,7 @@ BOOL SAMP::CEntity::IsStationary() {
 }
 
 BOOL SAMP::CEntity::GetCollisionFlag() {
-	((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9EF50))(this);
+	return ((BOOL(__thiscall *)(CEntity *))SAMP_ADDROF(0x9EF50))(this);
 }
 
 void SAMP::CEntity::SetCollisionFlag(BOOL bEnable) {
