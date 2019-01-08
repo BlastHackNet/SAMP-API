@@ -10,7 +10,7 @@
 #pragma once 
 
 #include "common.h"
-#include "CTextdraw.h"
+#include "CTextDraw.h"
 
 #define MAX_TEXTDRAWS 2048
 #define MAX_LOCAL_TEXTDRAWS 256 
