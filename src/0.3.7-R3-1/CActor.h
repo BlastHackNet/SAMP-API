@@ -20,8 +20,8 @@ class SAMP_API CActor : public CEntity {
 public:
 	// void **m_lpVtbl = 0xEC298;
 	::CPed  *m_pGamePed;
-	GTAREF	m_hMarker;
-	GTAREF 	m_hArrow;
+	GTAREF	m_marker;
+	GTAREF 	m_arrow;
 	bool		m_bNeedsToCreateMarker;
 	bool		m_bInvulnerable;
 

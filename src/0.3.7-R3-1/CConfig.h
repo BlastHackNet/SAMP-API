@@ -11,27 +11,30 @@
 
 #include "common.h"
 
+#define MAX_CONFIG_ENTRIES 512
+#define MAX_CONFIG_ENTRY_NAME 40
+
 SAMP_BEGIN
 
 enum ValueType {
-	None,
-	Int,
-	String,
-	Float
+	VALUE_TYPE_NONE,
+	VALUE_TYPE_INT,
+	VALUE_TYPE_STRING,
+	VALUE_TYPE_FLOAT
 };
 
 class SAMP_API CConfig {
 public:
 	struct SAMP_API Entry {
-		char			m_szName[41];
-		BOOL			m_bReadOnly; // maybe
-		ValueType	m_nType;
-		int			m_nValue;
-		float			m_fValue;
-		char		  *m_szValue;
-	}	  m_entry[512];
+		char		m_szName[MAX_CONFIG_ENTRY_NAME + 1];
+		BOOL		m_bReadOnly; // maybe
+		int		m_nType;
+		int		m_nValue;
+		float		m_fValue;
+		char	  *m_szValue;
+	}	  m_entry[MAX_CONFIG_ENTRIES];
 	
-	BOOL m_bNotEmpty[512]; // map
+	BOOL m_bNotEmpty[MAX_CONFIG_ENTRIES]; // map
 	char m_szFilename[261];
 	int  m_nFirstFree;
 

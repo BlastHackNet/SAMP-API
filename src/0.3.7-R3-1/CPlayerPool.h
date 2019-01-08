@@ -17,6 +17,7 @@
 #define MAX_PLAYERS 1004
 
 class CPed;
+class CObject;
 
 SAMP_BEGIN
 
@@ -51,7 +52,7 @@ public:
 	void RestoreCollision();
 	BOOL Delete(ID nId, int nReason = SAMP_UNUSED);
 	BOOL Create(ID nId, const char *szName, BOOL bIsNPC);
-	CRemotePlayer *GetAt(ID nId);
+	CRemotePlayer *GetPlayer(ID nId);
 	const char *GetLocalPlayerName();
 	BOOL IsDisconnected(ID nId);
 	BOOL IsConnected(ID nId);
@@ -64,7 +65,7 @@ public:
 	int GetLocalPlayerScore();
 	int GetCount(BOOL bIncludeNPC = 0);
 	CLocalPlayer *GetLocalPlayer();
-   CObject *FindAccessory(::CObject *pGameObject);
+	CObject *FindAccessory(::CObject *pGameObject);
 };
 
 SAMP_END

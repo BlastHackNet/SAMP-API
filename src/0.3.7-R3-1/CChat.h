@@ -18,34 +18,34 @@
 SAMP_BEGIN
 
 enum ChatEntry {
-	None = 0,
-	Chat = 1 << 1,
-	Info = 1 << 2,
-	Debug = 1 << 3
+	CHAT_TYPE_NONE = 0,
+	CHAT_TYPE_CHAT = 1 << 1,
+	CHAT_TYPE_INFO = 1 << 2,
+	CHAT_TYPE_DEBUG = 1 << 3
 };
 
 class SAMP_API CChat {
 public:
-	int						m_nPageSize;
-	char					  *m_pLastMsgText;
+	unsigned int			m_nPageSize;
+	char					  *m_szLastMessage;
 	int						m_nMode;
 	bool						m_bTimestamps;
-	BOOL						m_bIsLogExist;
+	BOOL						m_bDoesLogExist;
 	char						m_szLogPath[261]; // MAX_PATH(+1)
-	CDXUTDialog			  *m_pGameUI; 
-	CDXUTEditBox        *m_pEditboxBg; 
+	CDXUTDialog			  *m_pGameUi; 
+	CDXUTEditBox        *m_pEditbox; 
 	CDXUTScrollBar	     *m_pScrollbar; 
-	D3DCOLOR					m_dwTextColor;  // 0xFFFFFFFF
-	D3DCOLOR					m_dwInfoColor;  // 0xFF88AA62
-	D3DCOLOR					m_dwDebugColor; // 0xFFA9C4E4
-	unsigned long			m_dwWindowBottom;
+	D3DCOLOR					m_textColor;  // 0xFFFFFFFF
+	D3DCOLOR					m_infoColor;  // 0xFF88AA62
+	D3DCOLOR					m_debugColor; // 0xFFA9C4E4
+	long						m_nWindowBottom;
 	
 	struct SAMP_API {
-		unsigned int	m_nTimestamp;
+		__int32			m_timestamp;
 		char				m_szPrefix[28];
 		char				m_szText[144];
-		unsigned char	unused[64];
-		ChatEntry		m_nType;
+		char unused[64];
+		int				m_nType;
 		D3DCOLOR			m_textColor;
 		D3DCOLOR			m_prefixColor;
 	}							m_entry[MAX_MESSAGES];
@@ -61,13 +61,13 @@ public:
 #ifdef _d3d9TYPES_H_
 	D3DDISPLAYMODE		   m_displayMode;
 #else
-	unsigned long			m_displayMode[4];
+	unsigned int			m_displayMode[4];
 #endif
 	int						pad_[2];
 	BOOL						m_bRedraw;
-	unsigned long			m_nScrollbarPos;
-	unsigned long			m_nCharHeight; // this is the height of the "Y" 
-	unsigned long			m_nTimestampWidth;
+	long						m_nScrollbarPos;
+	long						m_nCharHeight; // this is the height of the "Y" 
+	long						m_nTimestampWidth;
 
 	enum { Off, NoShadow, Normal };
 

@@ -25,6 +25,14 @@ class CWeaponInfo;
 
 SAMP_BEGIN
 
+enum StuffType {
+	STUFF_TYPE_NONE,
+	STUFF_TYPE_BEER,
+	STUFF_TYPE_DYN_BEER,
+	STUFF_TYPE_PINT_GLASS,
+	STUFF_TYPE_CIGGI
+};
+
 struct SAMP_API Accessory {
 	int			m_nModel;
 	int			m_nBone;
@@ -37,7 +45,7 @@ struct SAMP_API Accessory {
 
 class SAMP_API CPed : public CEntity {
 public:
-	// void **m_lpVtbl = samp.dll+0xED0FC;
+	// void **m_lpVtbl = 0xED0FC;
 	BOOL					m_bUsingCellphone;
 	
 	struct SAMP_API {
@@ -67,8 +75,6 @@ public:
 	unsigned char		pad_2de[20];
 	BOOL					m_bDoesUrinating;
 	unsigned char		pad[55];
-
-	enum StuffType { None, Beer, Beer1, Glass, Ciggi };
 
 	virtual ~CPed() SAMP_VIRTUAL
 
@@ -102,7 +108,7 @@ public:
 	void SetArmedWeapon(int nWeapon, bool bGameFunc = true);
 	void RemoveWeaponWhenEnteringVehicle();
 	CWeapon *GetCurrentWeaponSlot();
-	BOOL CurrentWeaponHasNoAmmo();
+	BOOL CurrentWeaponHasAmmo();
 	float GetDistanceToEntity(const CEntity *pEntity);
 	int GetVehicleSeatIndex();
 	void PutIntoVehicle(GTAREF vehicle, int nSeat);

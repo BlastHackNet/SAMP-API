@@ -125,7 +125,7 @@ CWeapon *SAMP::CPed::GetCurrentWeaponSlot() {
 	return ((::CWeapon *(__thiscall *)(CPed *))SAMP_ADDROF(0xAB8B0))(this);
 }
 
-BOOL SAMP::CPed::CurrentWeaponHasNoAmmo() {
+BOOL SAMP::CPed::CurrentWeaponHasAmmo() {
 	return ((BOOL(__thiscall *)(CPed *))SAMP_ADDROF(0xAB8D0))(this);
 }
 

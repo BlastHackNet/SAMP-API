@@ -18,14 +18,14 @@ class SAMP_API CScoreboard {
 public:
 	BOOL					m_bIsEnabled;
 	int					m_nPlayerCount;
-	float					m_fPosition[2];
+	float					m_position[2];
 	float					m_fScalar;
-	float					m_fSize[2];
-	float					pad_[5];
-	IDirect3DDevice9 *m_pD3DDevice;
+	float					m_size[2];
+	float pad_[5];
+	IDirect3DDevice9 *m_pDevice;
 	CDXUTDialog		  *m_pDialog;
 	CDXUTListBox	  *m_pListbox;
-	int					m_nOffset;
+	int					m_nCurrentOffset;
 	BOOL					m_bIsSorted;
 
 	CScoreboard(IDirect3DDevice9 *pDevice);

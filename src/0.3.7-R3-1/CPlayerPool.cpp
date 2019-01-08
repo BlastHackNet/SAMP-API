@@ -49,7 +49,7 @@ BOOL SAMP::CPlayerPool::Create(ID nId, const char *szName, BOOL bIsNPC) {
 	return ((BOOL(__thiscall *)(CPlayerPool *, ID, const char *, BOOL))SAMP_ADDROF(0x13E80))(this, nId, szName, bIsNPC);
 }
 
-SAMP::CRemotePlayer *SAMP::CPlayerPool::GetAt(ID nId) {
+SAMP::CRemotePlayer *SAMP::CPlayerPool::GetPlayer(ID nId) {
 	return ((CRemotePlayer *(__thiscall *)(CPlayerPool *, ID))SAMP_ADDROF(0x10F0))(this, nId);
 }
 

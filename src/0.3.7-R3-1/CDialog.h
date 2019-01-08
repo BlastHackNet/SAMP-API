@@ -17,9 +17,9 @@ SAMP_BEGIN
 class SAMP_API CDialog {
 public:
 	IDirect3DDevice9 *m_pDevice;
-	unsigned long		m_aPosition[2];
-	unsigned long		m_aSize[2];
-	unsigned long		m_aButtonOffset[2];
+	unsigned long		m_position[2];
+	unsigned long		m_size[2];
+	unsigned long		m_buttonOffset[2];
 	CDXUTDialog		  *m_pDialog;
 	CDXUTListBox	  *m_pListbox; 
 	CDXUTIMEEditBox  *m_pEditbox; 
@@ -27,7 +27,7 @@ public:
 	int					m_nType;
 	unsigned int		m_nId;
 	char				  *m_szText;
-	unsigned long		m_aTextSize[2];
+	unsigned long		m_textSize[2];
 	char					m_szCaption[65];
 	BOOL					m_bServerside;
 	char					pad[536];

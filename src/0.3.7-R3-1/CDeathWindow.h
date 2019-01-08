@@ -12,6 +12,8 @@
 #include "common.h"
 #include "CRect.h"
 
+#define MAX_DEATHMESSAGES 5
+
 SAMP_BEGIN
 
 class SAMP_API CDeathWindow {
@@ -24,10 +26,10 @@ public:
 		D3DCOLOR			m_killerColor;
 		D3DCOLOR			m_victimColor;
 		char				m_nWeapon;
-	}						m_entry[5];
+	}						m_entry[MAX_DEATHMESSAGES];
 	
-	unsigned int 		m_nLongestNickWidth;
-	unsigned long		m_aPosition[2];
+	int 					m_nLongestNickWidth;
+	int					m_position[2];
 	ID3DXFont		  *m_pFont;
 	ID3DXFont		  *m_pWeaponFont1;
 	ID3DXFont		  *m_pWeaponFont2;

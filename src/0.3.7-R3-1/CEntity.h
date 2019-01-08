@@ -21,7 +21,7 @@ SAMP_BEGIN
 class SAMP_API CEntity {
 public:
 	// void **m_lpVtbl = samp.dll+0xEC28C;
-	unsigned char	pad_4[60];
+	char pad_4[60];
 	::CEntity	  *m_pGameEntity;
 	GTAREF			m_handle;
 
