@@ -24,24 +24,21 @@ public:
 	CMatrix *m_pMatrix;
 
 	CCamera();
+	~CCamera() { Detach(); }
 
-	~CCamera() {
-		Detach();
-	}
-
-	void SetVectorTrack(CVector *vPoint, CVector *vTransverseTo, unsigned int nTime, bool bSmooth);
-	void SetVectorMove(CVector *vCamera, CVector *vDestination, unsigned int nTime, bool bSmooth);
-	void SetFixedPosition(CVector vPosition, CVector vRotation);
-	void Attach(CEntity *pEntity);
-	void Detach();
-	void SetToOwner(); // if it was attached to an entity
-	void GetMatrix(CMatrix *pMatrix); // returns a copy of the matrix
-	void Restore();
-	void PointAt(CVector vPosition, unsigned char nSwitchType);
-	float DistToCamera(CVector *vPosition);
-	void Fade(bool bIn);
+	void Fade(BOOL bin);
+	void GetMatrix(CMatrix *pMatrix);
 	void SetMatrix(CMatrix matrix);
 	void TakeControl(::CEntity *pTarget, short nModeToGoTo, short nTypeOfSwitch);
+	void SetMoveVector(CVector *pCamera, CVector *pPosition, int nTime, bool bSmoothTransmition);
+	void SetTrackVector(CVector *pPointAt, CVector *pTransverseTo, int nTime, bool bSmooth);
+	void Attach(CEntity *pOwner);
+	void SetToOwner();
+	float GetDistanceToPoint(CVector *pPoint);
+	void Restore();
+	void Set(CVector position, CVector rotation);
+	void PointAt(CVector point, int nSwitchStyle);
+	void Detach();
 };
 
 SAMP_END

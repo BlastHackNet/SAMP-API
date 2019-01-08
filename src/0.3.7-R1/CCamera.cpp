@@ -17,24 +17,24 @@ void SAMP::CCamera::Detach() {
 	((void(__thiscall *)(CCamera *))SAMP_ADDROF(0x990E0))(this);
 }
 
-void SAMP::CCamera::SetFixedPosition(CVector vPosition, CVector vRotation) {
-	((void(__thiscall *)(CCamera *, CVector, CVector))SAMP_ADDROF(0x99120))(this, vPosition, vRotation);
+void SAMP::CCamera::Set(CVector position, CVector rotation) {
+	((void(__thiscall *)(CCamera *, CVector, CVector))SAMP_ADDROF(0x99120))(this, position, rotation);
 }
 
-void SAMP::CCamera::PointAt(CVector vPosition, unsigned char nSwitchType) {
-	((void(__thiscall *)(CCamera *, CVector, unsigned char))SAMP_ADDROF(0x99180))(this, vPosition, nSwitchType);
+void SAMP::CCamera::PointAt(CVector position, int nSwitchStyle) {
+	((void(__thiscall *)(CCamera *, CVector, int))SAMP_ADDROF(0x99180))(this, position, nSwitchStyle);
 }
 
 void SAMP::CCamera::Restore() {
 	((void(__thiscall *)(CCamera *))SAMP_ADDROF(0x991D0))(this);
 }
 
-void SAMP::CCamera::SetVectorTrack(CVector *vPoint, CVector *vTransverseTo, unsigned int nTime, bool bSmooth) {
-	((void(__thiscall *)(CCamera *, CVector *, CVector *, unsigned int, bool))SAMP_ADDROF(0x98FA0))(this, vPoint, vTransverseTo, nTime, bSmooth);
+void SAMP::CCamera::SetTrackVector(CVector *pPointAt, CVector *pTransverseTo, int nTime, bool bSmooth) {
+	((void(__thiscall *)(CCamera *, CVector *, CVector *, unsigned int, bool))SAMP_ADDROF(0x98FA0))(this, pPointAt, pTransverseTo, nTime, bSmooth);
 }
 
-void SAMP::CCamera::SetVectorMove(CVector *vCamera, CVector *vDestination, unsigned int nTime, bool bSmooth) {
-	((void(__thiscall *)(CCamera *, CVector *, CVector *, unsigned int, bool))SAMP_ADDROF(0x98F30))(this, vCamera, vDestination, nTime, bSmooth);
+void SAMP::CCamera::SetMoveVector(CVector *pCamera, CVector *pPosition, int nTime, bool bSmoothTransmition) {
+	((void(__thiscall *)(CCamera *, CVector *, CVector *, unsigned int, bool))SAMP_ADDROF(0x98F30))(this, pCamera, pPosition, nTime, bSmoothTransmition);
 }
 
 void SAMP::CCamera::SetToOwner() {
@@ -49,11 +49,11 @@ void SAMP::CCamera::GetMatrix(CMatrix *pMatrix) {
 	((void(__thiscall *)(CCamera *, CMatrix *))SAMP_ADDROF(0x98E00))(this, pMatrix);
 }
 
-float SAMP::CCamera::DistToCamera(CVector *vPosition) {
-	return ((float(__thiscall *)(CCamera *, CVector *))SAMP_ADDROF(0x990A0))(this, vPosition);
+float SAMP::CCamera::GetDistanceToPoint(CVector *pPosition) {
+	return ((float(__thiscall *)(CCamera *, CVector *))SAMP_ADDROF(0x990A0))(this, pPosition);
 }
 
-void SAMP::CCamera::Fade(bool bIn) {
+void SAMP::CCamera::Fade(BOOL bIn) {
 	((void(__thiscall *)(CCamera *, bool))SAMP_ADDROF(0x98DE0))(this, bIn);
 }
 
