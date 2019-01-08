@@ -18,7 +18,7 @@ SAMP::CMenuPool::~CMenuPool() {
 }
 
 SAMP::CMenu *SAMP::CMenuPool::Create(NUMBER nId, const char *szTitle, float fX, float fY, char nColumns, float fFirstColumnWidth, float fSecondColumnWidth, const CMenu::Interaction *pInteraction) {
-	((void(__thiscall *)(CMenuPool *, NUMBER, const char *, float, float, char, float, float, const CMenu::Interaction *))SAMP_ADDROF(0x7B00))(this, nId, szTitle, fX, fY, nColumns, fFirstColumnWidth, fSecondColumnWidth, pInteraction);
+	return ((CMenu *(__thiscall *)(CMenuPool *, NUMBER, const char *, float, float, char, float, float, const CMenu::Interaction *))SAMP_ADDROF(0x7B00))(this, nId, szTitle, fX, fY, nColumns, fFirstColumnWidth, fSecondColumnWidth, pInteraction);
 }
 
 BOOL SAMP::CMenuPool::Delete(NUMBER nId) {

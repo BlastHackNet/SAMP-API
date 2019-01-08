@@ -32,7 +32,7 @@ BOOL SAMP::CObjectPool::Delete(ID nId) {
 }
 
 BOOL SAMP::CObjectPool::Create(ID nId, int nModel, CVector position, CVector rotation, float fDrawDistance) {
-	((void(__thiscall *)(CObjectPool *, ID, int, CVector, CVector, float))SAMP_ADDROF(0xF470))(this, nId, nModel, position, rotation, fDrawDistance);
+	return ((BOOL(__thiscall *)(CObjectPool *, ID, int, CVector, CVector, float))SAMP_ADDROF(0xF470))(this, nId, nModel, position, rotation, fDrawDistance);
 }
 
 SAMP::CObject *SAMP::CObjectPool::Find(::CObject *pGameObject) {
