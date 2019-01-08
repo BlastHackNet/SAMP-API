@@ -9,59 +9,79 @@
 
 #include "AimStuff.h"
 
+float &SAMP::AimStuff::fLocalPlayerCameraExtZoom = *(float *)SAMP_ADDROF(0x12FBA0);
+float &SAMP::AimStuff::fLocalPlayerAspectRatio = *(float *)SAMP_ADDROF(0x132758);
+float *&SAMP::AimStuff::pInternalCameraExtZoom = *(float **)SAMP_ADDROF(0xF159C);
+float *&SAMP::AimStuff::pInternalAspectRatio = *(float **)SAMP_ADDROF(0xF1598);
+float *SAMP::AimStuff::aCameraExtZoom = (float *)SAMP_ADDROF(0x12FC80);
+float *SAMP::AimStuff::aAspectRatio = (float *)SAMP_ADDROF(0x132788);
+char *SAMP::AimStuff::aCameraMode = (char *)SAMP_ADDROF(0x12FBA8);
+char *&SAMP::AimStuff::pInternalCameraMode = *(char **)SAMP_ADDROF(0x10153C);
 SAMP::AimStuff::Aim &SAMP::AimStuff::localPlayerAim = *(SAMP::AimStuff::Aim *)SAMP_ADDROF(0x12FFC8);
 SAMP::AimStuff::Aim *SAMP::AimStuff::aPlayerAim = (SAMP::AimStuff::Aim *)SAMP_ADDROF(0x12FFF8);
-char *SAMP::AimStuff::aCameraMode = (char *)SAMP_ADDROF(0x12FBA8);
-float *SAMP::AimStuff::aCameraExtZoom = (float *)SAMP_ADDROF(0x12FC80);
 SAMP::AimStuff::Aim *&SAMP::AimStuff::pInternalAim = *(SAMP::AimStuff::Aim **)SAMP_ADDROF(0xF1590);
-float *&SAMP::AimStuff::pCameraExtZoom = *(float **)SAMP_ADDROF(0xF159C);
-char *&SAMP::AimStuff::pCameraMode = *(char **)SAMP_ADDROF(0x10153C);
-float *&SAMP::AimStuff::pAspectRatio = *(float **)SAMP_ADDROF(0xF1598);
 
-float SAMP::AimStuff::GetLocalPlayerCameraExtZoom() {
+float SAMP::AimStuff::GetCameraExtZoom() {
 	return ((float(__stdcall *)())SAMP_ADDROF(0x981D0))();
 }
 
-void SAMP::AimStuff::ApplyPlayerCameraExtZoom(int nPlayerNumber) {
-	((void(__stdcall *)(int))SAMP_ADDROF(0x981F0))(nPlayerNumber);
+void SAMP::AimStuff::ApplyCameraExtZoomAndAspectRatio(NUMBER nPlayer) {
+	((void(__stdcall *)(NUMBER))SAMP_ADDROF(0x981F0))(nPlayer);
 }
 
-void SAMP::AimStuff::SetPlayerCameraMode(char nMode, int nPlayerNumber) {
-	((void(__stdcall *)(char, int))SAMP_ADDROF(0x98230))(nMode, nPlayerNumber);
+void SAMP::AimStuff::SetCameraMode(char nMode, NUMBER nPlayer) {
+	((void(__stdcall *)(char, NUMBER))SAMP_ADDROF(0x98230))(nMode, nPlayer);
 }
 
-char SAMP::AimStuff::GetPlayerCameraMode(int nPlayerNumber) {
-	return ((char(__stdcall *)(int))SAMP_ADDROF(0x98250))(nPlayerNumber);
+char SAMP::AimStuff::GetCameraMode(NUMBER nPlayer) {
+	return ((char(__stdcall *)(NUMBER))SAMP_ADDROF(0x98250))(nPlayer);
 }
 
-char SAMP::AimStuff::GetLocalPlayerCameraMode() {
+char SAMP::AimStuff::GetCameraMode() {
 	return ((char(__stdcall *)())SAMP_ADDROF(0x98260))();
 }
 
-void SAMP::AimStuff::Initialise() {
+void SAMP::AimStuff::Initialize() {
 	((void(__stdcall *)())SAMP_ADDROF(0x98270))();
 }
 
-void SAMP::AimStuff::UpdateLocalPlayerAim() {
+void SAMP::AimStuff::UpdateAim() {
 	((void(__stdcall *)())SAMP_ADDROF(0x982E0))();
 }
 
-void SAMP::AimStuff::ApplyLocalPlayerAim() {
+void SAMP::AimStuff::ApplyAim() {
 	((void(__stdcall *)())SAMP_ADDROF(0x98300))();
 }
 
-SAMP::AimStuff::Aim *SAMP::AimStuff::GetInternalAim() {
+SAMP::AimStuff::Aim *SAMP::AimStuff::GetAim() {
 	return ((Aim *(__stdcall *)())SAMP_ADDROF(0x98320))();
 }
 
-void SAMP::AimStuff::CopyPlayerAim(int nPlayerNumber, Aim *pDest) {
-	((void(__stdcall *)(int, Aim *))SAMP_ADDROF(0x98330))(nPlayerNumber, pDest);
+void SAMP::AimStuff::SetAim(int nPlayer, const Aim *pAim) {
+	((void(__stdcall *)(int, const Aim *))SAMP_ADDROF(0x98330))(nPlayer, pAim);
 }
 
-void SAMP::AimStuff::ApplyPlayerAim(int nPlayerNumber) {
-	((void(__stdcall *)(int))SAMP_ADDROF(0x98360))(nPlayerNumber);
+void SAMP::AimStuff::ApplyAim(int nPlayer) {
+	((void(__stdcall *)(int))SAMP_ADDROF(0x98360))(nPlayer);
 }
 
-SAMP::AimStuff::Aim *SAMP::AimStuff::GetPlayerAim(int nPlayerNumber) {
-	return ((Aim *(__stdcall *)(int))SAMP_ADDROF(0x98390))(nPlayerNumber);
+SAMP::AimStuff::Aim *SAMP::AimStuff::GetAim(int nPlayer) {
+	return ((Aim *(__stdcall *)(int))SAMP_ADDROF(0x98390))(nPlayer);
 }
+
+void SAMP::AimStuff::UpdateCameraExtZoomAndAspectRatio() {
+	((void(__stdcall *)())SAMP_ADDROF(0x98160))();
+}
+
+void SAMP::AimStuff::ApplyCameraExtZoomAndAspectRatio() {
+	((void(__stdcall *)())SAMP_ADDROF(0x98180))();
+}
+
+void SAMP::AimStuff::SetCameraExtZoomAndAspectRatio(NUMBER nPlayer, float fCameraExtZoom, float fAspectRatio) {
+	((void(__stdcall *)(NUMBER, float, float))SAMP_ADDROF(0x981A0))(nPlayer, fCameraExtZoom, fAspectRatio);
+}
+
+float SAMP::AimStuff::GetAspectRatio() {
+	return ((float(__stdcall *)())SAMP_ADDROF(0x981C0))();
+}
+

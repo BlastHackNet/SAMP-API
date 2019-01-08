@@ -16,23 +16,23 @@ class CPad;
 SAMP_BEGIN_NP
 
 namespace KeyStuff {	
-	extern CPad *&pInternalKeys; // gta CPad class object (0xB73458)
 	extern CPad *pLocalPlayerKeys;
-	extern CPad *aRemotePlayerKeys; // [SAMP_PLAYER_PED_SLOTS]
-
-	extern bool *&bDriveByLeft;
-	extern bool *&bDriveByRight;
-	extern bool &bDriveByLeftPrevValue;
-	extern bool &bDriveByRightPrevValue;
+	extern CPad *aPlayerKeys;
+	extern CPad *&pInternalKeys;
+	extern bool *&pDriveByLeft;
+	extern bool *&pDriveByRight;
+	extern bool &bSavedDriveByLeft;
+	extern bool &bSavedDriveByRight;
 
 	void Initialize();
-	void ApplyLocalPlayerKeys();
-	void UpdateLocalPlayerKeys();
-	void SetPlayerKeys(int nPlayerNumber, const CPad *pPad);
-	void SynchronizeWithRemotePlayer(int nPlayerNumber);
+	void UpdateKeys();
+	void ApplyKeys();
+	void SetKeys(int nPlayer, const CPad *pKeys);
+	void ApplyKeys(int nPlayer);
 	CPad *GetInternalKeys();
-	CPad *GetPlayerKeys(int nPlayerNumber);
-	void ResetPlayerKeys(int nPlayerNumeber);
+	CPad *GetKeys();
+	CPad *GetKeys(int nPlayer);
+	void ResetKeys(int nPlayer);
 	void ResetInternalKeys();
 }
 

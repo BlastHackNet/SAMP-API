@@ -15,7 +15,6 @@
 SAMP_BEGIN_NP
 
 namespace AimStuff {
-	// chunk of gta CCamera class? wtf
 	struct Aim {
 		CVector f1;
 		CVector pos1;
@@ -23,29 +22,34 @@ namespace AimStuff {
 		CVector f2;
 	};
 
+	extern float &fLocalPlayerCameraExtZoom;
+	extern float &fLocalPlayerAspectRatio;
+	extern float *&pInternalCameraExtZoom;
+	extern float *&pInternalAspectRatio;
+	extern float *aCameraExtZoom;
+	extern float *aAspectRatio;
+	extern char *aCameraMode;
+	extern char *&pInternalCameraMode;
 	extern Aim &localPlayerAim;
+	extern Aim *aPlayerAim;
+	extern Aim *&pInternalAim;
 
-	extern Aim *aPlayerAim; // [SAMP_PLAYER_PED_SLOTS]
-	extern char *aCameraMode; // [SAMP_PLAYER_PED_SLOTS]
-	extern float *aCameraExtZoom; // [SAMP_PLAYER_PED_SLOTS]
-
-	extern Aim *&pInternalAim; // ref to 0xB6F32C
-	extern float *&pCameraExtZoom; // ref to 0xB6F250
-	extern char *&pCameraMode; // ref to 0xB6F1A8
-	extern float *&pAspectRatio; // ref to 0xC3EFA4
-
-	float GetLocalPlayerCameraExtZoom();
-	void ApplyPlayerCameraExtZoom(int nPlayerNumber);
-	void SetPlayerCameraMode(char nMode, int nPlayerNumber);
-	char GetPlayerCameraMode(int nPlayerNumber);
-	char GetLocalPlayerCameraMode();
-	void Initialise();
-	void UpdateLocalPlayerAim();
-	void ApplyLocalPlayerAim();
-	Aim *GetInternalAim();
-	void CopyPlayerAim(int nPlayerNumber, Aim *pDest);
-	void ApplyPlayerAim(int nPlayerNumber);
-	Aim *GetPlayerAim(int nPlayerNumber);
+	void UpdateCameraExtZoomAndAspectRatio();
+	void ApplyCameraExtZoomAndAspectRatio();
+	void SetCameraExtZoomAndAspectRatio(NUMBER nPlayer, float fCameraExtZoom, float fAspectRatio);
+	float GetAspectRatio();
+	float GetCameraExtZoom();
+	void ApplyCameraExtZoomAndAspectRatio(NUMBER nPlayer);
+	void SetCameraMode(char nMode, NUMBER nPlayer);
+	char GetCameraMode(NUMBER nPlayer);
+	char GetCameraMode();
+	void Initialize();
+	void UpdateAim();
+	void ApplyAim();
+	Aim *GetAim();
+	void SetAim(int nPlayer, const Aim *pAim);
+	void ApplyAim(int nPlayer);
+	Aim *GetAim(int nPlayer);
 }
 
 SAMP_END_NP
