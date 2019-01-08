@@ -42,8 +42,8 @@ public:
 		char				m_szText[144];
 		char unused[64];
 		int				m_nType;
-		D3DCOLOR			m_dwTextColor;
-		D3DCOLOR			m_dwPrefixColor;
+		D3DCOLOR			m_textColor;
+		D3DCOLOR			m_prefixColor;
 	}							m_entry[100];
 	CFonts				  *m_pFontRenderer;
 	ID3DXSprite			  *m_pTextSprite;
