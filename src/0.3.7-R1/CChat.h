@@ -36,7 +36,7 @@ public:
 	D3DCOLOR					m_infoColor;  // 0xFF88AA62
 	D3DCOLOR					m_debugColor; // 0xFFA9C4E4
 	long						m_nWindowBottom;
-	struct SAMP_API {
+	struct SAMP_API Entry {
 		__int32			m_timestamp;
 		char				m_szPrefix[28];
 		char				m_szText[144];
