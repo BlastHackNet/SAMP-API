@@ -20,7 +20,7 @@ class SAMP_API CDeathWindow {
 public:
 	BOOL					m_bEnabled;
 	
-	struct SAMP_API {
+	struct SAMP_API Entry {
 		char				m_szKiller[25];
 		char				m_szVictim[25];
 		D3DCOLOR			m_killerColor;
