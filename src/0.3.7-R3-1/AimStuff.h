@@ -16,10 +16,10 @@ SAMP_BEGIN
 
 namespace AimStuff {
 	struct Aim {
-		CVector f1;
-		CVector pos1;
-		CVector pos2;
-		CVector f2;
+		CVector front;
+		CVector source;
+		CVector sourceBeforeLookBehind;
+		CVector up;
 	};
 
 	extern float &fLocalPlayerCameraExtZoom;

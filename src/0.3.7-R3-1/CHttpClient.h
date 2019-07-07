@@ -34,7 +34,7 @@ public:
 		enum { Get = 1, Post, Head };
 	};
 
-	struct SAMP_API Response {
+	struct SAMP_API Responce {
 		char *m_szHeader;
 		char *m_szResponse;
 		unsigned int m_nHeaderLen;
@@ -50,7 +50,7 @@ public:
 
 	int		m_nSocket;
 	Request	m_request;
-	Response	m_response;
+	Responce	m_response;
 	Error		m_error;
 
 	CHttpClient();
