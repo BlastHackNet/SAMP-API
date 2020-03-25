@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{48eee940-1341-4a78-a455-dcc9b752ddcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\0.3.7-R1">
+      <UniqueIdentifier>{7942908f-33bb-41ff-9428-678874110de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\0.3.7-R3-1">
+      <UniqueIdentifier>{7531feed-e694-4602-ae6a-7bdb9e895c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{b522911a-1e2c-4fd8-ba61-78919284e6c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\0.3.7-R1\AimStuff.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CActor.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CActorPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CAudio.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CAudioStream.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CCamera.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CChat.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CConfig.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CDeathWindow.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CDialog.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CEntity.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CFonts.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CGame.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CGangZonePool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CHttpClient.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CInput.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CLabel.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CLabelPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CLicensePlate.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CLocalPlayer.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CMenu.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CMenuPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CNetGame.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CNetStats.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CObject.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CObjectPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CObjectSelection.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\Commands.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CPed.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CPickupPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CPlayerInfo.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CPlayerPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CPlayerTags.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CRemotePlayer.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CScoreboard.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CSpawnScreen.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CTextDraw.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CTextDrawPool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CTextDrawSelection.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CVehicle.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\CVehiclePool.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\Debug.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\DebugScript.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\Exception.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\GUI.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\InputHandler.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\KeyStuff.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\RPC.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\Scripting.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\Settings.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R1\VehicleSelection.cpp">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\AimStuff.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CActor.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CActorPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CAudio.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CAudioStream.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CCamera.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CChat.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CChatBubble.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CConfig.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CDeathWindow.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CDialog.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CEntity.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CFont.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CFonts.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CGame.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CGangZonePool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CHelpDialog.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CHttpClient.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CInput.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CLabel.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CLabelPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CLicensePlate.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CLocalPlayer.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CMenu.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CMenuPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CNetGame.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CNetStats.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CObject.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CObjectMaterialText.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CObjectPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CObjectSelection.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\Commands.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CPed.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CPickupPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CPlayerInfo.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CPlayerPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CPlayerTags.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CRemotePlayer.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CScoreboard.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CSpawnScreen.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CSrvNetStats.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CTextDraw.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CTextDrawPool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CTextDrawSelection.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CVehicle.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\CVehiclePool.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\DebugScript.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\Exception.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\GUI.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\KeyStuff.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\Scripting.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\0.3.7-R3-1\Settings.cpp">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\CRect.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\CVector.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\sampapi.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\0.3.7-R1\AimStuff.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Animation.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CActor.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CActorPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CAudio.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CAudioStream.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CCamera.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CChat.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CConfig.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CDeathWindow.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CDialog.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CEntity.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CFonts.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CGame.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CGangZonePool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CHttpClient.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CInput.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CLabel.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CLabelPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CLicensePlate.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CLocalPlayer.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CMenu.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CMenuPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CNetGame.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CNetStats.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CObject.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CObjectPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CObjectSelection.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Commands.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\ControllerState.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CPed.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CPickupPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CPlayerInfo.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CPlayerPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CPlayerTags.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CRemotePlayer.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CScoreboard.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CSpawnScreen.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CTextDraw.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CTextDrawPool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CTextDrawSelection.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CVehicle.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\CVehiclePool.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Debug.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\DebugScript.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Exception.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\GUI.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\InputHandler.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\KeyStuff.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\RPC.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\sampapi.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Scripting.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Settings.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\SpecialAction.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\Synchronization.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R1\VehicleSelection.h">
+      <Filter>src\0.3.7-R1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\AimStuff.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Animation.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CActor.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CActorPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CAudio.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CAudioStream.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CCamera.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CChat.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CChatBubble.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CConfig.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CDeathWindow.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CDialog.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CEntity.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CFont.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CFonts.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CGame.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CGangZonePool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CHelpDialog.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CHttpClient.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CInput.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CLabel.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CLabelPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CLicensePlate.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CLocalPlayer.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CMenu.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CMenuPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CNetGame.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CNetStats.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CObject.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CObjectMaterialText.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CObjectPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CObjectSelection.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Commands.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\ControllerState.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CPed.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CPickupPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CPlayerInfo.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CPlayerPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CPlayerTags.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CRemotePlayer.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CScoreboard.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CSpawnScreen.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CSrvNetStats.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CTextDraw.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CTextDrawPool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CTextDrawSelection.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CVehicle.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\CVehiclePool.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\DebugScript.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Exception.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\GUI.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\KeyStuff.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\sampapi.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Scripting.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Settings.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\SpecialAction.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\0.3.7-R3-1\Synchronization.h">
+      <Filter>src\0.3.7-R3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\CMatrix.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\CRect.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\CVector.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\sampapi.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
