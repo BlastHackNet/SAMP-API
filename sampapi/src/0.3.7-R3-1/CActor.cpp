@@ -15,6 +15,9 @@ CActor::CActor(int nModel, CVector position, float fRotation) {
     ((void(__thiscall*)(CActor*, int, CVector, float))GetAddress(0x9BBA0))(this, nModel, position, fRotation);
 }
 
+CActor::~CActor() {
+}
+
 void CActor::Destroy() {
     ((void(__thiscall*)(CActor*))GetAddress(0x9BCF0))(this);
 }

@@ -15,6 +15,9 @@ CActor::CActor(int nSkin, CVector vPos, float fRotation) {
     ((void(__thiscall*)(CActor*, int, CVector, float))GetAddress(0x97C60))(this, nSkin, vPos, fRotation);
 }
 
+CActor::~CActor() {
+}
+
 void CActor::Destroy() {
     ((void(__thiscall*)(CActor*))GetAddress(0x97DA0))(this);
 }

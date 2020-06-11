@@ -19,6 +19,9 @@ CPed::CPed(unsigned char nPlayerNumber, int nModel, CVector position, float fRot
     ((void(__thiscall*)(CPed*, unsigned char, int, CVector, float))GetAddress(0xAB580))(this, nPlayerNumber, nModel, position, fRotation);
 }
 
+CPed::~CPed() {
+}
+
 void CPed::ResetPointers() {
     ((void(__thiscall*)(CPed*))GetAddress(0xA6470))(this);
 }

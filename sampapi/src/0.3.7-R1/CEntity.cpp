@@ -11,6 +11,13 @@
 
 SAMPAPI_BEGIN
 
+CEntity::CEntity() {
+	((void(__thiscall*)(CEntity*))GetAddress(0x97C10))(this);
+}
+
+CEntity::~CEntity() {
+}
+
 void CEntity::GetMatrix(CMatrix* pMatrix) {
     ((void(__thiscall*)(CEntity*, CMatrix*))GetAddress(0x9A150))(this, pMatrix);
 }
@@ -105,10 +112,6 @@ void CEntity::GetEulerInverted(float* pX, float* pY, float* pZ) {
 
 void CEntity::ApplyTurnForce(CVector direction, CVector velocity) {
     ((void(__thiscall*)(CEntity*, CVector, CVector))GetAddress(0x9B010))(this, direction, velocity);
-}
-
-CEntity::CEntity() {
-    ((void(__thiscall*)(CEntity*))GetAddress(0x97C10))(this);
 }
 
 BOOL CEntity::IsStationary() {

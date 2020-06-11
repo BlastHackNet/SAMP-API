@@ -15,6 +15,9 @@ CEntity::CEntity() {
     ((void(__thiscall*)(CEntity*))GetAddress(0x9BB50))(this);
 }
 
+CEntity::~CEntity() {
+}
+
 void CEntity::GetMatrix(CMatrix* pMatrix) {
     ((void(__thiscall*)(CEntity*, CMatrix*))GetAddress(0x9E400))(this, pMatrix);
 }

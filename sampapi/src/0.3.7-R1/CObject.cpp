@@ -15,6 +15,9 @@ CObject::CObject(int nModel, CVector position, CVector rotation, float fDrawDist
     ((void(__thiscall*)(CObject*, int, CVector, CVector, float, int))GetAddress(0xA3AB0))(this, nModel, position, rotation, fDrawDistance, arg5);
 }
 
+CObject::~CObject() {
+}
+
 float CObject::GetDistance(const CMatrix* pMatrix) {
     return ((float(__thiscall*)(CObject*, const CMatrix*))GetAddress(0xA2960))(this, pMatrix);
 }

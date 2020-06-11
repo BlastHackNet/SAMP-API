@@ -15,6 +15,9 @@ CVehicle::CVehicle(int nModel, CVector position, float fRotation, BOOL bKeepMode
     ((void(__thiscall*)(CVehicle*, int, CVector, float, BOOL, BOOL))GetAddress(0xB1E70))(this, nModel, position, fRotation, bKeepModelLoaded, bHasSiren);
 }
 
+CVehicle::~CVehicle() {
+}
+
 void CVehicle::ResetPointers() {
     ((void(__thiscall*)(CVehicle*))GetAddress(0xB0B70))(this);
 }
