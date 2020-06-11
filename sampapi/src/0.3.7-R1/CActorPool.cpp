@@ -19,7 +19,7 @@ CActorPool::~CActorPool() {
     ((void(__thiscall*)(CActorPool*))GetAddress(0x18D0))(this);
 }
 
-CActor* CActorPool::GetObject(ID nId) {
+CActor* CActorPool::Get(ID nId) {
     return ((CActor * (__thiscall*)(CActorPool*, ID)) GetAddress(0x1600))(this, nId);
 }
 

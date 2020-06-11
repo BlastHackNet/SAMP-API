@@ -63,7 +63,7 @@ void CObjectPool::DrawLast() {
     ((void(__thiscall*)(CObjectPool*))GetAddress(0x12880))(this);
 }
 
-CObject* CObjectPool::GetObject(ID nId) {
+CObject* CObjectPool::Get(ID nId) {
     return ((CObject * (__thiscall*)(CObjectPool*, ID)) GetAddress(0x2DC0))(this, nId);
 }
 

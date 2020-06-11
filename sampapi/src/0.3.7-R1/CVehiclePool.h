@@ -79,7 +79,7 @@ public:
     void      SendDestroyNotification(ID nId);
     void      ProcessWaitingList();
     void      Process();
-    CVehicle* GetObject(ID nId);
+    CVehicle* Get(ID nId);
     BOOL      DoesExist(ID nId);
 };
 

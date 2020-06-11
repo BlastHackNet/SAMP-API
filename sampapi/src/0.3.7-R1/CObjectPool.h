@@ -40,7 +40,7 @@ public:
     void     ShutdownMaterials();
     void     Draw();
     void     DrawLast();
-    CObject* GetObject(ID nId) {
+    CObject* Get(ID nId) {
         if (m_bNotEmpty[nId])
             return m_pObject[nId];
         return nullptr;

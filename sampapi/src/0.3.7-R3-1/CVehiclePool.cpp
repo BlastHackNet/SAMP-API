@@ -83,11 +83,11 @@ void CVehiclePool::Process() {
     ((void(__thiscall*)(CVehiclePool*))GetAddress(0x1EC80))(this);
 }
 
-CVehicle* CVehiclePool::GetObject(ID nId) {
+CVehicle* CVehiclePool::Get(ID nId) {
     return ((CVehicle * (__thiscall*)(CVehiclePool*, ID)) GetAddress(0x1110))(this, nId);
 }
 
-BOOL CVehiclePool::DoesExit(ID nId) {
+BOOL CVehiclePool::DoesExist(ID nId) {
     return ((BOOL(__thiscall*)(CVehiclePool*, ID))GetAddress(0x1140))(this, nId);
 }
 

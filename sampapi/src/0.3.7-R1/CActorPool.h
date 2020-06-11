@@ -38,7 +38,7 @@ public:
     CActorPool();
     ~CActorPool();
 
-    CActor* GetObject(ID nId);
+    CActor* Get(ID nId);
     BOOL    DoesExist(ID nId);
     void    UpdateLargestId();
     BOOL    Delete(ID nId);

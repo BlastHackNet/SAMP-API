@@ -76,8 +76,8 @@ public:
     void      SendDestroyNotification(ID nId);
     void      ProcessWaitingList();
     void      Process();
-    CVehicle* GetObject(ID nId);
-    BOOL      DoesExit(ID nId);
+    CVehicle* Get(ID nId);
+    BOOL      DoesExist(ID nId);
 };
 
 SAMPAPI_END_PACKED

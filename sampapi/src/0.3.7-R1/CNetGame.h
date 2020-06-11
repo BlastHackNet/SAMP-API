@@ -9,8 +9,6 @@
 
 #pragma once
 
-#undef GetObject
-
 #include "sampapi.h"
 #include "CVector.h"
 #include "CPlayerPool.h"
