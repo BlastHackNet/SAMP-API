@@ -182,6 +182,7 @@ public:
     void           DeleteAllAccessories();
     void           AddAccessory(int nSlot, const Accessory* pInfo);
     CObject*       GetAccessory(int nSlot);
+    char           GetCameraMode();
 };
 
 SAMPAPI_END_PACKED

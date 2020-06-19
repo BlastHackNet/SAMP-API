@@ -430,4 +430,8 @@ CObject* CPed::GetAccessory(int nSlot) {
     return ((CObject * (__thiscall*)(CPed*, int)) GetAddress(0x13330))(this, nSlot);
 }
 
+char CPed::GetCameraMode() {
+    return ((char(__thiscall*)(CPed*))GetAddress(0x2CB0))(this);
+}
+
 SAMPAPI_END
