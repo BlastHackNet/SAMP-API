@@ -44,7 +44,7 @@ void CHttpClient::Disconnect() {
 }
 
 CHttpClient::ErrorCode CHttpClient::ProcessUrl(int nType, const char* szUrl, const char* szPostData, const char* szReferer) {
-    return ((ErrorCode(__thiscall*)(CHttpClient*, int, const char*, const char*, const char*))GetAddress(0))(this, nType, szUrl, szPostData, szReferer);
+    return ((ErrorCode(__thiscall*)(CHttpClient*, int, const char*, const char*, const char*))GetAddress(0x2C20))(this, nType, szUrl, szPostData, szReferer);
 }
 
 bool CHttpClient::Send(const char* szBuffer) {
