@@ -39,4 +39,8 @@ void DebugScript::CreateVehicle(const char* szParams) {
     ((void(__cdecl*)(const char*))GetAddress(0x9DF00))(szParams);
 }
 
+void DebugScript::CreateObject(const char* szParams) {
+    ((void(__cdecl*)(const char*))GetAddress(0x9DDF0))(szParams);
+}
+
 SAMPAPI_END

@@ -14,9 +14,9 @@
 
 /*
 	commands:
-		CreateObject(int model, float posx, float posy, float posz, float rotx, float, roty, float rotz);
+		CreateObject(int model, float posx, float posy, float posz, float rotx, float roty, float rotz);
 		SetPlayerInterior(int id);
-		RemoveBuildingForPlayer(int model, float posx, float posy, float, posz, float radius);
+		RemoveBuildingForPlayer(int model, float posx, float posy, float posz, float radius);
 		SetPlayerCameraPos(float posx, float posy, float posz);
 		AddStaticVehicle/CreateVehicle(int model, float posx, float posy, float posz, float rot, int clr1, int clr2);
 		SetPlayerCameraLookAt() - dummy
@@ -41,6 +41,7 @@ namespace DebugScript {
     SAMPAPI_EXPORT void  ProcessLine(const char* szLine);
     SAMPAPI_EXPORT char* GetCommandParams(char* szLine); // (...)
     SAMPAPI_EXPORT void  CreateVehicle(const char* szParams);
+    SAMPAPI_EXPORT void  CreateObject(const char* szParams);
 } // namespace DebugScript
 
 SAMPAPI_END_PACKED

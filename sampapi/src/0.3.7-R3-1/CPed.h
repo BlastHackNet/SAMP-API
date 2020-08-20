@@ -183,6 +183,7 @@ public:
     void           AddAccessory(int nSlot, const Accessory* pInfo);
     CObject*       GetAccessory(int nSlot);
     char           GetCameraMode();
+    void           GetBonePosition(unsigned int boneId, CVector *outPosition);
 };
 
 SAMPAPI_END_PACKED
