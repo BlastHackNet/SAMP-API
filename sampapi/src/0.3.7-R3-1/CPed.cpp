@@ -434,4 +434,8 @@ char CPed::GetCameraMode() {
     return ((char(__thiscall*)(CPed*))GetAddress(0x2CB0))(this);
 }
 
+void CPed::GetBonePosition(unsigned int boneId, CVector *outPosition) {
+    ((void(__thiscall*)(CPed*, unsigned int, CVector*))GetAddress(0xADBF0))(this, boneId, outPosition);
+}
+
 SAMPAPI_END

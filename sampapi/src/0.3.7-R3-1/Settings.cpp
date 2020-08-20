@@ -16,15 +16,15 @@ SAMPAPI_VAR Settings& RefSettings() {
 }
 
 void Settings::Initialize() {
-    ((void(__cdecl*)())GetAddress(0xC4E00))();
+    ((void(__cdecl*)())GetAddress(0xC4E40))();
 }
 
 void Settings::GetFromCommandLine(const char* szLine, char* szBuffer) {
-    ((void(__cdecl*)(const char*, char*))GetAddress(0xC4700))(szLine, szBuffer);
+    ((void(__cdecl*)(const char*, char*))GetAddress(0xC4740))(szLine, szBuffer);
 }
 
 void Settings::GetFromQuotes(const char* szLine, char* szBuffer) {
-    ((void(__cdecl*)(const char*, char*))GetAddress(0xC4750))(szLine, szBuffer);
+    ((void(__cdecl*)(const char*, char*))GetAddress(0xC4790))(szLine, szBuffer);
 }
 
 SAMPAPI_END
