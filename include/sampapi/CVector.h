@@ -1,3 +1,3 @@
 #pragma once
 
-#include "src/common/CVector.h"
+#include "../src/sampapi/common/CVector.h"

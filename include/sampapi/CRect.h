@@ -1,3 +1,3 @@
 #pragma once
 
-#include "src/common/CRect.h"
+#include "../src/sampapi/common/CRect.h"

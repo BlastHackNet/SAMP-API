@@ -1,3 +1,3 @@
 #pragma once
 
-#include "src/common/sampapi.h"
+#include "../src/sampapi/common/sampapi.h"
