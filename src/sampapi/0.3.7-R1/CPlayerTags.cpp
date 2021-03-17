@@ -9,7 +9,7 @@
 
 #include "CPlayerTags.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CPlayerTags*& RefPlayerTags() {
     return *(CPlayerTags**)GetAddress(0x21A0B0);

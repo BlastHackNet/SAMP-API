@@ -9,7 +9,7 @@
 
 #include "CFont.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CFont::CFont() {
     ((void(__thiscall*)(CFont*))GetAddress(0x6B160))(this);

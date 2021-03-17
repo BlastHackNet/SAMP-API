@@ -9,7 +9,7 @@
 
 #include "CLocalPlayer.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR unsigned long& CLocalPlayer::RefTimeElapsedFromFPressed() {
     return *(unsigned long*)GetAddress(0xEC0A4);

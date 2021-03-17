@@ -9,7 +9,7 @@
 
 #include "CCamera.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CCamera::CCamera() {
     ((void(__thiscall*)(CCamera*))GetAddress(0x9B5A0))(this);

@@ -9,7 +9,7 @@
 
 #include "CFonts.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CFonts*& RefFontRenderer() {
     return *(CFonts**)GetAddress(0x21A0FC);

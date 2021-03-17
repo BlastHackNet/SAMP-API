@@ -9,7 +9,7 @@
 
 #include "CChat.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 #include <stdarg.h>
 #include <stdio.h>
 

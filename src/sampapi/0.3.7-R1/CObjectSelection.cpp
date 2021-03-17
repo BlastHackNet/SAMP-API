@@ -9,7 +9,7 @@
 
 #include "CObjectSelection.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CObjectSelection*& RefObjectSelection() {
     return *(CObjectSelection**)GetAddress(0x21A0C8);

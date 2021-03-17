@@ -9,7 +9,7 @@
 
 #include "Scripting.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CRunningScript*& Scripting::RefThread() {
     return *(CRunningScript**)GetAddress(0x216048);

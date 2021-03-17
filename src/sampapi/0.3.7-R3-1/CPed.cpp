@@ -9,7 +9,7 @@
 
 #include "CPed.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CPed::CPed() {
     ((void(__thiscall*)(CPed*))GetAddress(0xAB1E0))(this);

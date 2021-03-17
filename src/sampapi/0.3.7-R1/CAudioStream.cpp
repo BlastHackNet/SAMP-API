@@ -9,7 +9,7 @@
 
 #include "CAudioStream.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR int& CAudioStream::RefStream() {
     return *(int*)GetAddress(0x11A60C);

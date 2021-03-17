@@ -9,7 +9,7 @@
 
 #include "CConfig.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CConfig*& RefConfig() {
     return *(CConfig**)GetAddress(0x21A0E0);

@@ -9,7 +9,7 @@
 
 #include "DebugScript.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CObjectPool*& DebugScript::RefPrivateObjectPool() {
     return *(CObjectPool**)GetAddress(0x13BB74);

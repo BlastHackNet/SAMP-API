@@ -13,7 +13,7 @@
 
 class CPad;
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 namespace KeyStuff {
     SAMPAPI_EXPORT SAMPAPI_VAR CPad& RefLocalPlayerKeys();

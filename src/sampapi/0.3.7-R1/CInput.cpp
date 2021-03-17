@@ -9,7 +9,7 @@
 
 #include "CInput.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CInput*& RefInputBox() {
     return *(CInput**)GetAddress(0x21A0E8);

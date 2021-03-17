@@ -9,7 +9,7 @@
 
 #include "CNetStats.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CNetStats*& RefNetStats() {
     return *(CNetStats**)GetAddress(0x21A0D0);

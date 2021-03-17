@@ -12,7 +12,7 @@
 #include "sampapi.h"
 #include "CFonts.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 class SAMPAPI_EXPORT CChat {
 public:

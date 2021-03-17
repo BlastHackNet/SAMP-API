@@ -9,7 +9,7 @@
 
 #include "CTextDrawPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CTextDrawPool::CTextDrawPool() {
     ((void(__thiscall*)(CTextDrawPool*))GetAddress(0x1ACB0))(this);

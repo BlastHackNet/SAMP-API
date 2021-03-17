@@ -9,7 +9,7 @@
 
 #include "CObjectPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CObjectPool::CObjectPool() {
     ((void(__thiscall*)(CObjectPool*))GetAddress(0x124B0))(this);

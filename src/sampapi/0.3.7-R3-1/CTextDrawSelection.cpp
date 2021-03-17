@@ -9,7 +9,7 @@
 
 #include "CTextDrawSelection.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CTextDrawSelection*& RefTextDrawSelection() {
     return *(CTextDrawSelection**)GetAddress(0x26E8B0);

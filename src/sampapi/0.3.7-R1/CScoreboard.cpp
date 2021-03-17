@@ -9,7 +9,7 @@
 
 #include "CScoreboard.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CScoreboard*& RefScoreboard() {
     return *(CScoreboard**)GetAddress(0x21A0B4);

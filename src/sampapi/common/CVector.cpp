@@ -10,7 +10,7 @@
 #include <cmath>
 #include "CVector.h"
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 CVector::CVector()
     : x(0),
@@ -64,4 +64,4 @@ void CVector::ZeroNearZero() {
         z = 0;
 }
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

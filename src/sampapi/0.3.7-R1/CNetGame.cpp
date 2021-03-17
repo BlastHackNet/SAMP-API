@@ -9,7 +9,7 @@
 
 #include "CNetGame.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CNetGame*& RefNetGame() {
     return *(CNetGame**)GetAddress(0x21A0F8);

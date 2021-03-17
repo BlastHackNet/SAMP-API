@@ -9,7 +9,7 @@
 
 #include "AimStuff.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR float& AimStuff::RefLocalPlayerCameraExtZoom() {
     return *(float*)GetAddress(0x143D20);

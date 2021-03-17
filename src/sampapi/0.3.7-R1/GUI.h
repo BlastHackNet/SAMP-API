@@ -14,7 +14,7 @@
 class CDXUTControl;
 class CDXUTDialogResourceManager;
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace GUI {
     SAMPAPI_EXPORT SAMPAPI_VAR CDXUTDialogResourceManager*& RefResourceMgr();

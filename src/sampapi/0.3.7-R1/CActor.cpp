@@ -9,7 +9,7 @@
 
 #include "CActor.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CActor::CActor(int nSkin, CVector vPos, float fRotation) {
     ((void(__thiscall*)(CActor*, int, CVector, float))GetAddress(0x97C60))(this, nSkin, vPos, fRotation);

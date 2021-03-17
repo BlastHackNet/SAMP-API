@@ -9,7 +9,7 @@
 
 #include "CActorPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CActorPool::CActorPool() {
     ((void(__thiscall*)(CActorPool*))GetAddress(0x16B0))(this);

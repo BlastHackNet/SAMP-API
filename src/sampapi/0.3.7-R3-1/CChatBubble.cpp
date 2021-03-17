@@ -9,7 +9,7 @@
 
 #include "CChatBubble.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CChatBubble*& RefChatBubble() {
     return *(CChatBubble**)GetAddress(0x26E8C0);

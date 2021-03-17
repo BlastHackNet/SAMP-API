@@ -14,7 +14,7 @@
 #include "Animation.h"
 #include "ControllerState.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace Synchronization {
     struct SAMPAPI_EXPORT OnfootData {

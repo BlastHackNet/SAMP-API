@@ -12,7 +12,7 @@
 #include "sampapi.h"
 #include "CVector.h"
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 class SAMPAPI_EXPORT CMatrix {
 public:
@@ -26,4 +26,4 @@ public:
     float         pad_p;
 };
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

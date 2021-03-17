@@ -16,7 +16,7 @@
 	like a "{FFFFFF}Hello {FF5000}World!"
 */
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 #if defined(__D3DX9CORE_H__)
 

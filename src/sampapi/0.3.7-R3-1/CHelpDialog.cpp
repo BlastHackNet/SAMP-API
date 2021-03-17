@@ -9,7 +9,7 @@
 
 #include "CHelpDialog.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CHelpDialog*& RefHelpDialog() {
     return *(CHelpDialog**)GetAddress(0x26E8BC);

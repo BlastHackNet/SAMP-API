@@ -9,7 +9,7 @@
 
 #include "CAudio.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 int CAudio::GetRadioStation() {
     return ((int(__thiscall*)(CAudio*))GetAddress(0xA1AE0))(this);

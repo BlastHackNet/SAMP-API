@@ -9,7 +9,7 @@
 
 #include "CLabel.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CLabel*& RefLabel() {
     return *(CLabel**)GetAddress(0x26E8A4);

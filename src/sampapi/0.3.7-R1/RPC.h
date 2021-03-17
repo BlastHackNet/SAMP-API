@@ -26,7 +26,7 @@
 //void CreateRaceCheckpoint(RPCParameters *pParams); // {BYTE type; CVector pos; CVector nextPos; float fSize;}, 0xD330
 //void UpdatePlayerScoreAndPing(RPCParameters *pParams); // {ID playerId; int score; int ping;}, 0xD490
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace RPC {
     namespace Incoming {

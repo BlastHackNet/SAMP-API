@@ -9,7 +9,7 @@
 
 #include "CVehiclePool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CVehiclePool::CVehiclePool() {
     ((void(__thiscall*)(CVehiclePool*))GetAddress(0x1AF20))(this);

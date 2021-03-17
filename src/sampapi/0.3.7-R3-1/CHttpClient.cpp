@@ -9,7 +9,7 @@
 
 #include "CHttpClient.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CHttpClient::CHttpClient() {
     ((void(__thiscall*)(CHttpClient*))GetAddress(0x22C0))(this);

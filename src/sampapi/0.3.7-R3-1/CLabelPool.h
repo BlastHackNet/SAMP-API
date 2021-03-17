@@ -12,7 +12,7 @@
 #include "sampapi.h"
 #include "CVector.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 struct SAMPAPI_EXPORT TextLabel {
     char*    m_pText;

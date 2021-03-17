@@ -9,7 +9,7 @@
 
 #include "CPlayerInfo.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CPlayerInfo::CPlayerInfo(const char* szName, BOOL bIsNPC) {
     ((void(__thiscall*)(CPlayerInfo*, const char*, BOOL))GetAddress(0x10CB0))(this, szName, bIsNPC);

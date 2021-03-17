@@ -9,7 +9,7 @@
 
 #include "CSrvNetStats.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CSrvNetStats*& RefServerNetStatistics() {
     return *(CSrvNetStats**)GetAddress(0x26E8B8);

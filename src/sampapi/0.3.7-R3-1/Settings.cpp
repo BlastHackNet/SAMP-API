@@ -9,7 +9,7 @@
 
 #include "Settings.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR Settings& RefSettings() {
     return *(Settings*)GetAddress(0x26DD30);

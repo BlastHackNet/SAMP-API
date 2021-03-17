@@ -9,7 +9,7 @@
 
 #include "CPlayerPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CPlayerPool::CPlayerPool() {
     ((void(__thiscall*)(CPlayerPool*))GetAddress(0x10AD0))(this);

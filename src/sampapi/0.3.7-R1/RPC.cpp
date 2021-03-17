@@ -9,7 +9,7 @@
 
 #include "RPC.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 int RPC::Outcoming::ClassRequest::ID = 128;
 int RPC::Outcoming::DeathNotification::ID = 53;

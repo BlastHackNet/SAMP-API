@@ -9,7 +9,7 @@
 
 #include "CPickupPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CPickupPool::CPickupPool() {
     ((void(__thiscall*)(CPickupPool*))GetAddress(0x8130))(this);

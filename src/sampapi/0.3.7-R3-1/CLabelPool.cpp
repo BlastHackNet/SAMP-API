@@ -9,7 +9,7 @@
 
 #include "CLabelPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CLabelPool::CLabelPool() {
     ((void(__thiscall*)(CLabelPool*))GetAddress(0x1180))(this);

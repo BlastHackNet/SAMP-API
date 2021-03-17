@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 class SAMPAPI_EXPORT CRect {
 public:
@@ -30,4 +30,4 @@ public:
     bool IsPointInside(long x, long y);
 };
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

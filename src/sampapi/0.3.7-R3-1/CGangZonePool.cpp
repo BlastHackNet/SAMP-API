@@ -9,7 +9,7 @@
 
 #include "CGangZonePool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CGangZonePool::CGangZonePool() {
     ((void(__thiscall*)(CGangZonePool*))GetAddress(0x2100))(this);

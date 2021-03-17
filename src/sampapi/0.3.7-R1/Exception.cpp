@@ -9,7 +9,7 @@
 
 #include "Exception.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR int& Exception::RefCount() {
     return *(int*)GetAddress(0x1118B0);

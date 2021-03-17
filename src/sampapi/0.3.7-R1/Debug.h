@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace Debug {
     enum { DEBUG_MODE_VEHICLE_SELECTION = 10 };

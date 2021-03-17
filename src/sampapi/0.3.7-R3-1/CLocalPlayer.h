@@ -15,7 +15,7 @@
 #include "CVehicle.h"
 #include "Synchronization.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 enum SpectatingMode {
     SPECTATING_MODE_VEHICLE = 3,

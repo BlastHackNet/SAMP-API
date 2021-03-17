@@ -9,7 +9,7 @@
 
 #include "CTextDraw.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CTextDraw::CTextDraw(Transmit* pData, const char* szText) {
     ((void(__thiscall*)(CTextDraw*, Transmit*, const char*))GetAddress(0xB2E50))(this, pData, szText);

@@ -29,8 +29,8 @@
     } \
     } \
     SAMPAPI_PACK_POP
-#define SAMPAPI_COMMON_BEGIN namespace SAMPAPI_NAMESPACE {
-#define SAMPAPI_COMMON_END   }
+#define SAMPAPI_BEGIN_COMMON namespace SAMPAPI_NAMESPACE {
+#define SAMPAPI_END_COMMON   }
 #define SAMPAPI_UNUSED       0
 #define SAMPAPI_VAR
 
@@ -49,7 +49,7 @@ class CDXUTEditBox;
 class CDXUTScrollBar;
 class CDXUTIMEEditBox;
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 typedef unsigned long D3DCOLOR;
 typedef unsigned long TICK;
@@ -67,4 +67,4 @@ inline unsigned long GetAddress(signed long offset) {
     return GetBase() + offset;
 }
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

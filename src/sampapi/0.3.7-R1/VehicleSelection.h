@@ -14,7 +14,7 @@
 #include "CCamera.h"
 #include "KeyStuff.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace VehicleSelection {
     SAMPAPI_EXPORT SAMPAPI_VAR CCamera*& RefCamera();

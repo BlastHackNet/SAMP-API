@@ -9,7 +9,7 @@
 
 #include "CDeathWindow.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CDeathWindow*& RefDeathWindow() {
     return *(CDeathWindow**)GetAddress(0x21A0EC);

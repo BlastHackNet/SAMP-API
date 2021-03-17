@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 namespace Exception {
     enum { MAX_EXCEPTIONS = 9 };

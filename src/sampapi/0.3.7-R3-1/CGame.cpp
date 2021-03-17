@@ -9,7 +9,7 @@
 
 #include "CGame.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR char*& CGame::RefGameTextMessage() {
     return *(char**)GetAddress(0x150084);

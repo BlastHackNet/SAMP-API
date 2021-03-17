@@ -13,7 +13,7 @@
 #include "CActor.h"
 #include "CVector.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 struct SAMPAPI_EXPORT ActorInfo {
     ID      m_nId;

@@ -9,7 +9,7 @@
 
 #include "KeyStuff.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CPad& KeyStuff::RefLocalPlayerKeys() {
     return *(CPad*)GetAddress(0x152518);

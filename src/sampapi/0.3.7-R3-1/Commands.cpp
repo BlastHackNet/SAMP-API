@@ -9,7 +9,7 @@
 
 #include "Commands.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 void Commands::Default(const char* params) {
     CMDPROC(GetAddress(0x67D60))

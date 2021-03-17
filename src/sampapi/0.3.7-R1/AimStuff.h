@@ -12,7 +12,7 @@
 #include "sampapi.h"
 #include "CVector.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 namespace AimStuff {
     struct SAMPAPI_EXPORT Aim {

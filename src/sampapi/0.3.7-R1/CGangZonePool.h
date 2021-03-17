@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 struct SAMPAPI_EXPORT GangZone {
     struct SAMPAPI_EXPORT {

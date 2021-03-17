@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 namespace Commands {
     SAMPAPI_EXPORT void Default(const char*);

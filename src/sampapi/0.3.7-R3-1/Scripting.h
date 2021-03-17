@@ -13,7 +13,7 @@
 
 class CRunningScript;
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 namespace Scripting {
     struct SAMPAPI_EXPORT OpcodeInfo {

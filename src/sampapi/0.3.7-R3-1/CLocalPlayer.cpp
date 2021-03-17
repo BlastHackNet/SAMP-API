@@ -9,7 +9,7 @@
 
 #include "CLocalPlayer.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CLocalPlayer::CLocalPlayer() {
     ((void(__thiscall*)(CLocalPlayer*))GetAddress(0x4A80))(this);

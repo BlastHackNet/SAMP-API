@@ -21,7 +21,7 @@ class CEntity;
 class CVehicle;
 class CWeaponInfo;
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 class SAMPAPI_EXPORT CPed : public CEntity {
 public:

@@ -9,7 +9,7 @@
 
 #include "InputHandler.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR void*& InputHandler::RefPrevWindowProc() {
     return *(void**)GetAddress(0x119CB8);

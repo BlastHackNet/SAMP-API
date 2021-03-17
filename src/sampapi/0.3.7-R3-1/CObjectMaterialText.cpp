@@ -9,7 +9,7 @@
 
 #include "CObjectMaterialText.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CObjectMaterialText*& RefObjectMaterialTextManager() {
     return *(CObjectMaterialText**)GetAddress(0x26E8EC);

@@ -9,7 +9,7 @@
 
 #include "CRemotePlayer.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 CRemotePlayer::CRemotePlayer() {
     ((void(__thiscall*)(CRemotePlayer*))GetAddress(0x16040))(this);

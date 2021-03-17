@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 struct SAMPAPI_EXPORT Settings {
     enum { SETTINGS_STRING_LEN = 256 };

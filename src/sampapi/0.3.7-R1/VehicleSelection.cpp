@@ -9,7 +9,7 @@
 
 #include "VehicleSelection.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CCamera*& VehicleSelection::RefCamera() {
     return *(CCamera**)GetAddress(0x13BA7C);

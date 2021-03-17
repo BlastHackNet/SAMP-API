@@ -9,7 +9,7 @@
 
 #include "CVehicle.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CVehicle::CVehicle(int nModel, CVector position, float fRotation, BOOL bKeepModelLoaded, BOOL bHasSiren) {
     ((void(__thiscall*)(CVehicle*, int, CVector, float, BOOL, BOOL))GetAddress(0xB1E70))(this, nModel, position, fRotation, bKeepModelLoaded, bHasSiren);

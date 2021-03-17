@@ -27,7 +27,7 @@
 	one line can contain only one command
 */
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 namespace DebugScript {
     enum { LINE_BUFFER_LENGTH = 256 };

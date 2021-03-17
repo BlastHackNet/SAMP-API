@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 struct SAMPAPI_EXPORT VectorCompressed {
     unsigned short x, y, z;
@@ -33,4 +33,4 @@ public:
     void    ZeroNearZero();
 };
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

@@ -9,7 +9,7 @@
 
 #include "GUI.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CDXUTDialogResourceManager*& GUI::RefResourceMgr() {
     return *(CDXUTDialogResourceManager**)GetAddress(0x21A180);

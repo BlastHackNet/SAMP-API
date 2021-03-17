@@ -9,7 +9,7 @@
 
 #include "CSpawnScreen.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CSpawnScreen*& RefSpawnScreen() {
     return *(CSpawnScreen**)GetAddress(0x26E8D8);

@@ -9,7 +9,7 @@
 
 #include "CObject.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CObject::CObject(int nModel, CVector position, CVector rotation, float fDrawDistance, int arg5) {
     ((void(__thiscall*)(CObject*, int, CVector, CVector, float, int))GetAddress(0xA3AB0))(this, nModel, position, rotation, fDrawDistance, arg5);

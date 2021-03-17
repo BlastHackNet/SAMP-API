@@ -15,7 +15,7 @@
 #include "CVehicle.h"
 #include "Animation.h"
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R1
 
 enum SpectatingMode : unsigned char {
     SPEC_MODE_VEHICLE = 3,

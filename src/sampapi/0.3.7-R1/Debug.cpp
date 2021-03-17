@@ -9,7 +9,7 @@
 
 #include "Debug.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR int& Debug::RefMode() {
     return *(int*)GetAddress(0x13BB18);

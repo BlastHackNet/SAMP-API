@@ -10,7 +10,7 @@
 #include "sampapi.h"
 #include <Windows.h>
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 unsigned long GetBase() {
     static auto handle = reinterpret_cast<unsigned long>(GetModuleHandleA("samp.dll"));
@@ -21,4 +21,4 @@ unsigned int GetAPIVersion() {
     return SAMPAPI_VERSION;
 }
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

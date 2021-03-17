@@ -9,7 +9,7 @@
 
 #include "CRect.h"
 
-SAMPAPI_COMMON_BEGIN
+SAMPAPI_BEGIN_COMMON
 
 CRect::CRect()
     : left(0),
@@ -62,4 +62,4 @@ bool CRect::IsPointInside(long x, long y) {
     return (x >= left && x <= right) && (y >= top && y <= bottom);
 }
 
-SAMPAPI_COMMON_END
+SAMPAPI_END_COMMON

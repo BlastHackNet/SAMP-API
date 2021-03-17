@@ -9,7 +9,7 @@
 
 #include "CLicensePlate.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CLicensePlate*& RefLicensePlateManager() {
     return *(CLicensePlate**)GetAddress(0x21A100);

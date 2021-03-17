@@ -9,7 +9,7 @@
 
 #include "CAudio.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 void CAudio::Play(int nSound, CVector location) {
     ((void(__thiscall*)(CAudio*, int, CVector))GetAddress(0x9D730))(this, nSound, location);

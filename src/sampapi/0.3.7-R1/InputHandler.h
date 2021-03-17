@@ -11,7 +11,7 @@
 
 #include "sampapi.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 void SwitchWindowedMode();
 

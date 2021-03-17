@@ -9,7 +9,7 @@
 
 #include "CObjectPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR TICK& CObjectPool::RefLastProcess() {
     return *(TICK*)GetAddress(0x1049B0);

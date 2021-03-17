@@ -9,7 +9,7 @@
 
 #include "CMenuPool.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CMenuPool::CMenuPool() {
     ((void(__thiscall*)(CMenuPool*))GetAddress(0x7AB0))(this);

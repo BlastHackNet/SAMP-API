@@ -9,7 +9,7 @@
 
 #include "CEntity.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CEntity::CEntity() {
 	((void(__thiscall*)(CEntity*))GetAddress(0x97C10))(this);

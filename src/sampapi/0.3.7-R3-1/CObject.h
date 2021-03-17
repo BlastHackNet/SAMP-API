@@ -17,7 +17,7 @@
 class CSprite2d;
 struct RwTexture;
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 class CVehicle;
 

@@ -9,7 +9,7 @@
 
 #include "CMenu.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 CMenu::CMenu(const char* szTitle, float fX, float fY, float fFirstColumnWidth, float fSecondColumnWidth, const Interaction* pInteraction) {
     ((void(__thiscall*)(CMenu*, const char*, float, float, float, float, const Interaction*))GetAddress(0xA23C0))(this, szTitle, fX, fY, fFirstColumnWidth, fSecondColumnWidth, pInteraction);

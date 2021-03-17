@@ -19,7 +19,7 @@
 
 class CWeaponInfo;
 
-SAMPAPI_BEGIN_PACKED
+SAMPAPI_BEGIN_PACKED_V037R3_1
 
 enum CursorMode {
     CURSOR_NONE,

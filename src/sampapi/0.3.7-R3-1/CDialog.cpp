@@ -9,7 +9,7 @@
 
 #include "CDialog.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CDialog*& RefDialog() {
     return *(CDialog**)GetAddress(0x26E898);

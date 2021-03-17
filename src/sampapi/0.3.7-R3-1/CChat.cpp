@@ -9,7 +9,7 @@
 
 #include "CChat.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R3_1
 
 SAMPAPI_VAR CChat*& RefChat() {
     return *(CChat**)GetAddress(0x26E8C8);

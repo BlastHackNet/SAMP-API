@@ -9,7 +9,7 @@
 
 #include "CGame.h"
 
-SAMPAPI_BEGIN
+SAMPAPI_BEGIN_V037R1
 
 SAMPAPI_VAR CGame*& RefGame() {
     return *(CGame**)GetAddress(0x21A10C);
