@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "sampapi.h"
+#include "sampapi/sampapi.h"
 #include <Windows.h>
 
 SAMPAPI_BEGIN_COMMON

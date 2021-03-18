@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CObject.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/CObject.h"
 
 class CObject;
 

@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
 
 SAMPAPI_BEGIN_PACKED_V037R3_1
 

@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "sampapi.h"
+#include "sampapi/sampapi.h"
 
 /*
 	this class handles RGB-formatted tags in ANSI text

@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "Commands.h"
+#include "sampapi/0.3.7-R1/Commands.h"
 
 SAMPAPI_BEGIN_V037R1
 

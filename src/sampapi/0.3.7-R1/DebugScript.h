@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CObjectPool.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CObjectPool.h"
 
 /*
 	commands:

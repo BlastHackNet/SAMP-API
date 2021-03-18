@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CEntity.h"
-#include "AimStuff.h"
-#include "ControllerState.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/CEntity.h"
+#include "sampapi/0.3.7-R3-1/AimStuff.h"
+#include "sampapi/0.3.7-R3-1/ControllerState.h"
 
 class CPed;
 class CWeapon;
@@ -183,7 +183,7 @@ public:
     void           AddAccessory(int nSlot, const Accessory* pInfo);
     CObject*       GetAccessory(int nSlot);
     char           GetCameraMode();
-    void           GetBonePosition(unsigned int boneId, CVector *outPosition);
+    void           GetBonePosition(unsigned int boneId, CVector* outPosition);
 };
 
 SAMPAPI_END_PACKED

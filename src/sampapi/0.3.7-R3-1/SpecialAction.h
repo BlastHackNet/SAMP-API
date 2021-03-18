@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "sampapi.h"
+#include "sampapi/sampapi.h"
 
 SAMPAPI_BEGIN_V037R3_1
 

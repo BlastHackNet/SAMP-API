@@ -9,17 +9,17 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CPlayerPool.h"
-#include "CVehiclePool.h"
-#include "CGangZonePool.h"
-#include "CPickupPool.h"
-#include "CLabelPool.h"
-#include "CMenuPool.h"
-#include "CTextDrawPool.h"
-#include "CActorPool.h"
-#include "CObjectPool.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/CPlayerPool.h"
+#include "sampapi/0.3.7-R3-1/CVehiclePool.h"
+#include "sampapi/0.3.7-R3-1/CGangZonePool.h"
+#include "sampapi/0.3.7-R3-1/CPickupPool.h"
+#include "sampapi/0.3.7-R3-1/CLabelPool.h"
+#include "sampapi/0.3.7-R3-1/CMenuPool.h"
+#include "sampapi/0.3.7-R3-1/CTextDrawPool.h"
+#include "sampapi/0.3.7-R3-1/CActorPool.h"
+#include "sampapi/0.3.7-R3-1/CObjectPool.h"
 
 struct Packet;
 struct NetworkID;

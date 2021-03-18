@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CRemotePlayer.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CRemotePlayer.h"
 #include <string>
 
 SAMPAPI_BEGIN_PACKED_V037R1

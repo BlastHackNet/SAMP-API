@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "Animation.h"
-#include "ControllerState.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/Animation.h"
+#include "sampapi/0.3.7-R3-1/ControllerState.h"
 
 SAMPAPI_BEGIN_PACKED_V037R3_1
 

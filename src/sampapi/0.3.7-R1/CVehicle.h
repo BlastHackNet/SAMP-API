@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CEntity.h"
-#include "CVector.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CEntity.h"
+#include "sampapi/CVector.h"
 
 class CVehicle;
 

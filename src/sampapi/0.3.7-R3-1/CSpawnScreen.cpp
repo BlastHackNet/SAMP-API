@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CSpawnScreen.h"
+#include "sampapi/0.3.7-R3-1/CSpawnScreen.h"
 
 SAMPAPI_BEGIN_V037R3_1
 

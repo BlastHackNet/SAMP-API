@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CDialog.h"
+#include "sampapi/0.3.7-R1/CDialog.h"
 
 SAMPAPI_BEGIN_V037R1
 

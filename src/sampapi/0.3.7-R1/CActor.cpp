@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CActor.h"
+#include "sampapi/0.3.7-R1/CActor.h"
 
 SAMPAPI_BEGIN_V037R1
 

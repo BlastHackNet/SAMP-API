@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CChatBubble.h"
+#include "sampapi/0.3.7-R3-1/CChatBubble.h"
 
 SAMPAPI_BEGIN_V037R3_1
 

@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CMatrix.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CMatrix.h"
 
 class CEntity;
 struct RwObject;

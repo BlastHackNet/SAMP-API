@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CRect.h"
-#include "Commands.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CRect.h"
+#include "sampapi/0.3.7-R3-1/Commands.h"
 
 SAMPAPI_BEGIN_PACKED_V037R3_1
 

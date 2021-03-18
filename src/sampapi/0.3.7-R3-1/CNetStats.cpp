@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CNetStats.h"
+#include "sampapi/0.3.7-R3-1/CNetStats.h"
 
 SAMPAPI_BEGIN_V037R3_1
 

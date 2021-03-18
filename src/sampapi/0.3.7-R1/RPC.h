@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CNetGame.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CNetGame.h"
 
 //void Chat(RPCParameters *pParams); // {ID playerId; BYTE textLen; char text[];}, 0xEEA0
 //void Message(RPCParameters *pParams); // {D3DCOLOR color; BYTE textLen; char text[];}, 0xC050

@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CEntity.h"
+#include "sampapi/0.3.7-R1/CEntity.h"
 
 SAMPAPI_BEGIN_V037R1
 

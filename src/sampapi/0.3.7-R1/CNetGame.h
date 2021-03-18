@@ -9,17 +9,17 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CPlayerPool.h"
-#include "CVehiclePool.h"
-#include "CPickupPool.h"
-#include "CGangZonePool.h"
-#include "CTextDrawPool.h"
-#include "CMenuPool.h"
-#include "CObjectPool.h"
-#include "CActorPool.h"
-#include "CLabelPool.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R1/CPlayerPool.h"
+#include "sampapi/0.3.7-R1/CVehiclePool.h"
+#include "sampapi/0.3.7-R1/CPickupPool.h"
+#include "sampapi/0.3.7-R1/CGangZonePool.h"
+#include "sampapi/0.3.7-R1/CTextDrawPool.h"
+#include "sampapi/0.3.7-R1/CMenuPool.h"
+#include "sampapi/0.3.7-R1/CObjectPool.h"
+#include "sampapi/0.3.7-R1/CActorPool.h"
+#include "sampapi/0.3.7-R1/CLabelPool.h"
 
 struct Packet;
 class RakClientInterface;

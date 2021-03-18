@@ -7,7 +7,7 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
-#include "CRect.h"
+#include "sampapi/CRect.h"
 
 SAMPAPI_BEGIN_COMMON
 

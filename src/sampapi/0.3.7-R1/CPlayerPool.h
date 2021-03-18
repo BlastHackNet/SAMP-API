@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CPlayerInfo.h"
-#include "CLocalPlayer.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CPlayerInfo.h"
+#include "sampapi/0.3.7-R1/CLocalPlayer.h"
 #include <string>
 
 class CObject;

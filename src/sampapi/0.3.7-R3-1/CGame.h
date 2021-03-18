@@ -9,13 +9,13 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CCamera.h"
-#include "CAudio.h"
-#include "CPed.h"
-#include "CVehicle.h"
-#include "CObject.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/CCamera.h"
+#include "sampapi/0.3.7-R3-1/CAudio.h"
+#include "sampapi/0.3.7-R3-1/CPed.h"
+#include "sampapi/0.3.7-R3-1/CVehicle.h"
+#include "sampapi/0.3.7-R3-1/CObject.h"
 
 class CWeaponInfo;
 

@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVehicle.h"
-#include "CCamera.h"
-#include "KeyStuff.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CVehicle.h"
+#include "sampapi/0.3.7-R1/CCamera.h"
+#include "sampapi/0.3.7-R1/KeyStuff.h"
 
 SAMPAPI_BEGIN_PACKED_V037R1
 

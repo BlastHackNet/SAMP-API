@@ -7,8 +7,8 @@
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
+#include "sampapi/CVector.h"
 #include <cmath>
-#include "CVector.h"
 
 SAMPAPI_BEGIN_COMMON
 

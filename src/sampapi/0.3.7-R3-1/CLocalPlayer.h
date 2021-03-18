@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CVector.h"
-#include "CPed.h"
-#include "CVehicle.h"
-#include "Synchronization.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CVector.h"
+#include "sampapi/0.3.7-R3-1/CPed.h"
+#include "sampapi/0.3.7-R3-1/CVehicle.h"
+#include "sampapi/0.3.7-R3-1/Synchronization.h"
 
 SAMPAPI_BEGIN_PACKED_V037R3_1
 

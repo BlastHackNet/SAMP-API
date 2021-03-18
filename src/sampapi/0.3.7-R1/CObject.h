@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CEntity.h"
-#include "CMatrix.h"
-#include "CVehicle.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/0.3.7-R1/CEntity.h"
+#include "sampapi/CMatrix.h"
+#include "sampapi/0.3.7-R1/CVehicle.h"
 
 class CSprite2d;
 struct RwTexture;

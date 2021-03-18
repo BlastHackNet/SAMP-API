@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "sampapi.h"
-#include "CRect.h"
-#include "CFont.h"
+#include "sampapi/sampapi.h"
+#include "sampapi/CRect.h"
+#include "sampapi/0.3.7-R3-1/CFont.h"
 
 #undef DrawText
 
