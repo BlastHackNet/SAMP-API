@@ -1,5 +1,0 @@
-#pragma once
-#include "sampapi/sampapi.h"
-
-#define SAMPAPI_BEGIN_V037R1        SAMPAPI_NAMESPACE_BEGIN(v037r1)
-#define SAMPAPI_BEGIN_PACKED_V037R1 SAMPAPI_NAMESPACE_BEGIN_PACKED(v037r1)
