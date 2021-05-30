@@ -31,6 +31,7 @@ public:
     virtual void Add() = 0;    // adds entity to the game world
     virtual void Remove() = 0; // removes entity from the game world
 
+    CVector   GetPosition();
     void      GetMatrix(CMatrix* pMatrix);
     void      SetMatrix(CMatrix matrix);
     void      GetSpeed(CVector* pVec);
