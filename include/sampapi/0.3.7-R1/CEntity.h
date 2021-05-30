@@ -29,7 +29,8 @@ public:
     virtual ~CEntity() = 0;
     virtual void Add() = 0;
     virtual void Remove() = 0;
-
+    
+    CVector   GetPosition();
     void      GetMatrix(CMatrix* pMatrix);
     void      SetMatrix(CMatrix matrix);
     void      GetSpeed(CVector* pVec);
