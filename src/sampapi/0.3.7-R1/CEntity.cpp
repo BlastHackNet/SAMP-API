@@ -18,6 +18,12 @@ CEntity::CEntity() {
 CEntity::~CEntity() {
 }
 
+CVector CEntity::GetPosition() {
+	CMatrix matrix;
+	this->GetMatrix(&matrix);
+	return matrix.pos;
+}
+
 void CEntity::GetMatrix(CMatrix* pMatrix) {
     ((void(__thiscall*)(CEntity*, CMatrix*))GetAddress(0x9A150))(this, pMatrix);
 }
