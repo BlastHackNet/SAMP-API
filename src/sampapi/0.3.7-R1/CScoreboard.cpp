@@ -28,7 +28,7 @@ void CScoreboard::ResetDialogControls(CDXUTDialog* pDialog) {
 }
 
 void CScoreboard::Enable() {
-    ((void(__thiscall*)(CScoreboard*))GetAddress(0x6A3D0))(this);
+    ((void(__thiscall*)(CScoreboard*))GetAddress(0x6AD30))(this);
 }
 
 void CScoreboard::Close(bool bHideCursor) {
