@@ -8,4 +8,5 @@ target_sources(sampapi
     CMatrix.h
     CRect.h
     CVector.h
+    CPoint.h
 )

@@ -57,4 +57,5 @@ target_sources(sampapi
     SpecialAction.h
     Synchronization.h
     InputHandler.h
+    CObjectEdit.h
 )

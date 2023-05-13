@@ -7,4 +7,5 @@ target_sources(sampapi
     sampapi.cpp
     CRect.cpp
     CVector.cpp
+    CPoint.cpp
 )

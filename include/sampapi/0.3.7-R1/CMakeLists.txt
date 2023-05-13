@@ -59,4 +59,5 @@ target_sources(sampapi
     CHelpDialog.h
     CObjectMaterialText.h
     CSrvNetStats.h
+    CObjectEdit.h
 )

@@ -55,4 +55,5 @@ target_sources(sampapi
     CHelpDialog.cpp
     CObjectMaterialText.cpp
     CSrvNetStats.cpp
+    CObjectEdit.cpp
 )
