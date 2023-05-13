@@ -54,4 +54,5 @@ target_sources(sampapi
     CChatBubble.cpp
     CHelpDialog.cpp
     CObjectMaterialText.cpp
+    CSrvNetStats.cpp
 )

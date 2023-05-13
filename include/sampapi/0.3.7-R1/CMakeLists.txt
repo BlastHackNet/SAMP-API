@@ -58,4 +58,5 @@ target_sources(sampapi
     CChatBubble.h
     CHelpDialog.h
     CObjectMaterialText.h
+    CSrvNetStats.h
 )
