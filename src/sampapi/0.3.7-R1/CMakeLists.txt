@@ -52,4 +52,5 @@ target_sources(sampapi
     Settings.cpp
     VehicleSelection.cpp
     CChatBubble.cpp
+    CHelpDialog.cpp
 )

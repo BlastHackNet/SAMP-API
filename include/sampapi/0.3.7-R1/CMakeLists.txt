@@ -56,4 +56,5 @@ target_sources(sampapi
     Synchronization.h
     VehicleSelection.h
     CChatBubble.h
+    CHelpDialog.h
 )
