@@ -15,6 +15,10 @@ SAMPAPI_VAR void*& InputHandler::RefPrevWindowProc() {
     return *(void**)GetAddress(0x119CB8);
 }
 
+SAMPAPI_VAR unsigned int& InputHandler::RefAntiCheatDetectCount() {
+    return *(unsigned int*)GetAddress(0x21A130);
+}
+
 int InputHandler::WindowProc(unsigned int uMsg, unsigned int wParam, long lParam) {
     return ((int(__stdcall*)(unsigned int, unsigned int, long))GetAddress(0x5DB40))(uMsg, wParam, lParam);
 }
