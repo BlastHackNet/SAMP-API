@@ -52,4 +52,5 @@ target_sources(sampapi
     KeyStuff.cpp
     Scripting.cpp
     Settings.cpp
+    InputHandler.cpp
 )

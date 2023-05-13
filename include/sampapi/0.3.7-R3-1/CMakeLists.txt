@@ -56,4 +56,5 @@ target_sources(sampapi
     Settings.h
     SpecialAction.h
     Synchronization.h
+    InputHandler.h
 )
