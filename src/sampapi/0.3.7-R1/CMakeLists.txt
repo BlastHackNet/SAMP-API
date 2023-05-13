@@ -53,4 +53,5 @@ target_sources(sampapi
     VehicleSelection.cpp
     CChatBubble.cpp
     CHelpDialog.cpp
+    CObjectMaterialText.cpp
 )

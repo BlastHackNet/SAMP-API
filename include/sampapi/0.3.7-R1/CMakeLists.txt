@@ -57,4 +57,5 @@ target_sources(sampapi
     VehicleSelection.h
     CChatBubble.h
     CHelpDialog.h
+    CObjectMaterialText.h
 )
