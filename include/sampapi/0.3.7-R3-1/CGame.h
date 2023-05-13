@@ -62,7 +62,7 @@ public:
     bool         m_aKeepLoadedVehicleModels[212];
 
     static SAMPAPI_EXPORT SAMPAPI_VAR char*& RefGameTextMessage();  // [256], temp buffer
-    static SAMPAPI_EXPORT SAMPAPI_VAR bool* ArrayUsedPlayerSlots(); // [SAMP_MAX_PLAYER_PED_SLOTS]
+    static SAMPAPI_EXPORT SAMPAPI_VAR BOOL* ArrayUsedPlayerSlots(); // [SAMP_MAX_PLAYER_PED_SLOTS]
 
     CGame();
 
