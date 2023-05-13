@@ -139,6 +139,14 @@ CPlayerPool* CNetGame::GetPlayerPool() {
     return ((CPlayerPool * (__thiscall*)(CNetGame*)) GetAddress(0x1160))(this);
 }
 
+CObjectPool* CNetGame::GetObjectPool() {
+    return ((CObjectPool * (__thiscall*)(CNetGame*)) GetAddress(0x2E00))(this);
+}
+
+CActorPool* CNetGame::GetActorPool() {
+    return ((CActorPool * (__thiscall*)(CNetGame*)) GetAddress(0x2E10))(this);
+}
+
 CVehiclePool* CNetGame::GetVehiclePool() {
     return ((CVehiclePool * (__thiscall*)(CNetGame*)) GetAddress(0x1170))(this);
 }
@@ -153,6 +161,14 @@ CMenuPool* CNetGame::GetMenuPool() {
 
 void CNetGame::SetState(int nState) {
     ((void(__thiscall*)(CNetGame*, int))GetAddress(0x8150))(this, nState);
+}
+
+int CNetGame::GetState() {
+    return ((int(__thiscall*)(CNetGame*))GetAddress(0x2E20))(this);
+}
+
+BOOL CNetGame::LanMode() {
+    return ((BOOL(__thiscall*)(CNetGame*))GetAddress(0x2E30))(this);
 }
 
 void CNetGame::ProcessGameStuff() {
@@ -185,6 +201,10 @@ void CNetGame::UpdatePlayers() {
 
 void CNetGame::InitializePools() {
     ((void(__thiscall*)(CNetGame*))GetAddress(0x8160))(this);
+}
+
+RakClientInterface* CNetGame::GetRakClient() {
+    return ((RakClientInterface * (__thiscall*)(CNetGame*)) GetAddress(0x1A40))(this);
 }
 
 __int64 CNetGame::GetCounter() {
