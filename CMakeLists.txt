@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(sampapi VERSION 1.1.0 LANGUAGES CXX)
+project(sampapi VERSION 1.2.0 LANGUAGES CXX)
 
 add_library(sampapi)
 add_library(BlastHack::sampapi ALIAS sampapi)
@@ -17,4 +17,3 @@ target_include_directories(sampapi
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
-set_property(TARGET sampapi PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
