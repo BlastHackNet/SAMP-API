@@ -96,6 +96,4 @@ public:
     void Draw();
 };
 
-CTextDraw::Transmit get_transmit_type();
-
 SAMPAPI_END_PACKED

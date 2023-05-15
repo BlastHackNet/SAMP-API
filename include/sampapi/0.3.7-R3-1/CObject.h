@@ -40,7 +40,7 @@ public:
     ID      m_nAttachedToObject;
     CVector m_attachOffset;
     CVector m_attachRotation;
-    char    field_1;
+    bool    m_bSyncRotation;
     CMatrix m_targetMatrix;
     char    pad_4[148];
     char    m_bMoving;

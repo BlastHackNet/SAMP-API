@@ -18,10 +18,10 @@
 SAMPAPI_BEGIN_PACKED_V037R1
 
 enum SpectatingMode : unsigned char {
-    SPEC_MODE_VEHICLE = 3,
-    SPEC_MODE_PLAYER = 4,
-    SPEC_MODE_FIXED = 15,
-    SPEC_MODE_SIDE = 14
+    SPECTATING_MODE_VEHICLE = 3,
+    SPECTATING_MODE_PLAYER = 4,
+    SPECTATING_MODE_FIXED = 15,
+    SPECTATING_MODE_SIDE = 14
 };
 
 enum SpectatingType : unsigned char {

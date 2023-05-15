@@ -24,15 +24,16 @@ public:
     // void **m_lpVtbl = 0xED6E8;
     CVehicle*          m_pTrailer;
     ::CVehicle*        m_pGameVehicle;
-    char               pad_50[8];
-    BOOL               m_bIsInvulnerable;
+    BOOL               m_bEngineOn;
     BOOL               m_bIsLightsOn;
+    BOOL               m_bIsInvulnerable;
+    int                pad_5c;
     BOOL               m_bIsLocked;
     bool               m_bIsObjective;
     BOOL               m_bObjectiveBlipCreated;
     TICK               m_timeSinceLastDriven;
     BOOL               m_bHasBeenDriven;
-    char               pad_71[4];
+    int                pad_71;
     BOOL               m_bEngineState;
     unsigned char      m_nPrimaryColor;
     unsigned char      m_nSecondaryColor;
@@ -40,7 +41,7 @@ public:
     BOOL               m_bUnoccupiedSync;
     BOOL               m_bRemoteUnocSync;
     BOOL               m_bKeepModelLoaded;
-    int                m_bHasSiren;
+    BOOL               m_bHasSiren;
     IDirect3DTexture9* m_pLicensePlate;
     char               m_szLicensePlateText[MAX_LICENSE_PLATE_TEXT + 1];
     GTAREF             m_marker;

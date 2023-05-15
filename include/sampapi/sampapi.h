@@ -12,7 +12,7 @@
 #ifndef SAMPAPI_EXPORT
 #define SAMPAPI_EXPORT
 #endif
-#define SAMPAPI_VERSION   1
+#define SAMPAPI_VERSION   2
 #define SAMPAPI_NAMESPACE sampapi
 #define SAMPAPI_PACK_PUSH __pragma(pack(push, 1))
 #define SAMPAPI_PACK_POP  __pragma(pack(pop))
@@ -46,6 +46,7 @@
 struct ID3DXFont;
 struct ID3DXSprite;
 struct ID3DXRenderToSurface;
+struct ID3DXLine;
 
 struct IDirect3DSurface9;
 struct IDirect3DTexture9;

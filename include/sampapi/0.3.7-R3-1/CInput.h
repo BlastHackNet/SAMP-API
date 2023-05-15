@@ -34,7 +34,7 @@ public:
     char              m_szCurrentBuffer[129];
     int               m_nCurrentRecall;
     int               m_nTotalRecall;
-    CMDPROC           m_defaultCommand;
+    CMDPROC           m_pDefaultCommand;
 
     CInput(IDirect3DDevice9* pDevice);
 

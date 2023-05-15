@@ -24,9 +24,7 @@ public:
     CMatrix* m_pMatrix;
 
     CCamera();
-    ~CCamera() {
-        Detach();
-    }
+    ~CCamera();
 
     void  Fade(BOOL bin);
     void  GetMatrix(CMatrix* pMatrix);

@@ -25,9 +25,9 @@ enum SpectatingMode {
 };
 
 enum SpectatingType {
-    SPECTATING_TYPE_NONE,
-    SPECTATING_TYPE_PLAYER,
-    SPECTATING_TYPE_Vehicle
+    SPEC_TYPE_NONE,
+    SPEC_TYPE_PLAYER,
+    SPEC_TYPE_VEHICLE
 };
 
 enum SurfingMode {

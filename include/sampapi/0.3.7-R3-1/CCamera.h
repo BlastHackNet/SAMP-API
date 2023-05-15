@@ -20,7 +20,7 @@ SAMPAPI_BEGIN_PACKED_V037R3_1
 
 class SAMPAPI_EXPORT CCamera {
 public:
-    CEntity* m_pOwner;
+    CEntity* m_pAttachedTo;
     CMatrix* m_pMatrix;
 
     CCamera();

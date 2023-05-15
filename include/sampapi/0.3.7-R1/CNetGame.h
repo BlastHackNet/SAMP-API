@@ -58,9 +58,9 @@ public:
     struct SAMPAPI_EXPORT Pools {
         CActorPool*    m_pActor;
         CObjectPool*   m_pObject;
-        CGangZonePool* m_pGangzone;
+        CGangZonePool* m_pGangZone;
         CLabelPool*    m_pLabel;
-        CTextDrawPool* m_pTextdraw;
+        CTextDrawPool* m_pTextDraw;
         CMenuPool*     m_pMenu;
         CPlayerPool*   m_pPlayer;
         CVehiclePool*  m_pVehicle;
