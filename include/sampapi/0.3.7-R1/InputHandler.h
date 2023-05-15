@@ -16,7 +16,10 @@ SAMPAPI_BEGIN_V037R1
 void SwitchWindowedMode();
 
 namespace InputHandler {
+    enum { MAX_ANTICHEAT_DETECT_COUNT = 0xA };
+    
     SAMPAPI_EXPORT SAMPAPI_VAR void*& RefPrevWindowProc();
+    SAMPAPI_EXPORT SAMPAPI_VAR unsigned int& RefAntiCheatDetectCount();
 
     SAMPAPI_EXPORT int  WindowProc(unsigned int uMsg, unsigned int wParam, long lParam);
     SAMPAPI_EXPORT BOOL KeyPressHandler(unsigned int nKey);

@@ -51,4 +51,9 @@ target_sources(sampapi
     Scripting.cpp
     Settings.cpp
     VehicleSelection.cpp
+    CChatBubble.cpp
+    CHelpDialog.cpp
+    CObjectMaterialText.cpp
+    CSrvNetStats.cpp
+    CObjectEdit.cpp
 )

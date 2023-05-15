@@ -39,7 +39,7 @@ public:
     CPickupPool();
     ~CPickupPool();
 
-    void Create(Pickup* pData, ID nId);
+    void Create(Pickup* pData, int nId);
     void CreateWeapon(int nModel, CVector position, int nAmmo, ID nExOwner);
     void Delete(int nId);
     void DeleteWeapon(ID nExOwner);

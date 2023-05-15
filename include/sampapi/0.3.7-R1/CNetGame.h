@@ -158,23 +158,13 @@ public:
     void         Process();
     void         ProcessGameStuff();
     CPlayerPool* GetPlayerPool();
-    CObjectPool* GetObjectPool() {
-        return m_pPools->m_pObject;
-    }
-    CActorPool* GetActorPool() {
-        return m_pPools->m_pActor;
-    }
-    int GetState() {
-        return m_nGameState;
-    }
-    BOOL LanMode() {
-        return m_bLanMode;
-    }
+    CObjectPool* GetObjectPool();
+    CActorPool*  GetActorPool();
+    int          GetState();
+    BOOL         LanMode();
     CVehiclePool*       GetVehiclePool();
-    RakClientInterface* GetRakClient() {
-        return m_pRakClient;
-    }
-    __int64 GetCounter();
+    RakClientInterface* GetRakClient();
+    __int64             GetCounter();
 };
 
 SAMPAPI_EXPORT SAMPAPI_VAR CNetGame*& RefNetGame();

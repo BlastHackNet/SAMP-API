@@ -19,8 +19,8 @@ CPickupPool::~CPickupPool() {
     ((void(__thiscall*)(CPickupPool*))GetAddress(0x130C0))(this);
 }
 
-void CPickupPool::Create(Pickup* pData, ID nId) {
-    ((void(__thiscall*)(CPickupPool*, Pickup*, ID))GetAddress(0x12F20))(this, pData, nId);
+void CPickupPool::Create(Pickup* pData, int nId) {
+    ((void(__thiscall*)(CPickupPool*, Pickup*, int))GetAddress(0x12F20))(this, pData, nId);
 }
 
 void CPickupPool::CreateWeapon(int nModel, CVector position, int nAmmo, ID nExOwner) {

@@ -55,4 +55,9 @@ target_sources(sampapi
     SpecialAction.h
     Synchronization.h
     VehicleSelection.h
+    CChatBubble.h
+    CHelpDialog.h
+    CObjectMaterialText.h
+    CSrvNetStats.h
+    CObjectEdit.h
 )

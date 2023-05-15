@@ -15,8 +15,8 @@ SAMPAPI_VAR char*& CGame::RefGameTextMessage() {
     return *(char**)GetAddress(0x150084);
 }
 
-SAMPAPI_VAR bool* CGame::ArrayUsedPlayerSlots() {
-    return (bool*)GetAddress(0x150090);
+SAMPAPI_VAR BOOL* CGame::ArrayUsedPlayerSlots() {
+    return (BOOL*)GetAddress(0x150090);
 }
 
 SAMPAPI_VAR CGame*& RefGame() {
