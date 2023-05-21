@@ -58,4 +58,5 @@ target_sources(sampapi
     Synchronization.h
     InputHandler.h
     CObjectEdit.h
+    RPCHandlers.h
 )

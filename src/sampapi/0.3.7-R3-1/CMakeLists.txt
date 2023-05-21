@@ -54,4 +54,5 @@ target_sources(sampapi
     Settings.cpp
     InputHandler.cpp
     CObjectEdit.cpp
+    RPCHandlers.cpp
 )
