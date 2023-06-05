@@ -100,7 +100,7 @@ int CPlayerPool::GetCount(BOOL bIncludeNPC) {
 }
 
 CLocalPlayer* CPlayerPool::GetLocalPlayer() {
-    return m_localInfo.m_pObject;
+    return ((CLocalPlayer * (__thiscall*)(CPlayerPool*)) GetAddress(0x1A40))(this);
 }
 
 CObject* CPlayerPool::FindAccessory(::CObject* pGameObject) {
