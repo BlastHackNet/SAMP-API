@@ -12,7 +12,7 @@
 SAMPAPI_BEGIN_V037R5_1
 
 SAMPAPI_VAR CDialog*& RefDialog() {
-    return *(CDialog**)GetAddress(0x26E898);
+    return *(CDialog**)GetAddress(0x26EB50);
 }
 
 CDialog::CDialog(IDirect3DDevice9* pDevice) {
