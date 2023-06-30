@@ -149,6 +149,11 @@ public:
         bool m_bWheel;
     } m_damage;
 
+    static SAMPAPI_EXPORT SAMPAPI_VAR int& RefIncarSendrate();  // = NETMODE_INCAR_SENDRATE;
+    static SAMPAPI_EXPORT SAMPAPI_VAR int& RefOnfootSendrate(); // = NETMODE_ONFOOT_SENDRATE;
+    static SAMPAPI_EXPORT SAMPAPI_VAR int& RefFiringSendrate(); // = NETMODE_FIRING_SENDRATE;
+    static SAMPAPI_EXPORT SAMPAPI_VAR int& RefSendMultiplier(); // = NETMODE_SEND_MULTIPLIER;
+
     CLocalPlayer();
 
     CPed*    GetPed();

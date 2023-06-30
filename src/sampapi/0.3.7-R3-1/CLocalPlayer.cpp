@@ -11,6 +11,22 @@
 
 SAMPAPI_BEGIN_V037R3_1
 
+SAMPAPI_VAR int& CLocalPlayer::RefIncarSendrate() {
+    return *(int*)GetAddress(0xFE0AC);
+}
+
+SAMPAPI_VAR int& CLocalPlayer::RefOnfootSendrate() {
+    return *(int*)GetAddress(0xFE0A8);
+}
+
+SAMPAPI_VAR int& CLocalPlayer::RefFiringSendrate() {
+    return *(int*)GetAddress(0xFE0B0);
+}
+
+SAMPAPI_VAR int& CLocalPlayer::RefSendMultiplier() {
+    return *(int*)GetAddress(0xFE0B4);
+}
+
 CLocalPlayer::CLocalPlayer() {
     ((void(__thiscall*)(CLocalPlayer*))GetAddress(0x4A80))(this);
 }
