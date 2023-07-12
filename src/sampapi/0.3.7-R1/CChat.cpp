@@ -17,6 +17,10 @@ SAMPAPI_VAR CChat*& RefChat() {
     return *(CChat**)GetAddress(0x21A0E4);
 }
 
+int CChat::GetMode() {
+    return ((int(__thiscall*)(CChat*))GetAddress(0x5D7A0))(this);
+}
+
 CChat::CChat(IDirect3DDevice9* pDevice, CFonts* pFontRenderer, const char* pChatLogPath) {
     ((void(__thiscall*)(CChat*, IDirect3DDevice9*, CFonts*, const char*))GetAddress(0x647B0))(this, pDevice, pFontRenderer, pChatLogPath);
 }
@@ -81,6 +85,10 @@ void CChat::Draw() {
     ((void(__thiscall*)(CChat*))GetAddress(0x64230))(this);
 }
 
+void CChat::RenderToSurface() {
+    ((void(__thiscall*)(CChat*))GetAddress(0x64300))(this);
+}
+
 void CChat::AddChatMessage(const char* pNick, D3DCOLOR dwNickColor, const char* pText) {
     ((void(__thiscall*)(CChat*, const char*, D3DCOLOR, const char*))GetAddress(0x64450))(this, pNick, dwNickColor, pText);
 }
@@ -91,6 +99,10 @@ void CChat::AddMessage(D3DCOLOR color, const char* szText) {
 
 void CChat::ScrollToBottom() {
     ((void(__thiscall*)(CChat*))GetAddress(0x637C0))(this);
+}
+
+void CChat::Scroll(int nDelta) {
+    ((void(__thiscall*)(CChat*, int))GetAddress(0x637F0))(this, nDelta);
 }
 
 void CChat::FilterOutInvalidChars(char* szText) {
