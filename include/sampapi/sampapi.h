@@ -1,9 +1,9 @@
 /*
 	This is a SAMP API project file.
 	Developer: LUCHARE <luchare.dev@gmail.com>
-	
+
 	See more here https://github.com/LUCHARE/SAMP-API
-	
+
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
@@ -14,8 +14,13 @@
 #endif
 #define SAMPAPI_VERSION   2
 #define SAMPAPI_NAMESPACE sampapi
-#define SAMPAPI_PACK_PUSH __pragma(pack(push, 1))
-#define SAMPAPI_PACK_POP  __pragma(pack(pop))
+#ifdef _MSC_VER
+#define SAMPAPI_PRAGMA(x) __pragma(#x)
+#else
+#define SAMPAPI_PRAGMA(x) _Pragma(#x)
+#endif
+#define SAMPAPI_PACK_PUSH SAMPAPI_PRAGMA(pack(push, 1))
+#define SAMPAPI_PACK_POP  SAMPAPI_PRAGMA(pack(pop))
 #define SAMPAPI_NAMESPACE_BEGIN(ns) \
     namespace SAMPAPI_NAMESPACE { \
         namespace ns {

@@ -1,9 +1,9 @@
 /*
 	This is a SAMP (0.3.7-R5) API project file.
 	Developers: LUCHARE <luchare.dev@gmail.com>, Northn
-	
+
 	See more here https://github.com/LUCHARE/SAMP-API
-	
+
 	Copyright (c) 2018 BlastHack Team <BlastHack.Net>. All rights reserved.
 */
 
@@ -45,7 +45,7 @@ public:
     long            m_nWindowBottom;
 
     struct SAMPAPI_EXPORT ChatEntry {
-        __int32  m_timestamp;
+        int      m_timestamp;
         char     m_szPrefix[28];
         char     m_szText[144];
         char     unused[64];
