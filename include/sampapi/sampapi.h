@@ -15,7 +15,7 @@
 #define SAMPAPI_VERSION   2
 #define SAMPAPI_NAMESPACE sampapi
 #ifdef _MSC_VER
-#define SAMPAPI_PRAGMA(x) __pragma(#x)
+#define SAMPAPI_PRAGMA(x) __pragma(x)
 #else
 #define SAMPAPI_PRAGMA(x) _Pragma(#x)
 #endif
