@@ -72,7 +72,7 @@ void CObjectEdit::ApplyChanges(ObjectEditProcessType type, float diff) {
 }
 
 void CObjectEdit::ProcessMouseMove() {
-  //((float(__thiscall*)(CObjectEdit*))GetAddress(0x72D90))(this);
+  ((float(__thiscall*)(CObjectEdit*))GetAddress(0x6EEA0))(this);
 }
 
 BOOL CObjectEdit::MsgProc(int uMsg, int wParam, int lParam) {
