@@ -67,4 +67,8 @@ void CObjectPool::DrawLast() {
     ((void(__thiscall*)(CObjectPool*))GetAddress(0xF720))(this);
 }
 
+CObject* CObjectPool::Get(ID nId) {
+    ((void(__thiscall*)(CObjectPool*, ID))GetAddress(0x2DD0))(this, nId);
+}
+
 SAMPAPI_END
