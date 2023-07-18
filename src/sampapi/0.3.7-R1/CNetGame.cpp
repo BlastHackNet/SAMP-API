@@ -203,6 +203,10 @@ void CNetGame::InitializePools() {
     ((void(__thiscall*)(CNetGame*))GetAddress(0x8160))(this);
 }
 
+void CNetGame::InitialNotification() {
+    ((void(__thiscall*)(CNetGame*))GetAddress(0x8380))(this);
+}
+
 RakClientInterface* CNetGame::GetRakClient() {
     return ((RakClientInterface * (__thiscall*)(CNetGame*)) GetAddress(0x1A40))(this);
 }
