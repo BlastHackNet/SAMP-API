@@ -338,6 +338,10 @@ CWeapon* CPed::GetCurrentWeaponSlot() {
     return ((CWeapon * (__thiscall*)(CPed*)) GetAddress(0xA6A00))(this);
 }
 
+void CPed::SetCameraExtZoomAndAspectRatio(float fExtZoom, float fAspectRatio) {
+    ((void(__thiscall*)(CPed*, float, float))GetAddress(0x10E60))(this, fExtZoom, fAspectRatio);
+}
+
 BOOL CPed::HasAccessory() {
     return ((BOOL(__thiscall*)(CPed*))GetAddress(0xA96D0))(this);
 }
