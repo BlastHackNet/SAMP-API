@@ -96,6 +96,6 @@ public:
     static const char* GetMaxSizeChar();
 };
 
-CObjectEdit*& RefObjectEdit();
+SAMPAPI_EXPORT SAMPAPI_VAR CObjectEdit*& RefObjectEdit();
 
 SAMPAPI_END_PACKED
