@@ -60,19 +60,15 @@ public:
     int            GetScore(ID nId);
     int            GetPing(ID nId);
     const char*    GetName(ID nId);
-    int            GetLocalPlayerPing() {
-        return m_localInfo.m_nPing;
-    }
-    int GetLocalPlayerScore() {
-        return m_localInfo.m_nScore;
-    }
-    int           GetCount(BOOL bIncludeNPC = 0);
-    CLocalPlayer* GetLocalPlayer();
-    CObject*      FindAccessory(::CObject* pGameObject);
-    CPlayerInfo*  GetAt(ID nId);
-    BOOL          IsNPC(ID nId);
-    void          SetPing(ID nId, int nValue);
-    void          SetScore(ID nId, int nValue);
+    int            GetLocalPlayerPing();
+    int            GetLocalPlayerScore();
+    int            GetCount(BOOL bIncludeNPC = 0);
+    CLocalPlayer*  GetLocalPlayer();
+    CObject*       FindAccessory(::CObject* pGameObject);
+    CPlayerInfo*   GetAt(ID nId);
+    BOOL           IsNPC(ID nId);
+    void           SetPing(ID nId, int nValue);
+    void           SetScore(ID nId, int nValue);
 };
 
 SAMPAPI_END_PACKED

@@ -43,6 +43,14 @@ const char* CPlayerPool::GetName(ID nId) {
     return ((const char*(__thiscall*)(CPlayerPool*, ID))GetAddress(0x13CE0))(this, nId);
 }
 
+int CPlayerPool::GetLocalPlayerPing() {
+    return ((int(__thiscall*)(CPlayerPool*))GetAddress(0x6A200))(this);
+}
+
+int CPlayerPool::GetLocalPlayerScore() {
+    return ((int(__thiscall*)(CPlayerPool*))GetAddress(0x6A1F0))(this);
+}
+
 ID CPlayerPool::Find(::CPed* pPed) {
     return ((ID(__thiscall*)(CPlayerPool*, ::CPed*))GetAddress(0x10420))(this, pPed);
 }
