@@ -27,6 +27,10 @@ SAMPAPI_VAR unsigned long** Scripting::ArrayThreadLocals() {
     return (unsigned long**)GetAddress(0x215F00);
 }
 
+SAMPAPI_VAR BOOL& Scripting::RefLocalDebug() {
+    return *(BOOL*)GetAddress(0x216050);
+}
+
 SAMPAPI_VAR Scripting::ProcessOneCommandFn& Scripting::RefProcessOneCommand() {
     return *(Scripting::ProcessOneCommandFn*)GetAddress(0x1023C4);
 }

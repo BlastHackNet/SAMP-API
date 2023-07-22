@@ -27,7 +27,7 @@ namespace Scripting {
     SAMPAPI_EXPORT SAMPAPI_VAR unsigned char* ArrayBuffer(); // [256]
     SAMPAPI_EXPORT SAMPAPI_VAR unsigned long& RefLastUsedOpcode();
     SAMPAPI_EXPORT SAMPAPI_VAR unsigned long** ArrayThreadLocals(); // [18]
-    SAMPAPI_EXPORT SAMPAPI_VAR unsigned int& RefLocalDebug();
+    SAMPAPI_EXPORT SAMPAPI_VAR BOOL& RefLocalDebug();
     SAMPAPI_EXPORT SAMPAPI_VAR ProcessOneCommandFn& RefProcessOneCommand();
 
     SAMPAPI_EXPORT void Initialize();
