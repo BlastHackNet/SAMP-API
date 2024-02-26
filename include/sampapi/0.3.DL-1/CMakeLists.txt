@@ -57,4 +57,6 @@ target_sources(sampapi
     CObjectMaterialText.h
     CSrvNetStats.h
     CObjectEdit.h
+    CDownloadedFilesPool.h
+    CDownloadWindow.h
 )

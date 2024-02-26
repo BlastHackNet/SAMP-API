@@ -56,4 +56,5 @@ target_sources(sampapi
     InputHandler.cpp
     CObjectEdit.cpp
     RPCHandlers.cpp
+    CDownloadWindow.cpp
 )
