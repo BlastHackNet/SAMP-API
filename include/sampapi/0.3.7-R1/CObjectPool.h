@@ -40,11 +40,7 @@ public:
     void     ShutdownMaterials();
     void     Draw();
     void     DrawLast();
-    CObject* Get(ID nId) {
-        if (m_bNotEmpty[nId])
-            return m_pObject[nId];
-        return nullptr;
-    }
+    CObject* Get(ID nId);
 };
 
 SAMPAPI_END_PACKED

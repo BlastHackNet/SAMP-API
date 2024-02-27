@@ -74,9 +74,7 @@ public:
     CChat(IDirect3DDevice9* pDevice, CFonts* pFontRenderer, const char* pChatLogPath);
     ~CChat();
 
-    int GetMode() {
-        return m_nMode;
-    }
+    int GetMode();
     void SwitchMode();
     void RecalcFontSize();
     void OnLostDevice();
